@@ -9,6 +9,7 @@
 
 ## 📋 Table of Contents
 
+- [PRD-First Workflow](#-prd-first-workflow-start-here)
 - [Quick Start](#-quick-start)
 - [What's Included](#-whats-included)
 - [Tech Stack](#-tech-stack)
@@ -16,6 +17,44 @@
 - [Documentation](#-documentation)
 - [Contributing](#-contributing)
 - [License](#-license)
+
+## 📝 PRD-First Workflow (START HERE!)
+
+**Before writing code, start with a Product Requirements Document (PRD).**
+
+### Why PRD-First?
+
+A well-written PRD is your blueprint for success. It ensures:
+- ✅ Clear product vision and goals
+- ✅ Aligned stakeholder expectations
+- ✅ Well-defined requirements before coding
+- ✅ Faster development with fewer pivots
+- ✅ Better product-market fit
+
+### Get Started with PRD
+
+```bash
+# 1. Explore PRD templates and examples
+cd prd/
+
+# 2. Copy the template for your app
+cp prd/templates/prd-template.md prd/my-awesome-app.md
+
+# 3. Fill out your PRD (use examples as reference)
+# See: prd/examples/todo-app-prd.md
+
+# 4. Get stakeholder approval
+
+# 5. Use this template to build your app!
+```
+
+**📖 Complete PRD Guide:** [prd/README.md](./prd/README.md)
+
+**🎯 Example PRDs:**
+- [Todo App](./prd/examples/todo-app-prd.md) - Simple CRUD app (1-2 weeks)
+- More examples coming soon!
+
+---
 
 ## 🎯 What is This?
 
@@ -124,6 +163,12 @@ pnpm dev:web     # Start Vite (web)
 
 ```
 .
+├── prd/                    # 📝 START HERE - Product Requirements
+│   ├── README.md          # PRD workflow guide
+│   ├── templates/         # PRD templates
+│   ├── examples/          # Example PRDs (todo app, etc.)
+│   └── guides/            # How to write effective PRDs
+│
 ├── apps/
 │   ├── mobile/              # Expo mobile application
 │   │   ├── app/            # Expo Router file-based routing
