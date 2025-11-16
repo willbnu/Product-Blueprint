@@ -3,6 +3,9 @@
 /**
  * TOON Converter - Markdown to Token-Oriented Object Notation
  *
+ * Copyright (c) 2025 William Finger
+ * Licensed under the MIT License
+ *
  * Compresses markdown documentation into token-efficient JSON format
  * for AI agent consumption.
  *
@@ -34,8 +37,8 @@ function validateOutputPath(outputPath) {
   }
 
   // Additional check: ensure no path traversal attempts in the path itself
-  const normalizedPath = path.normalize(outputPath);
-  if (normalizedPath.includes('..')) {
+  // Check original string to prevent bypasses via normalization
+  if (outputPath.includes('..')) {
     throw new Error(
       `Security: Path traversal detected in output path: ${outputPath}`
     );

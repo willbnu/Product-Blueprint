@@ -1,0 +1,94 @@
+ChatGPT Workspace Blueprint
+Copyright (c) 2025 William Finger
+https://github.com/willbnu/ChatGPT-Workspace
+
+================================================================================
+
+This software contains original work and innovations, including but not limited to:
+
+TOON (Token-Oriented Object Notation)
+--------------------------------------
+A proprietary agent optimization layer for compressing documentation into
+token-efficient JSON format for AI agent consumption.
+
+Principal Developer: William Finger
+Copyright Holder: William Finger
+Development Period: 2025
+
+Key innovations include:
+- Hierarchical stack-based markdown parser with nested section preservation
+- Multi-line list item parsing with continuation tracking
+- Token-aware compression algorithms (60-85% token reduction)
+- Path traversal prevention and security hardening
+- Glob pattern matching for selective file discovery
+
+
+PATENT NOTICE
+==============
+This software may be covered by pending or issued patents. All patent rights
+are reserved by William Finger.
+
+
+TRADEMARK NOTICE
+================
+"TOON" and "Token-Oriented Object Notation" are trademarks of William Finger.
+
+
+ATTRIBUTION REQUIREMENTS
+=========================
+When redistributing this software or derivative works:
+
+1. This NOTICE file must be included in all copies or substantial portions
+2. Copyright notices in source files must be preserved
+3. Attribution to William Finger as the original author must be maintained
+4. Any modifications must be clearly marked as such
+
+
+THIRD-PARTY SOFTWARE
+====================
+This software uses the following third-party libraries:
+
+- Node.js (MIT License)
+  Copyright Node.js contributors
+  https://github.com/nodejs/node
+
+- nodemon (MIT License)
+  Copyright (c) 2010-present Remy Sharp
+  https://github.com/remy/nodemon
+
+
+CONTRIBUTOR LICENSE AGREEMENT
+==============================
+By contributing to this project, you agree that:
+
+1. You grant William Finger a perpetual, worldwide, non-exclusive, royalty-free,
+   irrevocable license to use, reproduce, modify, display, perform, sublicense,
+   and distribute your contributions as part of this project.
+
+2. You grant William Finger a perpetual, worldwide, non-exclusive, royalty-free,
+   irrevocable patent license to make, use, sell, offer for sale, import, and
+   otherwise transfer your contributions.
+
+3. You represent that you have the legal right to grant the above licenses.
+
+4. You understand that William Finger retains all ownership rights to the
+   project as a whole.
+
+
+EXPORT CONTROL
+==============
+This software may be subject to U.S. export control laws. By downloading,
+installing, or using this software, you agree to comply with all applicable
+export control regulations.
+
+
+DISCLAIMER
+==========
+This NOTICE file provides information about the intellectual property in this
+software. It does not grant any rights beyond those explicitly stated in the
+LICENSE file. For licensing terms, see the LICENSE file in this repository.
+
+
+For questions about licensing, patents, or other IP matters, contact:
+William Finger
+https://github.com/willbnu

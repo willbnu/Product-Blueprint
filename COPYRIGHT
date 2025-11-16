@@ -1,0 +1,121 @@
+COPYRIGHT NOTICE
+================================================================================
+
+This software and all associated documentation, code, innovations, and assets
+are the intellectual property of:
+
+    William Finger
+    https://github.com/willbnu
+
+
+COPYRIGHT OWNERSHIP
+================================================================================
+
+Copyright (c) 2025 William Finger. All rights reserved.
+
+
+ORIGINAL WORKS
+================================================================================
+
+This project contains original works and innovations developed by William Finger,
+including but not limited to:
+
+1. TOON (Token-Oriented Object Notation) System
+   - Hierarchical stack-based markdown parser
+   - Token-aware compression algorithms
+   - Multi-line list item parsing with continuation tracking
+   - Path traversal prevention and security hardening
+   - Glob pattern matching for selective file discovery
+
+2. Project Architecture and Design
+   - Full-stack application blueprint structure
+   - Documentation organization system
+   - Development workflows and tooling
+
+3. Documentation and Content
+   - Architecture guides
+   - Setup instructions
+   - Contributing guidelines
+   - PRD templates and examples
+
+
+LICENSING
+================================================================================
+
+This software is licensed under the MIT License.
+See the LICENSE file in this repository for the complete license text.
+
+The MIT License permits:
+- Commercial use
+- Modification
+- Distribution
+- Private use
+
+Subject to:
+- License and copyright notice inclusion
+- No warranty or liability
+
+
+PATENT RIGHTS
+================================================================================
+
+All patent rights, whether pending or issued, related to innovations in this
+software are reserved by William Finger.
+
+The MIT License includes an implicit patent grant for use of the software as
+distributed, but does not grant rights to file competing patents on the
+innovations described herein.
+
+
+TRADEMARK RIGHTS
+================================================================================
+
+The following are trademarks of William Finger:
+- "TOON"
+- "Token-Oriented Object Notation"
+
+Use of these trademarks requires permission from William Finger.
+
+
+CONTRIBUTOR RIGHTS
+================================================================================
+
+Contributors to this project retain copyright in their contributions but grant
+William Finger a perpetual, worldwide, non-exclusive, royalty-free, irrevocable
+license to use, modify, and distribute those contributions as part of this project.
+
+See CONTRIBUTING.md for the complete Contributor License Agreement.
+
+
+THIRD-PARTY SOFTWARE
+================================================================================
+
+This software uses third-party libraries, each with their own copyright and
+license terms. See the NOTICE file for complete attribution.
+
+
+LEGAL INQUIRIES
+================================================================================
+
+For licensing inquiries, patent questions, or other legal matters:
+
+Contact: William Finger
+GitHub: https://github.com/willbnu
+Issues: https://github.com/willbnu/ChatGPT-Workspace/issues
+
+
+EXPORT CONTROL
+================================================================================
+
+This software may be subject to export control regulations. Users are responsible
+for compliance with all applicable export control laws and regulations.
+
+
+EFFECTIVE DATE
+================================================================================
+
+These copyright terms are effective as of January 1, 2025.
+
+
+================================================================================
+Last Updated: 2025-01-16
