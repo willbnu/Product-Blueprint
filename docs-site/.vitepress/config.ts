@@ -25,7 +25,7 @@ export default defineConfig({
       { text: 'Getting Started', link: '/GETTING_STARTED' },
       { text: 'Documentation Paths', link: '/docs/paths/' },
       { text: 'Architecture', link: '/ARCHITECTURE' },
-      { text: 'GitHub', link: 'https://github.com/willbnu/ChatGPT-Workspace' }
+      { text: 'GitHub', link: 'https://github.com/willbnu/Product-Blueprint' }
     ],
 
     sidebar: {

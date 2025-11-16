@@ -1,6 +1,6 @@
 # Documentation Site
 
-This is the VitePress-powered documentation website for the ChatGPT Workspace Blueprint.
+This is the VitePress-powered documentation website for the Product Blueprint.
 
 ## 🎯 Architecture
 
