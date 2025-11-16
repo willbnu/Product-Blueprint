@@ -630,6 +630,50 @@ pnpm format
 git commit --no-verify
 ```
 
+### TOON File Conflicts During Merge/Rebase
+
+**Problem:** Git merge or rebase shows conflicts in `.toon/*.toon.json` files
+
+**What are TOON files?**
+TOON (Token-Oriented Object Notation) files are generated documentation files optimized for AI consumption. They're derived from markdown source files.
+
+**Quick Solution:**
+```bash
+# Automatically resolve all TOON conflicts
+npm run toon:resolve
+
+# Then continue your merge/rebase
+git merge --continue
+# or
+git rebase --continue
+```
+
+**What it does:**
+1. Accepts current branch version for conflicted TOON files
+2. Regenerates all TOON files from source documentation
+3. Stages the regenerated files
+4. Shows you next steps
+
+**Manual Solution (if needed):**
+```bash
+# Accept our version
+git checkout --ours '.toon/**/*.toon.json'
+git add .toon/
+
+# Regenerate from source
+npm run toon:generate
+git add .toon/
+```
+
+**Why this works:**
+- TOON files are **generated** from `.md` source files
+- Source files are the single source of truth
+- After merge, TOON files are regenerated from merged sources
+- No need to manually resolve generated file conflicts
+
+**Learn more:**
+See `tools/toon/README.md` for detailed documentation.
+
 ### CI Build Fails But Local Passes
 
 **Problem:** "Build works locally but fails in CI"
