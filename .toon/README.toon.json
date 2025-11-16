@@ -1,12 +1,12 @@
 {
   "version": "1.0",
   "source": "README.md",
-  "sourceHash": "bdcbff4c3a7dcc8a405e8e80ee08f8304721f1a25113bcda5f9a4b45d3082419",
-  "generatedAt": "2025-11-16T13:59:31.771Z",
+  "sourceHash": "e7172164e6a3dc0509c90780dbf5e2fc398b3aaa45d5e26a090cba87809c1a31",
+  "generatedAt": "2025-11-16T14:24:03.398Z",
   "tokenCount": {
-    "original": 4017,
-    "compressed": 1212,
-    "savings": 70
+    "original": 4362,
+    "compressed": 1173,
+    "savings": 73
   },
   "type": "markdown",
   "content": {
@@ -134,12 +134,6 @@
             "keyPoints": []
           }
         ]
-      },
-      {
-        "heading": "📄 License",
-        "level": 2,
-        "summary": "This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.",
-        "keyPoints": []
       },
       {
         "heading": "🙏 Acknowledgments",
