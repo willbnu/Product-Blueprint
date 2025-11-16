@@ -3,8 +3,16 @@
 /**
  * TOON Batch Generator
  *
- * Copyright (c) 2025 William Finger
- * Licensed under the MIT License
+ * Implementation of batch generation tooling for the TOON format.
+ *
+ * TOON Format:
+ *   Copyright (c) 2025 Johann Schopplich
+ *   https://github.com/toon-format/toon
+ *   Licensed under the MIT License
+ *
+ * This Implementation:
+ *   Copyright (c) 2025 William Finger
+ *   Licensed under the MIT License
  *
  * Generates TOON files for all configured documentation files.
  * Reads configuration from .toon/config.json
