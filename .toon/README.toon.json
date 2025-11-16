@@ -1,12 +1,12 @@
 {
   "version": "1.0",
   "source": "README.md",
-  "sourceHash": "366615c27a7937164a24746dde97022840361b175e83d10ee5e5fd34b1208cfc",
-  "generatedAt": "2025-11-16T16:57:44.338Z",
+  "sourceHash": "c4c4d92ec681e569655363e95053e0431d27ac18eaccd4207385f2730a296d5a",
+  "generatedAt": "2025-11-16T18:00:59.450Z",
   "tokenCount": {
-    "original": 4370,
-    "compressed": 1181,
-    "savings": 73
+    "original": 5353,
+    "compressed": 1572,
+    "savings": 71
   },
   "type": "markdown",
   "content": {
@@ -37,6 +37,51 @@
           "[What is This?](#-what-is-this)",
           "[What's Documented](#-whats-documented)",
           "[Tech Stack](#-tech-stack)"
+        ]
+      },
+      {
+        "heading": "🎯 How to Use This Blueprint",
+        "level": 2,
+        "summary": "This is a **GitHub Template Repository** - here's how to get started:",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Step 1: Create Your Repository",
+            "level": 3,
+            "summary": "**Click the \"Use this template\" button** at the top of this repository, or:",
+            "keyPoints": []
+          },
+          {
+            "heading": "Step 2: Choose Your Path",
+            "level": 3,
+            "summary": "Based on what you're building, follow the appropriate documentation journey:",
+            "keyPoints": []
+          },
+          {
+            "heading": "Step 3: Reference the Documentation",
+            "level": 3,
+            "summary": "Use this blueprint's documentation as your reference guide while building:",
+            "keyPoints": [
+              "**Planning:** [PRD Templates](./prd/)",
+              "**Architecture:** [ARCHITECTURE.md](./ARCHITECTURE.md)",
+              "**Security:** [SECURITY_IMPLEMENTATION.md](./docs/SECURITY_IMPLEMENTATION.md)",
+              "**Mobile:** [MOBILE.md](./docs/MOBILE.md)",
+              "**Web:** [WEB.md](./docs/WEB.md)"
+            ]
+          },
+          {
+            "heading": "Blueprint → Your App Flow",
+            "level": 3,
+            "summary": "---",
+            "keyPoints": [],
+            "codeBlocks": [
+              {
+                "language": "mermaid",
+                "purpose": "Example",
+                "code": "sequenceDiagram\n    participant You\n    participant Template as Blueprint Template\n    participant Repo as Your New Repo\n    participant Docs as Documentation\n    participant App as Your App\n\n    You->>Template: Click \"Use this template\"\n    Template->>Repo: Creates independent copy\n    You->>Repo: Clone to local machine\n    You->>Docs: Choose documentation path\n    Docs->>You: Guided reading list\n    You->>App: Build following patterns\n    Docs->>App: Reference as needed\n    You->>App: Deploy t"
+              }
+            ]
+          }
         ]
       },
       {

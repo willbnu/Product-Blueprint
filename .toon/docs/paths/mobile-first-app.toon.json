@@ -1,0 +1,176 @@
+{
+  "version": "1.0",
+  "source": "docs/paths/mobile-first-app.md",
+  "sourceHash": "f601736d744f343c3b46fe0c64504d223084cb0d5f2f6c084def4c39cd2a6c20",
+  "generatedAt": "2025-11-16T18:00:59.459Z",
+  "tokenCount": {
+    "original": 2431,
+    "compressed": 782,
+    "savings": 68
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Mobile-First Application Path",
+      "description": "",
+      "tags": [
+        "expo",
+        "react",
+        "supabase",
+        "auth",
+        "edge functions",
+        "rls",
+        "api",
+        "trpc",
+        "ci/cd"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "📱 Who This Path Is For",
+        "level": 2,
+        "summary": "**Skip this path if:** You're building web-only applications (see [Web-First Path](./web-first-app.md))",
+        "keyPoints": [
+          "Building mobile-first or mobile-only apps",
+          "Using Expo and React Native",
+          "Targeting iOS and/or Android",
+          "Want cross-platform code sharing"
+        ]
+      },
+      {
+        "heading": "📚 Quick Reference Card",
+        "level": 2,
+        "summary": "Bookmark these sections for quick access during development:",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Mobile Development",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "**Navigation:** [MOBILE.md:200-300](../MOBILE.md)",
+              "**Styling:** [MOBILE.md:150-200](../MOBILE.md)",
+              "**Platform-specific code:** [MOBILE.md:400-500](../MOBILE.md)"
+            ]
+          },
+          {
+            "heading": "Authentication",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "**Supabase Auth:** [SECURITY_IMPLEMENTATION.md:300-450](../SECURITY_IMPLEMENTATION.md)",
+              "**Secure storage:** [MOBILE.md:350-400](../MOBILE.md)"
+            ]
+          },
+          {
+            "heading": "Data & State",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "**TanStack Query:** [API.md:150-300](../API.md)",
+              "**Zustand:** [MOBILE.md:700-800](../MOBILE.md)",
+              "**MMKV:** [LIBRARIES.md:400-450](../LIBRARIES.md)"
+            ]
+          },
+          {
+            "heading": "Performance",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "**Optimization:** [MOBILE.md:600-700](../MOBILE.md)",
+              "**Bundle size:** [MOBILE.md:850-900](../MOBILE.md)"
+            ]
+          },
+          {
+            "heading": "Deployment",
+            "level": 3,
+            "summary": "---",
+            "keyPoints": [
+              "**EAS Build:** [DEPLOYMENT.md:100-200](../../DEPLOYMENT.md)",
+              "**App stores:** [DEPLOYMENT.md:250-500](../../DEPLOYMENT.md)"
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "🚀 Beyond Week 5",
+        "level": 2,
+        "summary": "Once you have your MVP deployed, consider:",
+        "keyPoints": []
+      },
+      {
+        "heading": "💡 Pro Tips for Mobile Development",
+        "level": 2,
+        "summary": "1. **Test on Real Devices**",
+        "keyPoints": []
+      },
+      {
+        "heading": "✅ Path Completion Checklist",
+        "level": 2,
+        "summary": "Before launching to production:",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Development",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "[ ] All P0 features implemented",
+              "[ ] Authentication working on both platforms",
+              "[ ] Data fetching and caching working",
+              "[ ] Offline mode functional",
+              "[ ] No memory leaks"
+            ]
+          },
+          {
+            "heading": "Testing",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "[ ] Unit tests for critical logic",
+              "[ ] Integration tests for key flows",
+              "[ ] E2E tests for happy paths",
+              "[ ] Tested on real iOS device",
+              "[ ] Tested on real Android device"
+            ]
+          },
+          {
+            "heading": "Polish",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "[ ] App icon and splash screen",
+              "[ ] Loading states everywhere",
+              "[ ] Error states handled gracefully",
+              "[ ] Empty states designed",
+              "[ ] Haptic feedback (where appropriate)"
+            ]
+          },
+          {
+            "heading": "Security",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "[ ] RLS policies in place",
+              "[ ] Tokens stored securely",
+              "[ ] API keys not in code",
+              "[ ] Error messages don't leak info"
+            ]
+          },
+          {
+            "heading": "Deployment",
+            "level": 3,
+            "summary": "---",
+            "keyPoints": [
+              "[ ] EAS Build configured",
+              "[ ] App submitted to TestFlight",
+              "[ ] App submitted to Play Console (internal)",
+              "[ ] EAS Update configured",
+              "[ ] Analytics tracking live"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
