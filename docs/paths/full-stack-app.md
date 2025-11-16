@@ -499,4 +499,4 @@ Before launching both platforms:
 - Optimize based on usage patterns
 - Plan platform-specific features
 
-**Questions?** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+**Questions?** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)

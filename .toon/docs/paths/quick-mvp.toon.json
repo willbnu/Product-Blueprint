@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "source": "docs/paths/quick-mvp.md",
-  "sourceHash": "58f34a3ca1972cde0fa1eb32d6bfa438c67893eba336cd43dc9a36360146dfaf",
-  "generatedAt": "2025-11-16T18:35:04.502Z",
+  "sourceHash": "af43bb778ab313fbaa024c5a2fbb7fbab1cf0ecdd196a4f2f9b30217ad82d1aa",
+  "generatedAt": "2025-11-16T19:07:40.050Z",
   "tokenCount": {
     "original": 2455,
     "compressed": 431,

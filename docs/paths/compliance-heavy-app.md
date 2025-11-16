@@ -547,6 +547,6 @@ Document security measures and prepare for compliance certification.
 - Obtain required certifications
 - Train team on security procedures
 
-**Questions?** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+**Questions?** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)
 
 **⚠️ Disclaimer:** This path provides guidance but does not constitute legal advice. Consult with compliance experts and legal counsel for your specific requirements.

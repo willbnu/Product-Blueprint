@@ -34,7 +34,7 @@ This is a **GitHub Template Repository** - here's how to get started:
 
 **Click the "Use this template" button** at the top of this repository, or:
 
-👉 [Create from Template](https://github.com/willbnu/ChatGPT-Workspace/generate)
+👉 [Create from Template](https://github.com/willbnu/Product-Blueprint/generate)
 
 This creates a **brand new repository** with a clean copy of the blueprint.
 
@@ -556,7 +556,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md#intellectual-property-and-contributor-li
 ### Questions?
 
 For licensing inquiries or questions:
-- Open an [issue](https://github.com/willbnu/ChatGPT-Workspace/issues)
+- Open an [issue](https://github.com/willbnu/Product-Blueprint/issues)
 - Contact: [William Finger](https://github.com/willbnu)
 
 ## 🙏 Acknowledgments
@@ -573,8 +573,8 @@ This blueprint documents architectural patterns using amazing open-source tools:
 
 - 📖 [Complete Documentation](./docs/)
 - 📝 [Release Notes](./CHANGELOG.md)
-- 🐛 [Issue Tracker](https://github.com/willbnu/ChatGPT-Workspace/issues)
-- 💬 [Discussions](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+- 🐛 [Issue Tracker](https://github.com/willbnu/Product-Blueprint/issues)
+- 💬 [Discussions](https://github.com/willbnu/Product-Blueprint/discussions)
 
 ## 🗺️ Roadmap
 

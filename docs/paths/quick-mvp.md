@@ -454,7 +454,7 @@ If your MVP gets positive feedback:
 - If needs pivot → Iterate on MVP
 - If not working → That's OK! Learn and move on
 
-**Questions?** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+**Questions?** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)
 
 ---
 

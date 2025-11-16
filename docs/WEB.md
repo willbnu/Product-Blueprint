@@ -48,6 +48,32 @@ This template uses **React 18** with **Vite 5** for web development, providing:
 ✅ **Rich Plugin Ecosystem**: Extensive plugin support
 ✅ **TypeScript Native**: First-class TypeScript support
 
+## 🎨 Design & Interface Guidelines
+
+Before diving into implementation, review these essential guidelines for professional web interfaces:
+
+### Web Interface Guidelines
+
+For production-ready interfaces, follow the [Web Interface Guidelines](../design-system/WEB_INTERFACE_GUIDELINES.md):
+
+- **Typography**: Font rendering, fluid typography, accessibility
+- **Interactions**: Touch optimization, animations, feedback
+- **Accessibility**: Keyboard navigation, screen readers, WCAG compliance
+- **Performance**: Core Web Vitals, rendering optimization
+- **Motion**: Animation timing, purposeful motion
+- **Touch**: Cross-device patterns, mobile-specific behaviors
+
+> **💡 Pro Tip**: Reference these guidelines in your PRD's design requirements section to ensure high-quality specifications.
+
+### Design System
+
+Use the [Design System](../design-system/) for:
+- Design tokens (colors, typography, spacing)
+- Figma templates and components
+- Cross-platform component patterns
+
+---
+
 ---
 
 ## Vite Setup

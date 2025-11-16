@@ -162,7 +162,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - feature-spec.md, technical-spec.md
   - how-to-write-prd.md, prd-to-implementation.md, best-practices.md
 - Removed unused `order` field from MVP data model in todo-app-prd.md
-- Fixed placeholder URL consistency: ChatGPT-Workspace → YOUR-REPO
+- Fixed placeholder URL consistency: Product-Blueprint → YOUR-REPO
 
 ### Noted
 - Intentionally kept specific tech stack versions (Expo SDK 50+, React 18, etc.)

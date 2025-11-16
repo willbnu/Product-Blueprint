@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "source": "docs/paths/compliance-heavy-app.md",
-  "sourceHash": "e471b29e94c0fb8dac6841ba8986f7ec4037676e8ea355d244461e595706d236",
-  "generatedAt": "2025-11-16T18:35:04.499Z",
+  "sourceHash": "b0996538f5c0b2d3786358c462432c82d7931423ba29dd67effd94ae65123ea6",
+  "generatedAt": "2025-11-16T19:07:40.045Z",
   "tokenCount": {
     "original": 3589,
     "compressed": 105,

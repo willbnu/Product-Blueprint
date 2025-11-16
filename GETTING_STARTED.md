@@ -68,7 +68,7 @@ Rapid prototyping and validation • 1-2 weeks to prototype
 
 **Click the "Use this template" button** on GitHub or visit:
 
-👉 https://github.com/willbnu/ChatGPT-Workspace/generate
+👉 https://github.com/willbnu/Product-Blueprint/generate
 
 This creates a brand new repository with a clean copy.
 

@@ -396,4 +396,4 @@ Before launching to production:
 - Iterate quickly with EAS Update
 - Plan v1.1 features
 
-**Questions?** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+**Questions?** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)

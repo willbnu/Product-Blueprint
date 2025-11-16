@@ -26,6 +26,7 @@ This design system provides a **complete foundation** for building consistent, b
 - ✅ **Design Tokens** - Colors, typography, spacing, shadows
 - ✅ **Figma Templates** - Pre-built components and screens
 - ✅ **Component Library** - React Native + Web components
+- ✅ **Web Interface Guidelines** - Production-ready web UI patterns
 - ✅ **Documentation** - Guidelines and best practices
 - ✅ **Sync System** - Figma → Code token synchronization
 
@@ -174,6 +175,75 @@ Figma Template
    - Or manually copy values to code
 
 **📖 Detailed Guide:** [FIGMA.md](./FIGMA.md)
+
+---
+
+## Web Interface Guidelines
+
+Comprehensive guidelines for creating **professional, accessible, and performant** web interfaces.
+
+### What's Covered
+
+**Interactivity**:
+- Form element best practices
+- Touch target optimization
+- Immediate feedback patterns
+
+**Typography**:
+- Font rendering quality
+- Responsive sizing strategies
+- Accessibility requirements
+
+**Motion**:
+- Animation timing guidelines
+- Purposeful motion principles
+- Performance considerations
+
+**Touch**:
+- Touch-optimized interactions
+- Mobile-specific behaviors
+- Cross-device patterns
+
+**Optimizations**:
+- Rendering performance
+- Resource management
+- Adaptive loading
+
+**Accessibility**:
+- Keyboard navigation
+- Screen reader support
+- WCAG compliance
+
+**Design Patterns**:
+- User feedback strategies
+- Contextual UI patterns
+- Empty state guidelines
+
+### When to Use
+
+**In PRD Templates**: Reference specific sections when writing design requirements
+```markdown
+**Typography** (see [Typography Guidelines](../design-system/WEB_INTERFACE_GUIDELINES.md#typography)):
+- [ ] Apply font smoothing for legibility
+- [ ] Use clamp() for responsive sizing
+- [ ] Maintain consistent font weights
+```
+
+**In Figma**: Document interaction specs and accessibility requirements
+
+**During Development**: Validate implementation against quality checklist
+
+### Quick Reference Checklist
+
+✅ **Typography**: Font smoothing, responsive sizing, tabular figures
+✅ **Interactions**: Under 200ms animations, proper touch targets
+✅ **Accessibility**: Keyboard navigation, focus rings, aria-labels
+✅ **Performance**: Optimized blur values, paused off-screen animations
+✅ **Touch**: 16px+ inputs, hover media queries, iOS video attributes
+
+**📖 Complete Guide:** [WEB_INTERFACE_GUIDELINES.md](./WEB_INTERFACE_GUIDELINES.md)
+
+> **💡 Pro Tip**: Share this guide with your design team and reference it in PRDs to ensure high-quality implementation.
 
 ---
 
@@ -388,9 +458,10 @@ apps/web/components/SpecialFeature.tsx
 ## Next Steps
 
 1. **Read:** [DESIGN_TOKENS.md](./DESIGN_TOKENS.md) - Understand tokens
-2. **Setup:** [FIGMA.md](./FIGMA.md) - Get Figma template
-3. **Build:** [COMPONENTS.md](./COMPONENTS.md) - Use components
-4. **Learn:** [WORKFLOW.md](./WORKFLOW.md) - Master the process
+2. **Guidelines:** [WEB_INTERFACE_GUIDELINES.md](./WEB_INTERFACE_GUIDELINES.md) - Learn interface best practices
+3. **Setup:** [FIGMA.md](./FIGMA.md) - Get Figma template
+4. **Build:** [COMPONENTS.md](./COMPONENTS.md) - Use components
+5. **Learn:** [WORKFLOW.md](./WORKFLOW.md) - Master the process
 
 ---
 

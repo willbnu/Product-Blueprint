@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "source": "docs/paths/full-stack-app.md",
-  "sourceHash": "55726a4653915c0cc395ca76a7fa31bb3d0551aa0cf1f9ce51ee9d0f2e259bb3",
-  "generatedAt": "2025-11-16T18:35:04.500Z",
+  "sourceHash": "7a85fd2aeeda849da20fbaf224d1910ec846378b3f1155ff228853b4e17217b6",
+  "generatedAt": "2025-11-16T19:07:40.048Z",
   "tokenCount": {
     "original": 3123,
     "compressed": 811,

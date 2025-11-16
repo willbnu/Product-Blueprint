@@ -99,8 +99,8 @@ Each path includes:
 ## 🆘 Need Help?
 
 - **Stuck?** Check [TROUBLESHOOTING.md](../../TROUBLESHOOTING.md)
-- **Questions?** Open a [GitHub Discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
-- **Found an issue?** [Report it](https://github.com/willbnu/ChatGPT-Workspace/issues)
+- **Questions?** Open a [GitHub Discussion](https://github.com/willbnu/Product-Blueprint/discussions)
+- **Found an issue?** [Report it](https://github.com/willbnu/Product-Blueprint/issues)
 
 ---
 

@@ -337,4 +337,4 @@ Before launching to production:
 - Optimize based on real usage
 - Plan v1.1 features
 
-**Questions?** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
+**Questions?** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)

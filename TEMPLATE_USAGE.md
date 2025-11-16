@@ -42,7 +42,7 @@ This repository is a **GitHub Template Repository**, not a traditional fork.
 
 **Option B: Direct Link**
 
-Visit: https://github.com/willbnu/ChatGPT-Workspace/generate
+Visit: https://github.com/willbnu/Product-Blueprint/generate
 
 #### Step 2: Clone Your New Repository
 
@@ -126,7 +126,7 @@ If you see a useful update in the blueprint:
 
 ```bash
 # 1. Add blueprint as a remote (one-time setup)
-git remote add blueprint https://github.com/willbnu/ChatGPT-Workspace.git
+git remote add blueprint https://github.com/willbnu/Product-Blueprint.git
 
 # 2. Fetch blueprint changes
 git fetch blueprint
@@ -157,11 +157,11 @@ If you want to **improve the blueprint itself** (not build an app):
 
 ```bash
 # Fork the repository on GitHub, then:
-git clone https://github.com/YOUR-USERNAME/ChatGPT-Workspace.git
-cd ChatGPT-Workspace
+git clone https://github.com/YOUR-USERNAME/Product-Blueprint.git
+cd Product-Blueprint
 
 # Add upstream remote
-git remote add upstream https://github.com/willbnu/ChatGPT-Workspace.git
+git remote add upstream https://github.com/willbnu/Product-Blueprint.git
 ```
 
 #### Step 2: Create Feature Branch
@@ -187,7 +187,7 @@ git commit -m "feat: add new pattern for X"
 # Push to your fork
 git push origin feature/your-improvement
 
-# Open PR on GitHub to willbnu/ChatGPT-Workspace
+# Open PR on GitHub to willbnu/Product-Blueprint
 ```
 
 **See [CONTRIBUTING.md](./CONTRIBUTING.md) for complete guidelines.**
@@ -334,8 +334,8 @@ After creating from template:
 
 ## 🆘 Need Help?
 
-- **Template usage questions:** [Open a discussion](https://github.com/willbnu/ChatGPT-Workspace/discussions)
-- **Found a bug in docs:** [Report an issue](https://github.com/willbnu/ChatGPT-Workspace/issues)
+- **Template usage questions:** [Open a discussion](https://github.com/willbnu/Product-Blueprint/discussions)
+- **Found a bug in docs:** [Report an issue](https://github.com/willbnu/Product-Blueprint/issues)
 - **Want to contribute:** [See CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ---

@@ -305,6 +305,8 @@
 
 ## 10. Design Requirements
 
+> **💡 Reference**: See [Web Interface Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md) for detailed specifications.
+
 ### Design Principles
 1. **Simple & Intuitive:** Easy to navigate
 2. **Consistent:** Use design system throughout
@@ -314,20 +316,46 @@
 ### UI/UX Guidelines
 - **Design System:** Use template's shared-ui library
 - **Color Palette:** [Define primary, secondary colors]
-- **Typography:** [Font choices, sizes]
+- **Typography:** [Font choices, sizes] (see [Typography Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md#typography))
 - **Spacing:** Consistent padding/margins
 - **Icons:** [Icon library choice]
+
+### Web Interface Quality (see [Web Interface Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md))
+
+**Typography**:
+- [ ] Apply font smoothing (`-webkit-font-smoothing: antialiased`)
+- [ ] Use responsive sizing with `clamp()` for headings
+- [ ] Implement tabular figures for numeric data
+- [ ] Maintain consistent font weights (no hover weight changes)
+
+**Interactions**:
+- [ ] Input labels focus their fields when clicked
+- [ ] Forms submit via Enter key
+- [ ] Animation durations under 200ms for immediate feel
+- [ ] Buttons disable after submission to prevent duplicates
+
+**Touch Optimization**:
+- [ ] Minimum 44×44px touch targets
+- [ ] 16px+ font size for inputs (prevent iOS zoom)
+- [ ] Hover states only on `@media (hover: hover)`
+- [ ] No auto-focus on touch devices
+
+**Performance**:
+- [ ] Optimize blur values for filters
+- [ ] Pause off-screen looping animations
+- [ ] Use GPU rendering sparingly
+- [ ] Lazy load off-screen content
+
+**Accessibility**:
+- [ ] Box-shadow focus rings (respect border-radius)
+- [ ] Keyboard navigation for all interactions
+- [ ] Icon-only elements have `aria-label`
+- [ ] No tooltips on disabled elements
 
 ### Responsive Design
 - **Mobile:** iPhone SE to iPhone 15 Pro Max
 - **Tablet:** iPad, Android tablets
 - **Web:** Desktop 1920px down to 320px mobile
-
-### Accessibility
-- Screen reader support
-- Keyboard navigation
-- Color contrast ratios
-- Touch target sizes (min 44x44px)
 
 ---
 
