@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "generatedAt": "2025-11-16T12:41:35.264Z",
+  "files": [
+    {
+      "source": "README.md",
+      "toon": ".toon/README.toon.json"
+    },
+    {
+      "source": "ARCHITECTURE.md",
+      "toon": ".toon/ARCHITECTURE.toon.json"
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "toon": ".toon/CONTRIBUTING.toon.json"
+    },
+    {
+      "source": "design-system/README.md",
+      "toon": ".toon/design-system/README.toon.json"
+    },
+    {
+      "source": "GETTING_STARTED.md",
+      "toon": ".toon/GETTING_STARTED.toon.json"
+    },
+    {
+      "source": "prd/examples/todo-app-prd.md",
+      "toon": ".toon/prd/examples/todo-app-prd.toon.json"
+    },
+    {
+      "source": "prd/README.md",
+      "toon": ".toon/prd/README.toon.json"
+    },
+    {
+      "source": "prd/templates/prd-template.md",
+      "toon": ".toon/prd/templates/prd-template.toon.json"
+    },
+    {
+      "source": "SETUP.md",
+      "toon": ".toon/SETUP.toon.json"
+    }
+  ]
+}
