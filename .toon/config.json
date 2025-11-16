@@ -23,6 +23,7 @@
     "include": [
       "docs/**/*.md",
       "README.md",
+      "AGENTS.md",
       "CONTRIBUTING.md",
       "ARCHITECTURE.md",
       "SETUP.md",
@@ -38,13 +39,14 @@
       ".toon/**"
     ],
     "priority": [
+      "AGENTS.md",
+      "README.md",
+      "ARCHITECTURE.md",
       "docs/API.md",
       "docs/MOBILE.md",
       "docs/WEB.md",
       "docs/BACKEND.md",
-      "docs/CICD.md",
-      "README.md",
-      "ARCHITECTURE.md"
+      "docs/CICD.md"
     ]
   },
   "cache": {
