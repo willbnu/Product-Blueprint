@@ -637,7 +637,20 @@ git commit --no-verify
 **What are TOON files?**
 TOON (Token-Oriented Object Notation) files are generated documentation files optimized for AI consumption. They're derived from markdown source files.
 
-**Quick Solution:**
+**Solution 1: Automatic (Recommended)**
+
+Setup once to resolve TOON conflicts automatically:
+
+```bash
+# Configure git merge driver (one-time setup)
+git config merge.toon.driver "node tools/toon/merge-driver.js %O %A %B %L %P"
+git config merge.toon.name "TOON file auto-resolver"
+```
+
+After setup, git will automatically resolve TOON conflicts. You still need to run `npm run toon:generate` after merge completes.
+
+**Solution 2: Manual Script**
+
 ```bash
 # Automatically resolve all TOON conflicts
 npm run toon:resolve
@@ -654,7 +667,7 @@ git rebase --continue
 3. Stages the regenerated files
 4. Shows you next steps
 
-**Manual Solution (if needed):**
+**Solution 3: Fully Manual (if needed):**
 ```bash
 # Accept our version
 git checkout --ours '.toon/**/*.toon.json'

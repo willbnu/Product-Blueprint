@@ -95,6 +95,24 @@ The resolver:
 - Regenerates from the merged source documentation
 - Ensures TOON files match the final merged state
 
+### Automatic Conflict Resolution (Recommended) 🚀
+
+**Setup once** to automatically resolve TOON conflicts:
+
+```bash
+# Configure git to use the TOON merge driver
+git config merge.toon.driver "node tools/toon/merge-driver.js %O %A %B %L %P"
+git config merge.toon.name "TOON file auto-resolver"
+```
+
+**What this does:**
+- Git automatically calls the merge driver when TOON conflicts occur
+- The driver accepts current branch version and marks files for regeneration
+- You still need to run `npm run toon:generate` after merge completes
+- Saves manual intervention on every merge/rebase
+
+**Note:** This uses `.gitattributes` which is already configured in the repository.
+
 ### Manual Resolution (Advanced)
 
 If you prefer manual resolution:
@@ -136,6 +154,7 @@ git add .toon/
 | `generate-all.js` | Generates TOON files from all markdown sources |
 | `converter.js` | Core conversion logic (markdown → TOON) |
 | `resolve-conflicts.js` | Automated conflict resolution for git merges |
+| `merge-driver.js` | Git merge driver for automatic TOON conflict resolution |
 | `audit-logger.js` | Logging utilities for TOON operations |
 
 ## Benefits
