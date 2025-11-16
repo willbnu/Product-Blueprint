@@ -221,9 +221,21 @@ pnpm dev:web     # Start Vite (web)
 ## 📚 Documentation
 
 ### Getting Started
+- **[Getting Started Guide](./GETTING_STARTED.md)** - Complete walkthrough (start here!)
 - **[Setup Guide](./SETUP.md)** - Detailed installation and configuration
 - **[Development Workflow](./DEVELOPMENT.md)** - Day-to-day development guide
 - **[Environment Variables](./docs/ENVIRONMENT.md)** - All environment configuration
+
+### PRD & Planning
+- **[PRD Workflow](./prd/README.md)** - Product Requirements Document guide
+- **[PRD Template](./prd/templates/prd-template.md)** - Copy this for your app
+- **[PRD Examples](./prd/examples/)** - Example PRDs (todo app, etc.)
+
+### Design System
+- **[Design System Overview](./design-system/README.md)** - Complete design system guide
+- **[Design Tokens](./design-system/DESIGN_TOKENS.md)** - Colors, typography, spacing
+- **[Figma Templates](./design-system/FIGMA.md)** - Figma setup and usage
+- **[Design Workflow](./design-system/WORKFLOW.md)** - Design-to-code process
 
 ### Architecture & Design
 - **[Architecture Overview](./ARCHITECTURE.md)** - System design and decisions
