@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2025-11-16T16:57:44.350Z",
+  "generatedAt": "2025-11-16T18:00:59.469Z",
   "files": [
     {
       "source": "AGENTS.md",
@@ -17,6 +17,30 @@
     {
       "source": "CONTRIBUTING.md",
       "toon": ".toon/CONTRIBUTING.toon.json"
+    },
+    {
+      "source": "docs/paths/compliance-heavy-app.md",
+      "toon": ".toon/docs/paths/compliance-heavy-app.toon.json"
+    },
+    {
+      "source": "docs/paths/full-stack-app.md",
+      "toon": ".toon/docs/paths/full-stack-app.toon.json"
+    },
+    {
+      "source": "docs/paths/mobile-first-app.md",
+      "toon": ".toon/docs/paths/mobile-first-app.toon.json"
+    },
+    {
+      "source": "docs/paths/quick-mvp.md",
+      "toon": ".toon/docs/paths/quick-mvp.toon.json"
+    },
+    {
+      "source": "docs/paths/README.md",
+      "toon": ".toon/docs/paths/README.toon.json"
+    },
+    {
+      "source": "docs/paths/web-first-app.md",
+      "toon": ".toon/docs/paths/web-first-app.toon.json"
     },
     {
       "source": "GETTING_STARTED.md",

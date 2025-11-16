@@ -1,0 +1,39 @@
+{
+  "version": "1.0",
+  "source": "docs/paths/compliance-heavy-app.md",
+  "sourceHash": "e471b29e94c0fb8dac6841ba8986f7ec4037676e8ea355d244461e595706d236",
+  "generatedAt": "2025-11-16T18:00:59.456Z",
+  "tokenCount": {
+    "original": 3589,
+    "compressed": 105,
+    "savings": 97
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Compliance-Heavy Application Path",
+      "description": "",
+      "tags": [
+        "rest",
+        "rls",
+        "auth",
+        "api",
+        "supabase"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "🏥 Who This Path Is For",
+        "level": 2,
+        "summary": "**Compliance frameworks covered:**",
+        "keyPoints": [
+          "Healthcare applications (HIPAA)",
+          "Financial applications (PCI DSS, SOC 2)",
+          "Enterprise SaaS (SOC 2, ISO 27001)",
+          "EU-targeted apps (GDPR)",
+          "Any app handling sensitive data"
+        ]
+      }
+    ]
+  }
+}

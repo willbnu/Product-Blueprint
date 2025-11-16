@@ -1,0 +1,113 @@
+{
+  "version": "1.0",
+  "source": "docs/paths/quick-mvp.md",
+  "sourceHash": "58f34a3ca1972cde0fa1eb32d6bfa438c67893eba336cd43dc9a36360146dfaf",
+  "generatedAt": "2025-11-16T18:00:59.460Z",
+  "tokenCount": {
+    "original": 2455,
+    "compressed": 431,
+    "savings": 82
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Quick MVP Path",
+      "description": "",
+      "tags": [
+        "auth",
+        "supabase",
+        "api",
+        "trpc",
+        "rls",
+        "rest"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "⚡ Who This Path Is For",
+        "level": 2,
+        "summary": "**Philosophy:** Ship fast, iterate based on feedback, don't over-engineer.",
+        "keyPoints": [
+          "Validating an idea quickly",
+          "Need something to show investors/users",
+          "Rapid prototyping",
+          "Learning the stack",
+          "Weekend projects"
+        ]
+      },
+      {
+        "heading": "🚨 Important: This is NOT Production-Ready",
+        "level": 2,
+        "summary": "This path intentionally skips:",
+        "keyPoints": [
+          "❌ Comprehensive testing",
+          "❌ Advanced security hardening",
+          "❌ Performance optimization",
+          "❌ Accessibility compliance",
+          "❌ Cross-platform support"
+        ]
+      },
+      {
+        "heading": "Checkpoint ✓",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "[ ] App looks presentable",
+          "[ ] No critical bugs",
+          "[ ] Deployed and accessible",
+          "[ ] Shared with test users"
+        ]
+      },
+      {
+        "heading": "📚 Absolute Minimum Reading",
+        "level": 2,
+        "summary": "Skip everything except these:",
+        "keyPoints": []
+      },
+      {
+        "heading": "🚀 After MVP Validation",
+        "level": 2,
+        "summary": "If your MVP gets positive feedback:",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Next Steps (Choose One Path)",
+            "level": 3,
+            "summary": "**Building Mobile?**",
+            "keyPoints": [
+              "Rebuild with better architecture",
+              "Add tests",
+              "Polish UX",
+              "Deploy to stores",
+              "Improve performance"
+            ]
+          },
+          {
+            "heading": "Migration Strategy",
+            "level": 3,
+            "summary": "1. **Keep MVP Running**",
+            "keyPoints": []
+          }
+        ]
+      },
+      {
+        "heading": "💡 MVP Success Examples",
+        "level": 2,
+        "summary": "**Todo App** → Todoist",
+        "keyPoints": [
+          "Week 1: Basic todos",
+          "Week 2: Feedback, added due dates",
+          "Rebuilt with proper architecture",
+          "Now: Multi-million user app",
+          "Week 1: Simple notes"
+        ]
+      },
+      {
+        "heading": "🎯 MVP vs. Production",
+        "level": 2,
+        "summary": "| Aspect | MVP | Production |",
+        "keyPoints": []
+      }
+    ]
+  }
+}
