@@ -7,7 +7,7 @@ hero:
   tagline: Production-ready full-stack app template with comprehensive architectural documentation for Expo (mobile) and React (web)
   image:
     src: /logo.svg
-    alt: Product Blueprint
+    alt: Product-Blueprint
   actions:
     - theme: brand
       text: Get Started

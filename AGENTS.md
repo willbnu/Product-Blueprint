@@ -1,12 +1,12 @@
 # AGENTS.md - AI Coding Agent Guide
 
-**Welcome, AI coding agents!** This file provides context and instructions for working on the Product Blueprint project.
+**Welcome, AI coding agents!** This file provides context and instructions for working on the Product-Blueprint project.
 
 ---
 
 ## Project Overview
 
-**Product Blueprint** is a comprehensive architectural blueprint for building production-ready full-stack applications. It combines:
+**Product-Blueprint** is a comprehensive architectural blueprint for building production-ready full-stack applications. It combines:
 
 - **Documentation-First Approach**: PRD templates, architecture guides, security implementation patterns
 - **TOON Integration**: Token-Oriented Object Notation system for AI agent optimization (60-85% token savings)
@@ -151,7 +151,7 @@ The DevOps pack includes 20 commands for:
 | "optimize this query" | Database performance tuning |
 | "debug this API endpoint" | API debugger with specs |
 
-### Integration with Product Blueprint
+### Integration with Product-Blueprint
 
 #### Configuration (.claude/settings.json)
 
@@ -940,5 +940,5 @@ For AI agents encountering problems:
 
 ---
 
-**Built with Product Blueprint**
+**Built with Product-Blueprint**
 *This AGENTS.md file follows the agents.md specification for AI coding agent guidance.*
