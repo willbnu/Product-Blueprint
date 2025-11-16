@@ -246,17 +246,17 @@ This is an **architectural blueprint and documentation repository** (v0.1.0) tha
 - **[Architecture Overview](./ARCHITECTURE.md)** - System design and decisions
 - **[Project Libraries](./docs/LIBRARIES.md)** - Guide to shared libraries
 - **[Security Implementation](./docs/SECURITY_IMPLEMENTATION.md)** - Complete security guide
-- **API Documentation** (Coming in v0.2.0) - Backend API contracts
+- **[API Documentation](./docs/API.md)** - Backend API contracts
 
 ### Platform-Specific
-- **Mobile Development** (Coming in v0.2.0) - Expo and React Native guide
-- **Web Development** (Coming in v0.2.0) - React and Vite guide
-- **Backend Development** (Coming in v0.2.0) - Supabase and Edge Functions
+- **[Mobile Development](./docs/MOBILE.md)** - Expo and React Native guide
+- **[Web Development](./docs/WEB.md)** - React and Vite guide
+- **[Backend Development](./docs/BACKEND.md)** - Supabase and Edge Functions
 
 ### Operations
 - **[Testing Strategy](./TESTING.md)** - Unit, integration, and e2e tests
 - **[Deployment Guide](./DEPLOYMENT.md)** - Deploy to production
-- **CI/CD Pipelines** (Coming in v0.2.0) - Automated workflows
+- **[CI/CD Pipelines](./docs/CICD.md)** - Automated workflows
 - **[Troubleshooting](./TROUBLESHOOTING.md)** - Common issues and solutions
 
 ### Contributing
