@@ -1,7 +1,7 @@
 {
   "name": "product-blueprint-docs",
   "version": "0.1.0",
-  "description": "Documentation site for Product Blueprint",
+  "description": "Documentation site for Product-Blueprint",
   "private": true,
   "scripts": {
     "docs:dev": "vitepress dev",

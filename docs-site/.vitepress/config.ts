@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'Product Blueprint',
+  title: 'Product-Blueprint',
   description: 'Production-ready full-stack app template with comprehensive architectural documentation',
 
   // Use parent directory as source - this allows VitePress to read existing markdown files
@@ -13,7 +13,7 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'og:type', content: 'website' }],
-    ['meta', { name: 'og:title', content: 'Product Blueprint' }],
+    ['meta', { name: 'og:title', content: 'Product-Blueprint' }],
     ['meta', { name: 'og:description', content: 'Production-ready full-stack app template' }],
   ],
 
@@ -25,7 +25,7 @@ export default defineConfig({
       { text: 'Getting Started', link: '/GETTING_STARTED' },
       { text: 'Documentation Paths', link: '/docs/paths/' },
       { text: 'Architecture', link: '/ARCHITECTURE' },
-      { text: 'GitHub', link: 'https://github.com/willbnu/ChatGPT-Workspace' }
+      { text: 'GitHub', link: 'https://github.com/willbnu/Product-Blueprint' }
     ],
 
     sidebar: {

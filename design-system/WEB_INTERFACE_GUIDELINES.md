@@ -322,4 +322,4 @@ When working with the [Figma templates](./FIGMA.md), use these guidelines to:
 
 ---
 
-**Credits**: This document is adapted from [Rauno Freiberg's Interface Guidelines](https://interfaces.rauno.me/), with additions and modifications for the Product Blueprint. The original work is an excellent resource for interface design best practices.
+**Credits**: This document is adapted from [Rauno Freiberg's Interface Guidelines](https://interfaces.rauno.me/), with additions and modifications for the Product-Blueprint. The original work is an excellent resource for interface design best practices.

@@ -1,0 +1,4 @@
+# TOON files - use custom merge driver to auto-resolve conflicts
+.toon/**/*.toon.json merge=toon
+.toon/manifest.json merge=toon
+.toon/stats.json merge=toon
