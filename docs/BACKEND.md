@@ -50,6 +50,75 @@ This template uses **Supabase** as the backend platform, providing:
 ✅ **Realtime**: Built-in WebSocket subscriptions
 ✅ **Developer Experience**: Excellent tooling and local development
 
+### Supabase Architecture Overview
+
+```mermaid
+graph TB
+    subgraph "Client Applications"
+        Mobile[📱 Mobile App]
+        Web[🌐 Web App]
+    end
+
+    subgraph "Supabase Platform"
+        subgraph "API Layer"
+            REST[REST API<br/>PostgREST]
+            GraphQL[GraphQL API<br/>pg_graphql]
+            Realtime[Realtime API<br/>WebSockets]
+        end
+
+        subgraph "Services"
+            Auth[🔐 Auth Service<br/>GoTrue<br/>JWT + Session]
+            Storage[📁 Storage Service<br/>S3-compatible]
+            Edge[⚡ Edge Functions<br/>Deno Runtime]
+        end
+
+        subgraph "Database Layer"
+            RLS[Row Level Security<br/>Policy Engine]
+            DB[(PostgreSQL 15+<br/>Structured Data)]
+            Functions[Database Functions<br/>Stored Procedures]
+            Triggers[Triggers<br/>Auto-actions]
+        end
+    end
+
+    Mobile --> REST
+    Mobile --> GraphQL
+    Mobile --> Realtime
+    Mobile --> Auth
+    Mobile --> Storage
+    Mobile --> Edge
+
+    Web --> REST
+    Web --> GraphQL
+    Web --> Realtime
+    Web --> Auth
+    Web --> Storage
+    Web --> Edge
+
+    REST --> RLS
+    GraphQL --> RLS
+    Realtime --> RLS
+    Auth --> DB
+    Storage --> DB
+
+    RLS --> DB
+    RLS --> Functions
+    DB --> Triggers
+
+    Edge --> DB
+    Edge --> Storage
+
+    style Mobile fill:#e1f5ff
+    style Web fill:#fff4e1
+    style REST fill:#e8f5e9
+    style GraphQL fill:#e8f5e9
+    style Realtime fill:#e8f5e9
+    style Auth fill:#fce4ec
+    style Storage fill:#fce4ec
+    style Edge fill:#fce4ec
+    style DB fill:#f3e5f5
+    style RLS fill:#fff4e1
+```
+
 ---
 
 ## Supabase Setup
@@ -271,6 +340,73 @@ SELECT set_config('request.jwt.claims', NULL, true);
 ---
 
 ## Database Migrations
+
+### Migration Workflow
+
+```mermaid
+graph LR
+    subgraph "Development"
+        Dev[Developer] --> Create[Create Migration<br/>supabase migration new]
+        Create --> File[Migration File<br/>*.sql]
+        File --> Write[Write SQL<br/>CREATE/ALTER/etc]
+        Write --> Test[Test Locally<br/>supabase db reset]
+    end
+
+    subgraph "Version Control"
+        Test --> Commit[Commit to Git]
+        Commit --> PR[Pull Request]
+        PR --> Review[Code Review]
+    end
+
+    subgraph "Deployment"
+        Review --> Merge[Merge to Main]
+        Merge --> CI[CI/CD Pipeline]
+        CI --> Staging[Apply to Staging<br/>supabase db push]
+        Staging --> Verify[Verify Migration]
+        Verify --> Prod[Apply to Production<br/>supabase db push]
+    end
+
+    subgraph "Database State"
+        Prod --> Schema[Schema Updated]
+        Schema --> RLS[RLS Policies Applied]
+        RLS --> Ready[Production Ready]
+    end
+
+    style Create fill:#e1f5ff
+    style Test fill:#e8f5e9
+    style Staging fill:#fff4e1
+    style Prod fill:#fce4ec
+    style Ready fill:#ccffcc
+```
+
+### Migration Execution Flow
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Local as Local DB
+    participant Git as Git Repo
+    participant CI as CI/CD
+    participant Staging as Staging DB
+    participant Prod as Production DB
+
+    Dev->>Dev: supabase migration new
+    Dev->>Local: Edit migration.sql
+    Dev->>Local: supabase db reset
+    Local-->>Dev: Migration applied
+
+    Dev->>Git: git commit & push
+    Git->>CI: Trigger workflow
+    CI->>CI: Run tests
+    CI->>Staging: supabase db push
+    Staging-->>CI: Migration success
+
+    Note over CI,Staging: Manual approval<br/>or auto-deploy
+
+    CI->>Prod: supabase db push
+    Prod-->>CI: Migration success
+    CI-->>Dev: Deployment complete
+```
 
 ### Creating Migrations
 
