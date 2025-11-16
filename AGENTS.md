@@ -47,6 +47,187 @@ npm run toon:generate  # Should generate TOON files without errors
 - **Node.js v20**: JavaScript runtime
 - **TOON Format**: Markdown-to-JSON converter for AI optimization
 - **Git**: Version control with branch naming conventions
+- **Claude Code Plugins Plus**: 253 production-ready plugins for enhanced development workflows
+
+---
+
+## Claude Code Plugins Plus Integration
+
+### What is Claude Code Plugins Plus?
+
+**Claude Code Plugins Plus** is a comprehensive marketplace containing **253 production-ready plugins** designed to extend Claude Code's capabilities for end-to-end development. All plugins are 100% compliant with Anthropic's 2025 Skills schema.
+
+**Key Benefits:**
+- **Automatic Skill Activation**: Natural language triggers activate relevant workflows without explicit commands
+- **Comprehensive Coverage**: AI/ML, Database, Security, Testing, DevOps, Performance domains
+- **Tool Permissions System**: Transparent declarations of what each skill can access and modify
+- **Version Tracking**: Semantic versioning for professional skill management
+
+**Repository**: https://github.com/jeremylongshore/claude-code-plugins-plus
+**Website**: https://claudecodeplugins.io
+
+### Installation & Setup
+
+#### 1. Add the Marketplace
+
+```bash
+/plugin marketplace add jeremylongshore/claude-code-plugins
+```
+
+#### 2. Install Core Development Packs
+
+```bash
+# DevOps automation (20 commands: Git, CI/CD, Docker, Kubernetes, Terraform)
+/plugin install devops-automation-pack@claude-code-plugins-plus
+
+# Full-stack development workflows
+/plugin install fullstack-starter-pack@claude-code-plugins-plus
+
+# Security analysis and vulnerability scanning
+/plugin install security-pro-pack@claude-code-plugins-plus
+
+# AI/ML engineering workflows
+/plugin install ai-ml-engineering-pack@claude-code-plugins-plus
+```
+
+#### 3. Install Essential Utility Plugins
+
+```bash
+# Comprehensive codebase analysis
+/plugin install project-health-auditor@claude-code-plugins-plus
+
+# AI-powered conventional commit messages
+/plugin install git-commit-smart@claude-code-plugins-plus
+
+# REST API debugging with OpenAPI specs
+/plugin install conversational-api-debugger@claude-code-plugins-plus
+```
+
+### Available Commands for End-to-End Development
+
+#### Code Analysis & Health
+```bash
+# Comprehensive codebase analysis (complexity, churn, coverage gaps)
+/analyze /path/to/repo
+
+# REST API debugging with guided workflows
+/debug-api
+```
+
+#### Git Workflow
+```bash
+# Generate AI-powered conventional commit messages
+/gc
+```
+
+#### DevOps Tasks
+The DevOps pack includes 20 commands for:
+- Git workflow automation and branching strategies
+- CI/CD pipeline design and optimization
+- Docker containerization guidance
+- Kubernetes cluster management patterns
+- Terraform infrastructure-as-code templates
+- Deployment automation workflows
+
+#### Plugin Management
+```bash
+# Auto-scaffold new plugins with proper structure
+/create a plugin
+
+# Validate plugin structure and compliance
+/validate this plugin
+```
+
+### Automatic Skill Activation
+
+**Agent Skills** activate automatically based on conversation context. Instead of explicit commands, use natural language:
+
+| Trigger Phrase | Auto-Activated Skill |
+|----------------|---------------------|
+| "create an Ansible playbook" | DevOps automation workflow |
+| "backup my database" | Database backup procedures |
+| "scan for vulnerabilities" | Security analysis |
+| "optimize this query" | Database performance tuning |
+| "debug this API endpoint" | API debugger with specs |
+
+### Integration with ChatGPT Workspace
+
+#### Configuration (.claude/settings.json)
+
+Store team-wide plugin preferences:
+
+```json
+{
+  "enabledPlugins": {
+    "project-health-auditor@claude-code-plugins-plus": true,
+    "devops-automation-pack@claude-code-plugins-plus": true,
+    "git-commit-smart@claude-code-plugins-plus": true,
+    "security-pro-pack@claude-code-plugins-plus": true
+  }
+}
+```
+
+#### Best Practices for AI Agents
+
+1. **Use Natural Language**: Say "create a Dockerfile for this Node.js app" instead of searching for Docker commands
+2. **Leverage Auto-Activation**: Skills trigger automatically when context matches
+3. **Check Tool Permissions**: Read-only skills use Read/Grep/Glob, editing skills include Write/Edit
+4. **Combine with TOON**: Use plugins for workflows, TOON for documentation optimization
+5. **Reference Documentation**: All plugins include comprehensive README files with examples
+
+#### Plugin Categories Available
+
+| Category | Plugin Count | Coverage |
+|----------|--------------|----------|
+| AI/ML Engineering | 27 | 100% |
+| Database Management | 25 | 100% |
+| Security & Compliance | 27 | 100% |
+| Testing & QA | 25 | 100% |
+| DevOps & Infrastructure | 29 | 96.6% |
+| Performance Optimization | 25 | 96% |
+
+### Example Workflow: End-to-End Feature Development
+
+```bash
+# 1. Analyze current codebase health
+/analyze /home/user/ChatGPT-Workspace
+
+# 2. Create feature branch (follows naming convention)
+git checkout -b claude/new-feature-<session-id>
+
+# 3. Implement feature (use natural language to trigger skills)
+# Say: "create REST API endpoint with authentication"
+# Agent Skills automatically apply relevant patterns
+
+# 4. Generate smart commit message
+/gc
+
+# 5. Run security scan before pushing
+# Say: "scan for security vulnerabilities"
+
+# 6. Push to remote
+git push -u origin claude/new-feature-<session-id>
+
+# 7. Create PR with comprehensive analysis
+gh pr create --title "feat: new feature" --body "Generated by workflow"
+```
+
+### MCP Tools Integration
+
+Five executable plugins provide real code execution:
+- **Project Analysis**: Codebase metrics and health scoring
+- **API Debugging**: HTTP log analysis with OpenAPI validation
+- **Knowledge Bases**: Context-aware documentation search
+- **Design Conversion**: Figma/mockup to code translation
+- **Workflow Orchestration**: Multi-step automation pipelines
+
+### Resources
+
+- **Marketplace**: https://claudecodeplugins.io
+- **GitHub Repository**: https://github.com/jeremylongshore/claude-code-plugins-plus
+- **Schema Specification**: SKILLS_SCHEMA_2025.md
+- **Activation Guide**: SKILL_ACTIVATION_GUIDE.md
+- **Security Guidelines**: USER_SECURITY_GUIDE.md
 
 ---
 
