@@ -374,9 +374,42 @@ We welcome contributions! Please see our [Contributing Guidelines](./CONTRIBUTIN
 6. Push to the branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request
 
-## 📄 License
+## 📄 License & Copyright
 
-This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+### License
+
+This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+
+### Copyright & Intellectual Property
+
+**Copyright (c) 2025 William Finger. All rights reserved.**
+
+This project and its original innovations, including the **TOON (Token-Oriented Object Notation)** system, are protected by:
+
+- **Copyright**: All original code and documentation
+- **Patents**: Pending/issued patents on key innovations (all rights reserved)
+- **Trademarks**: "TOON" and "Token-Oriented Object Notation"
+
+**Important Legal Documents:**
+- [LICENSE](./LICENSE) - MIT License terms
+- [COPYRIGHT](./COPYRIGHT) - Copyright ownership and patent rights
+- [NOTICE](./NOTICE) - Attribution, patent grants, and CLA terms
+- [CONTRIBUTING.md](./CONTRIBUTING.md) - Contributor License Agreement
+
+### For Contributors
+
+By contributing to this project, you accept the **Contributor License Agreement** which grants William Finger:
+- Perpetual, royalty-free license to use your contributions
+- Patent grant for any patents necessarily infringed by your contributions
+- Right to relicense if needed for project sustainability
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md#intellectual-property-and-contributor-license-agreement) for complete terms.
+
+### Questions?
+
+For licensing inquiries, patent questions, or commercial use:
+- Open an [issue](https://github.com/willbnu/ChatGPT-Workspace/issues)
+- Contact: [William Finger](https://github.com/willbnu)
 
 ## 🙏 Acknowledgments
 

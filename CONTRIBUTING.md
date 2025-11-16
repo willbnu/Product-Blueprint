@@ -482,9 +482,96 @@ Contributors will be:
 - Mentioned in release notes for significant features
 - Added to contributors list (via all-contributors bot)
 
+## Intellectual Property and Contributor License Agreement
+
+### Important Legal Notice
+
+**By submitting a contribution to this project, you agree to the following terms:**
+
+#### 1. Copyright Assignment
+
+You grant **William Finger** (the project owner):
+
+- A **perpetual, worldwide, non-exclusive, royalty-free, irrevocable copyright license** to:
+  - Use, reproduce, modify, display, perform, sublicense, and distribute your contributions
+  - Incorporate your contributions into the project
+  - Relicense the project (including your contributions) under different terms if needed
+
+#### 2. Patent Grant
+
+You grant **William Finger**:
+
+- A **perpetual, worldwide, non-exclusive, royalty-free, irrevocable patent license** to:
+  - Make, have made, use, sell, offer for sale, import, and otherwise transfer your contributions
+  - Practice any patent claims you own that are necessarily infringed by your contributions
+
+#### 3. Ownership and Rights
+
+- **William Finger retains full ownership** of this project and all contributions
+- You retain copyright in your contributions, but grant the above licenses
+- You may use your contributions in other projects (subject to the MIT license)
+
+#### 4. Representations and Warranties
+
+By contributing, you represent that:
+
+- You have the **legal right** to grant the above licenses
+- Your contribution is your **original work** or you have rights to submit it
+- Your contribution does **not violate** any third-party intellectual property rights
+- You are **not aware** of any patents that would be infringed by your contribution
+- Your employer (if applicable) has **waived rights** to your contribution, or you are authorized to contribute
+
+#### 5. TOON System and Innovations
+
+This project includes proprietary innovations, particularly the **TOON (Token-Oriented Object Notation)** system, which may be subject to:
+
+- Patent protection (pending or issued)
+- Trademark protection
+- Trade secret protection
+
+Contributions to these systems are particularly valuable and will be subject to the same IP assignment terms.
+
+#### 6. No Compensation
+
+You understand that:
+
+- Contributions are **voluntary** and **unpaid**
+- No compensation is owed for contributions
+- Recognition will be provided as outlined in the "Recognition" section
+
+#### 7. Third-Party Code
+
+If your contribution includes third-party code:
+
+- It must be under a **compatible open-source license** (MIT, Apache 2.0, BSD, ISC)
+- You must clearly **identify** the third-party code and its license
+- You must include the original **copyright notices** and **license text**
+- You must update the **NOTICE** file with attribution
+
+#### 8. Acceptance
+
+Your submission of a pull request constitutes your **acceptance** of these terms.
+
+If you **cannot agree** to these terms, please **do not submit** a contribution.
+
+#### 9. Questions
+
+For questions about these terms, please contact:
+- **William Finger** via [GitHub Issues](https://github.com/willbnu/ChatGPT-Workspace/issues)
+
+### Why We Need This
+
+This CLA ensures that:
+
+- The project owner can **defend** the project legally
+- The project can be **relicensed** if needed (e.g., for commercial use)
+- **Patent protection** is maintained
+- All contributors have **authorized** their contributions
+- The project remains **free and open** for everyone
+
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (MIT).
+By contributing, you agree that your contributions will be licensed under the same license as the project (**MIT License**), and you accept the Contributor License Agreement terms above.
 
 ---
 

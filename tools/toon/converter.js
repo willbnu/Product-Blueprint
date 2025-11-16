@@ -3,6 +3,9 @@
 /**
  * TOON Converter - Markdown to Token-Oriented Object Notation
  *
+ * Copyright (c) 2025 William Finger
+ * Licensed under the MIT License
+ *
  * Compresses markdown documentation into token-efficient JSON format
  * for AI agent consumption.
  *

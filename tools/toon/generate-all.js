@@ -3,6 +3,9 @@
 /**
  * TOON Batch Generator
  *
+ * Copyright (c) 2025 William Finger
+ * Licensed under the MIT License
+ *
  * Generates TOON files for all configured documentation files.
  * Reads configuration from .toon/config.json
  */
