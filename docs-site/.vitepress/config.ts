@@ -4,6 +4,11 @@ export default defineConfig({
   title: 'ChatGPT Workspace Blueprint',
   description: 'Production-ready full-stack app template with comprehensive architectural documentation',
 
+  // Use parent directory as source - this allows VitePress to read existing markdown files
+  srcDir: '../',
+  // Exclude node_modules and other non-documentation directories
+  srcExclude: ['**/node_modules/**', '**/dist/**', '**/.git/**', '**/tools/**', '**/.toon/**'],
+
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
@@ -16,89 +21,97 @@ export default defineConfig({
     logo: '/logo.svg',
 
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/getting-started/' },
-      { text: 'Documentation Paths', link: '/paths/' },
-      { text: 'Architecture', link: '/architecture/' },
+      { text: 'Home', link: '/docs-site/' },
+      { text: 'Getting Started', link: '/GETTING_STARTED' },
+      { text: 'Documentation Paths', link: '/docs/paths/' },
+      { text: 'Architecture', link: '/ARCHITECTURE' },
       { text: 'GitHub', link: 'https://github.com/willbnu/ChatGPT-Workspace' }
     ],
 
     sidebar: {
-      '/getting-started/': [
+      '/': [
         {
           text: 'Getting Started',
           items: [
-            { text: 'Overview', link: '/getting-started/' },
-            { text: 'Template Usage', link: '/getting-started/template-usage' },
-            { text: 'Quick Start', link: '/getting-started/quick-start' },
-            { text: 'Choose Your Path', link: '/paths/' },
+            { text: 'Overview', link: '/README' },
+            { text: 'Getting Started', link: '/GETTING_STARTED' },
+            { text: 'Template Usage', link: '/TEMPLATE_USAGE' },
+            { text: 'Setup Guide', link: '/SETUP' },
+            { text: 'Choose Your Path', link: '/docs/paths/' },
           ]
-        }
-      ],
-
-      '/paths/': [
+        },
         {
           text: 'Documentation Paths',
           items: [
-            { text: 'Overview', link: '/paths/' },
-            { text: '📱 Mobile-First', link: '/paths/mobile-first' },
-            { text: '🌐 Web-First', link: '/paths/web-first' },
-            { text: '🚀 Full-Stack', link: '/paths/full-stack' },
-            { text: '🏥 Compliance-Heavy', link: '/paths/compliance-heavy' },
-            { text: '⚡ Quick MVP', link: '/paths/quick-mvp' },
+            { text: 'Overview', link: '/docs/paths/' },
+            { text: '📱 Mobile-First', link: '/docs/paths/mobile-first-app' },
+            { text: '🌐 Web-First', link: '/docs/paths/web-first-app' },
+            { text: '🚀 Full-Stack', link: '/docs/paths/full-stack-app' },
+            { text: '🏥 Compliance-Heavy', link: '/docs/paths/compliance-heavy-app' },
+            { text: '⚡ Quick MVP', link: '/docs/paths/quick-mvp' },
           ]
-        }
-      ],
-
-      '/architecture/': [
+        },
         {
           text: 'Architecture & Design',
           items: [
-            { text: 'Overview', link: '/architecture/' },
-            { text: 'System Architecture', link: '/architecture/system' },
-            { text: 'Libraries', link: '/architecture/libraries' },
-            { text: 'Tech Stack', link: '/architecture/tech-stack' },
+            { text: 'Architecture Overview', link: '/ARCHITECTURE' },
+            { text: 'Libraries', link: '/docs/LIBRARIES' },
+            { text: 'Environment Variables', link: '/docs/ENVIRONMENT' },
           ]
         },
         {
           text: 'Platform Guides',
           items: [
-            { text: 'Mobile Development', link: '/mobile/' },
-            { text: 'Web Development', link: '/web/' },
-            { text: 'Backend', link: '/backend/' },
+            { text: 'Mobile Development', link: '/docs/MOBILE' },
+            { text: 'Web Development', link: '/docs/WEB' },
+            { text: 'Backend (Supabase)', link: '/docs/BACKEND' },
+            { text: 'API Design', link: '/docs/API' },
           ]
         },
         {
-          text: 'Security & Compliance',
+          text: 'Security & Quality',
           items: [
-            { text: 'Security Implementation', link: '/security/' },
-            { text: 'API Design', link: '/api/' },
+            { text: 'Security Implementation', link: '/docs/SECURITY_IMPLEMENTATION' },
+            { text: 'Testing Strategy', link: '/TESTING' },
+            { text: 'CI/CD Pipelines', link: '/docs/CICD' },
           ]
-        }
-      ],
-
-      '/prd/': [
+        },
         {
           text: 'PRD System',
           items: [
-            { text: 'Overview', link: '/prd/' },
-            { text: 'PRD Template', link: '/prd/template' },
-            { text: 'Example: Todo App', link: '/prd/examples/todo-app' },
+            { text: 'PRD Workflow', link: '/prd/' },
+            { text: 'PRD Template', link: '/prd/templates/prd-template' },
+            { text: 'Example: Todo App', link: '/prd/examples/todo-app-prd' },
           ]
-        }
-      ],
-
-      '/design-system/': [
+        },
         {
           text: 'Design System',
           items: [
             { text: 'Overview', link: '/design-system/' },
-            { text: 'Design Tokens', link: '/design-system/tokens' },
-            { text: 'Figma Integration', link: '/design-system/figma' },
-            { text: 'Workflow', link: '/design-system/workflow' },
+            { text: 'Design Tokens', link: '/design-system/DESIGN_TOKENS' },
+            { text: 'Figma Integration', link: '/design-system/FIGMA' },
+            { text: 'Workflow', link: '/design-system/WORKFLOW' },
+          ]
+        },
+        {
+          text: 'Operations',
+          items: [
+            { text: 'Development Guide', link: '/DEVELOPMENT' },
+            { text: 'Deployment', link: '/DEPLOYMENT' },
+            { text: 'Troubleshooting', link: '/TROUBLESHOOTING' },
+          ]
+        },
+        {
+          text: 'Contributing',
+          items: [
+            { text: 'Contributing Guidelines', link: '/CONTRIBUTING' },
+            { text: 'Code of Conduct', link: '/CODE_OF_CONDUCT' },
+            { text: 'Security Policy', link: '/SECURITY' },
+            { text: 'Roadmap', link: '/ROADMAP' },
+            { text: 'Changelog', link: '/CHANGELOG' },
           ]
         }
-      ],
+      ]
     },
 
     socialLinks: [
@@ -115,7 +128,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/willbnu/ChatGPT-Workspace/edit/main/docs-site/:path',
+      pattern: 'https://github.com/willbnu/ChatGPT-Workspace/edit/main/:path',
       text: 'Edit this page on GitHub'
     },
 

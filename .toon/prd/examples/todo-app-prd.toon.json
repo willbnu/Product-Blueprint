@@ -2,7 +2,7 @@
   "version": "1.0",
   "source": "prd/examples/todo-app-prd.md",
   "sourceHash": "85c63c94e075c64db9b6d312585e2ad3bcf3a81469faeccfd4fc4798bdcd1754",
-  "generatedAt": "2025-11-16T18:10:54.674Z",
+  "generatedAt": "2025-11-16T18:31:02.313Z",
   "tokenCount": {
     "original": 3015,
     "compressed": 470,

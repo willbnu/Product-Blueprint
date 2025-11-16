@@ -280,56 +280,38 @@ import { Screen } from '../../mobile/src/screens';
 ### Complete Data Flow Architecture
 
 ```mermaid
-sequenceDiagram
-    participant UI as UI Component
-    participant Hook as Custom Hook
-    participant TQ as TanStack Query
-    participant Cache as Query Cache
-    participant Supabase as Supabase Client
-    participant API as Supabase API
-    participant RLS as Row Level Security
-    participant DB as PostgreSQL
-
-    Note over UI,DB: Read Operation (Query)
-
-    UI->>Hook: useTodos()
-    Hook->>TQ: useQuery({ queryKey, queryFn })
-    TQ->>Cache: Check 'todos' cache
-
-    alt Cache Hit & Fresh
-        Cache-->>TQ: Cached data
-    else Cache Miss or Stale
-        TQ->>Supabase: queryFn()
-        Supabase->>API: GET /todos
-        API->>RLS: Check auth.uid()
-        RLS->>DB: SELECT with user filter
-        DB-->>RLS: Filtered rows
-        RLS-->>API: Authorized data
-        API-->>Supabase: JSON response
-        Supabase-->>TQ: Parsed data
-        TQ->>Cache: Update cache
+graph LR
+    subgraph "Frontend Layer"
+        UI[UI Components] --> DataHooks[Data Hooks]
     end
 
-    TQ-->>Hook: Return data
-    Hook-->>UI: Render
+    subgraph "Data Management Layer"
+        DataHooks --> Cache[Cache Layer]
+        Cache --> |Cache Miss| APIClient[API Client]
+        Cache --> |Cache Hit| UI
+    end
 
-    Note over UI,DB: Write Operation (Mutation)
+    subgraph "Backend Layer"
+        APIClient --> API[REST/GraphQL API]
+        API --> Security[Security Layer]
+        Security --> |RLS Policies| DB[(Database)]
+    end
 
-    UI->>Hook: createTodo(data)
-    Hook->>TQ: useMutation({ mutationFn })
-    TQ->>Supabase: mutationFn(data)
-    Supabase->>API: POST /todos
-    API->>RLS: Check INSERT permission
-    RLS->>DB: INSERT new row
-    DB-->>RLS: Created row
-    RLS-->>API: Success
-    API-->>Supabase: Created data
-    Supabase-->>TQ: Result
-    TQ->>Cache: Invalidate ['todos']
-    TQ->>Cache: Refetch stale queries
-    TQ-->>Hook: Success
-    Hook-->>UI: Update UI
+    subgraph "Data Operations"
+        DB --> |Read| Cache
+        UI --> |Write/Update| DataHooks
+        DataHooks --> |Mutations| APIClient
+        APIClient --> |Success| CacheInvalidate[Cache Invalidation]
+        CacheInvalidate --> Refetch[Auto Refetch]
+    end
+
+    style UI fill:#e1f5ff
+    style Cache fill:#e8f5e9
+    style Security fill:#fff4e1
+    style DB fill:#ffe8e8
 ```
+
+> **Note**: This diagram shows the conceptual data flow. The actual implementation uses TanStack Query for caching and Supabase for the backend, but these patterns are framework-agnostic.
 
 ### 1. Data Fetching (TanStack Query)
 

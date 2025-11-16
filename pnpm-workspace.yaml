@@ -1,0 +1,10 @@
+# pnpm workspace configuration
+# This enables pnpm's workspace features for managing the docs-site package
+
+packages:
+  # Documentation site
+  - 'docs-site'
+
+  # Future: When v1.0.0 adds code, uncomment these:
+  # - 'apps/*'
+  # - 'packages/*'
