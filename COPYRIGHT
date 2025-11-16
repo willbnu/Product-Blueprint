@@ -17,26 +17,28 @@ Copyright (c) 2025 William Finger. All rights reserved.
 ORIGINAL WORKS
 ================================================================================
 
-This project contains original works and innovations developed by William Finger,
-including but not limited to:
+This project contains original works developed by William Finger, including but
+not limited to:
 
-1. TOON (Token-Oriented Object Notation) System
-   - Hierarchical stack-based markdown parser
-   - Token-aware compression algorithms
-   - Multi-line list item parsing with continuation tracking
-   - Path traversal prevention and security hardening
-   - Glob pattern matching for selective file discovery
-
-2. Project Architecture and Design
+1. Project Architecture and Design
    - Full-stack application blueprint structure
    - Documentation organization system
    - Development workflows and tooling
 
-3. Documentation and Content
+2. Documentation and Content
    - Architecture guides
    - Setup instructions
    - Contributing guidelines
    - PRD templates and examples
+
+3. TOON Implementation Tools
+   - Custom markdown parser implementation with nested section preservation
+   - Multi-line list item parsing with continuation tracking
+   - Path traversal prevention and security hardening
+   - Glob pattern matching for selective file discovery
+
+   NOTE: The TOON format specification itself is copyright (c) 2025 Johann
+   Schopplich and used under MIT License. See NOTICE file for attribution.
 
 
 LICENSING
@@ -56,25 +58,14 @@ Subject to:
 - No warranty or liability
 
 
-PATENT RIGHTS
+THIRD-PARTY INTELLECTUAL PROPERTY
 ================================================================================
 
-All patent rights, whether pending or issued, related to innovations in this
-software are reserved by William Finger.
-
-The MIT License includes an implicit patent grant for use of the software as
-distributed, but does not grant rights to file competing patents on the
-innovations described herein.
-
-
-TRADEMARK RIGHTS
-================================================================================
-
-The following are trademarks of William Finger:
-- "TOON"
-- "Token-Oriented Object Notation"
-
-Use of these trademarks requires permission from William Finger.
+TOON Format:
+- "TOON" and "Token-Oriented Object Notation" are associated with the TOON
+  format specification created by Johann Schopplich
+- This project uses the TOON format under MIT License
+- See: https://github.com/toon-format/toon
 
 
 CONTRIBUTOR RIGHTS

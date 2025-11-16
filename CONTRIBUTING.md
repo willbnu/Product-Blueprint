@@ -521,15 +521,15 @@ By contributing, you represent that:
 - You are **not aware** of any patents that would be infringed by your contribution
 - Your employer (if applicable) has **waived rights** to your contribution, or you are authorized to contribute
 
-#### 5. TOON System and Innovations
+#### 5. Third-Party Formats and Specifications
 
-This project includes proprietary innovations, particularly the **TOON (Token-Oriented Object Notation)** system, which may be subject to:
+This project uses the **TOON (Token-Oriented Object Notation)** format specification, which is:
 
-- Patent protection (pending or issued)
-- Trademark protection
-- Trade secret protection
+- Copyright (c) 2025 Johann Schopplich
+- Licensed under MIT License
+- See: https://github.com/toon-format/toon
 
-Contributions to these systems are particularly valuable and will be subject to the same IP assignment terms.
+Contributions involving the TOON format must comply with its MIT License terms and provide proper attribution to Johann Schopplich.
 
 #### 6. No Compensation
 
