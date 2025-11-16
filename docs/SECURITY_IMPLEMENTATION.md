@@ -197,59 +197,36 @@ CREATE POLICY "View own or shared todos"
 ### Complete Authentication Flow
 
 ```mermaid
-sequenceDiagram
-    participant User
-    participant App
-    participant Supabase
-    participant DB
-    participant Email as Email Service
-
-    Note over User,Email: Sign Up Flow
-
-    User->>App: Sign up (email, password)
-    App->>App: Validate password strength
-    App->>Supabase: auth.signUp()
-    Supabase->>DB: Create user record
-    Supabase->>Email: Send confirmation email
-    Email-->>User: Confirmation link
-    User->>Supabase: Click confirmation link
-    Supabase->>DB: Mark email as verified
-    Supabase-->>App: Redirect with session
-    App-->>User: Logged in
-
-    Note over User,Email: Login Flow
-
-    User->>App: Login (email, password)
-    App->>Supabase: auth.signInWithPassword()
-    Supabase->>DB: Verify credentials
-    DB-->>Supabase: User data
-    Supabase-->>App: JWT + Refresh Token
-    App->>App: Store tokens securely
-    App-->>User: Authenticated
-
-    Note over User,Email: Session Management
-
-    App->>Supabase: API Request (with JWT)
-    Supabase->>Supabase: Verify JWT signature
-    alt JWT Expired
-        Supabase->>App: 401 Unauthorized
-        App->>Supabase: Refresh token request
-        Supabase-->>App: New JWT
-        App->>Supabase: Retry request with new JWT
-    else JWT Valid
-        Supabase->>DB: Query with auth.uid()
-        DB-->>Supabase: Data
-        Supabase-->>App: Response
+graph TD
+    subgraph "User Journey"
+        SignUp[1. Sign Up] --> EmailVerify[2. Email Verification]
+        EmailVerify --> Login[3. Login]
+        Login --> Session[4. Active Session]
+        Session --> |Token Expired| Refresh[Auto Refresh]
+        Refresh --> Session
+        Session --> Logout[5. Logout]
     end
 
-    Note over User,Email: Logout
+    subgraph "Security Layers"
+        Session --> TokenAuth[Token Authentication]
+        TokenAuth --> RLS[Row Level Security]
+        RLS --> DataAccess[Authorized Data Access]
+    end
 
-    User->>App: Logout
-    App->>Supabase: auth.signOut()
-    Supabase->>DB: Invalidate refresh token
-    App->>App: Clear local tokens
-    App-->>User: Logged out
+    subgraph "Token Storage"
+        TokenAuth --> SecureStore[Secure Storage]
+        SecureStore --> |Mobile| MMKV[MMKV Encrypted]
+        SecureStore --> |Web| HTTPOnly[httpOnly Cookies]
+    end
+
+    style SignUp fill:#e1f5ff
+    style Login fill:#e1f5ff
+    style Session fill:#e8f5e9
+    style RLS fill:#fff4e1
+    style SecureStore fill:#ffe8e8
 ```
+
+> **Note**: This diagram shows the conceptual authentication flow. Implementation details may vary based on your specific authentication service configuration.
 
 ### Token Security Architecture
 
@@ -262,7 +239,7 @@ graph TB
 
     subgraph "Secure Storage"
         Mobile["Mobile: MMKV<br/>Encrypted storage"]
-        Web["Web: httpOnly cookie<br/>or localStorage"]
+        Web["Web: httpOnly cookie<br/>NEVER localStorage"]
     end
 
     subgraph "Supabase Auth"
@@ -282,6 +259,8 @@ graph TB
     style Verify fill:#e8f5e9
     style Renew fill:#e8f5e9
 ```
+
+> **⚠️ Security Warning**: **NEVER store refresh tokens in localStorage** on web platforms. localStorage is accessible to JavaScript and vulnerable to XSS attacks. Always use httpOnly cookies for refresh tokens to prevent JavaScript access. For access tokens (JWTs), in-memory storage is preferred.
 
 ### Password Requirements
 
