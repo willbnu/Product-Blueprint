@@ -21,6 +21,14 @@
 const fs = require('fs');
 const path = require('path');
 const { convertToTOON, estimateTokens } = require('./converter');
+const {
+  ErrorCategory,
+  logOperationStart,
+  logOperationSuccess,
+  logOperationFailure,
+  logInfo,
+  createError
+} = require('./audit-logger');
 
 // Read TOON config
 function readConfig() {
@@ -92,8 +100,17 @@ function findMarkdownFiles(config) {
 function generateAll() {
   console.log('🚀 TOON Batch Generator\n');
 
+  logOperationStart('BATCH_GENERATE_ALL', {
+    action: 'Starting batch TOON generation'
+  });
+
   const config = readConfig();
   const files = findMarkdownFiles(config);
+
+  logInfo('FILE_DISCOVERY', {
+    count: files.length,
+    files: files.slice(0, 5) // Log first 5 files only
+  });
 
   // Sort by priority
   const priorityFiles = config.generation.priority || [];
@@ -183,6 +200,19 @@ function generateAll() {
   console.log('\n✅ TOON generation complete!');
   console.log(`📈 Stats saved to: .toon/stats.json`);
   console.log(`📋 Manifest saved to: .toon/manifest.json\n`);
+
+  // Log batch operation completion
+  logOperationSuccess('BATCH_GENERATE_ALL', {
+    totalFiles: stats.totalFiles,
+    successful: stats.successFiles,
+    failed: stats.failedFiles,
+    tokens: {
+      original: stats.totalOriginalTokens,
+      compressed: stats.totalCompressedTokens,
+      saved: stats.totalOriginalTokens - stats.totalCompressedTokens,
+      savingsPercent: totalSavings
+    }
+  });
 }
 
 // Run if called directly

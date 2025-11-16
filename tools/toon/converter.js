@@ -25,6 +25,14 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const {
+  ErrorCategory,
+  logOperationStart,
+  logOperationSuccess,
+  logOperationFailure,
+  logSecurityEvent,
+  createError
+} = require('./audit-logger');
 
 // Simple token estimation (rough approximation)
 function estimateTokens(text) {
@@ -39,7 +47,12 @@ function validateOutputPath(outputPath) {
 
   // Check if output path is within .toon directory
   if (!absoluteOutput.startsWith(absoluteToonDir + path.sep) && absoluteOutput !== absoluteToonDir) {
-    throw new Error(
+    logSecurityEvent('PATH_VALIDATION', true, {
+      attemptedPath: outputPath,
+      reason: 'Path outside .toon directory'
+    });
+    throw createError(
+      ErrorCategory.SECURITY,
       `Security: Output path must be within .toon/ directory. Got: ${outputPath}`
     );
   }
@@ -47,10 +60,19 @@ function validateOutputPath(outputPath) {
   // Additional check: ensure no path traversal attempts in the path itself
   // Check original string to prevent bypasses via normalization
   if (outputPath.includes('..')) {
-    throw new Error(
+    logSecurityEvent('PATH_TRAVERSAL_CHECK', true, {
+      attemptedPath: outputPath,
+      reason: 'Path traversal sequence detected'
+    });
+    throw createError(
+      ErrorCategory.SECURITY,
       `Security: Path traversal detected in output path: ${outputPath}`
     );
   }
+
+  logSecurityEvent('PATH_VALIDATION', false, {
+    validatedPath: outputPath
+  });
 
   return absoluteOutput;
 }
@@ -267,6 +289,12 @@ function compressSections(sections) {
 
 // Main conversion function
 function convertToTOON(inputFile, outputFile) {
+  // Log operation start
+  logOperationStart('CONVERT_TO_TOON', {
+    inputFile,
+    outputFile
+  });
+
   try {
     // Validate output path to prevent path traversal attacks
     const validatedOutputPath = validateOutputPath(outputFile);
@@ -313,6 +341,19 @@ function convertToTOON(inputFile, outputFile) {
     // Write TOON file
     fs.writeFileSync(validatedOutputPath, JSON.stringify(toon, null, 2), 'utf8');
 
+    // Log operation success with metrics
+    logOperationSuccess('CONVERT_TO_TOON', {
+      inputFile,
+      outputFile,
+      tokens: {
+        original: originalTokens,
+        compressed: compressedTokens,
+        saved: originalTokens - compressedTokens,
+        savingsPercent: savings
+      },
+      hash: sourceHash
+    });
+
     // Log results
     console.log(`✅ Converted: ${inputFile}`);
     console.log(`   Output: ${outputFile}`);
@@ -323,6 +364,12 @@ function convertToTOON(inputFile, outputFile) {
     return toon;
 
   } catch (error) {
+    // Log operation failure with categorized error
+    logOperationFailure('CONVERT_TO_TOON', error, {
+      inputFile,
+      outputFile
+    });
+
     console.error(`❌ Error converting ${inputFile}:`, error.message);
     process.exit(1);
   }
@@ -342,6 +389,8 @@ if (require.main === module) {
   const outputFile = args[1] || inputFile.replace(/\.md$/, '.toon.json').replace(/^/, '.toon/');
 
   if (!fs.existsSync(inputFile)) {
+    const error = createError(ErrorCategory.VALIDATION, `Input file not found: ${inputFile}`);
+    logOperationFailure('FILE_VALIDATION', error, { inputFile });
     console.error(`❌ Input file not found: ${inputFile}`);
     process.exit(1);
   }
