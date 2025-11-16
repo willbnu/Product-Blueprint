@@ -1,106 +1,314 @@
-# Nx + Expo Super App Workspace
+# 🚀 Full-Stack App Template
 
-This repository documents the end-to-end plan for building a full-stack, multi-platform application using an Nx monorepo. The workspace unifies an Expo-powered mobile app, a React Native for Web/TanStack Start web client, Tauri desktop shell, and shared libraries that encapsulate design systems, data access, and state management.
+> A production-ready, full-stack monorepo template for building cross-platform applications with Expo (mobile) and React (web), powered by Nx and Supabase.
 
-## Monorepo overview
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![Nx](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
+[![Expo](https://img.shields.io/badge/Expo-SDK_50+-000020.svg)](https://expo.dev/)
 
-The Nx workspace is organized into the following top-level applications and libraries:
+## 📋 Table of Contents
 
-| Package | Description |
-| --- | --- |
-| `apps/mobile` (Expo) | React Native app targeting iOS, Android, and EAS builds/updates. |
-| `apps/web` (TanStack Start + React Native for Web) | Vite-bundled SPA that shares components with the mobile app. |
-| `apps/desktop` (Tauri) | Desktop client that reuses the web bundle inside a Tauri shell. |
-| `libs/@app/shared-ui` | Cross-platform UI kit using NativeWind/Tailwind tokens for RN + Web. |
-| `libs/@app/data` | Data-access utilities that wrap Supabase SDK, Edge Function clients, and tRPC routers. |
-| `libs/@app/state` | Zustand stores backed by MMKV for persistent offline caching. |
+- [Quick Start](#-quick-start)
+- [What's Included](#-whats-included)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-Nx generators keep boundaries explicit (e.g., `nx g @nx/react-native:lib`), and `project.json` tags enforce dependency rules between apps and shared libraries.
+## 🎯 What is This?
 
-## Technology stack
+This is a **production-ready app template** that you can duplicate to start any new full-stack application. It provides:
 
-* **Frontend:** React Native + Expo, React Native for Web, TanStack Start (TanStack Router + Vite), NativeWind/Tailwind for styling.
-* **State & data:** TanStack Query for async cache + background sync, Zustand + MMKV for synchronous client state, Supabase (Postgres, Auth) with Edge Functions, tRPC contracts exposed through TanStack Router loaders/actions.
-* **Desktop:** Tauri bundling the web build while reusing shared UI, data, and state packages.
-* **Tooling:** Nx for task orchestration, TypeScript project references, ESLint/Prettier, Husky/lint-staged.
-* **DevX:** Storybook/Expo Router previews, AI copilots integrated through Nx tasks for lint/tests.
+- ✅ **Mobile app** (iOS & Android) with Expo
+- ✅ **Web app** with React + Vite
+- ✅ **Shared libraries** for UI, data, and state
+- ✅ **Backend** with Supabase (PostgreSQL, Auth, Edge Functions)
+- ✅ **Monorepo** tooling with Nx
+- ✅ **CI/CD** pipelines ready to deploy
+- ✅ **Testing** infrastructure (unit, integration, e2e)
+- ✅ **Type-safe** API contracts with TypeScript
 
-## Workspace setup
+## ⚡ Quick Start
 
-1. **Initialize Nx workspace**
-   ```bash
-   npx create-nx-workspace@latest super-app \
-     --preset=apps --nxCloud --packageManager=pnpm
-   cd super-app
-   ```
-2. **Add the web app**
-   ```bash
-   nx g @nx/react:app web --bundler=vite --routing=true --style=css
-   ```
-3. **Add Expo mobile + shared libs**
-   ```bash
-   nx g @nx/expo:application mobile
-   nx g @nx/react-native:application desktop-shell --directory=apps/desktop --framework=tauri
-   nx g @nx/react-native:lib shared-ui --directory=libs/@app
-   nx g @nx/js:lib data --directory=libs/@app --bundler=tsc
-   nx g @nx/js:lib state --directory=libs/@app --bundler=tsc
-   ```
-4. **Configure React Native for Web**
-   * Install dependencies: `pnpm add react-native-web @expo/metro-runtime nativewind tailwindcss`.
-   * Update `apps/web/vite.config.ts` to alias `react-native$` to `react-native-web` and include Metro Babel plugins.
-   * Share Tailwind config via `libs/@app/shared-ui/tailwind.config.js` and extend in app-level configs.
-5. **Wire TanStack Query + Supabase**
-   * Install `@tanstack/react-query`, `@tanstack/router`, `@supabase/supabase-js`, `@trpc/server`, `@trpc/client`.
-   * Create a `libs/@app/data/src/client.ts` that exports a configured `createBrowserSupabaseClient`, TanStack Query client, and tRPC proxy.
-   * Compose providers in `apps/mobile/src/app.tsx` and `apps/web/src/main.tsx` to wrap routes with `QueryClientProvider`, `SupabaseContext`, and `TRPCProvider`.
-   * Edge Functions deploy script lives under `tools/scripts/deploy-edge-functions.ts` and is referenced by Nx targets.
+### Prerequisites
 
-## Development workflows
+- **Node.js** 20+ ([install via nvm](https://github.com/nvm-sh/nvm))
+- **pnpm** 8+ (`npm install -g pnpm`)
+- **Git** 2.40+
 
-* **Type safety:** TypeScript project references + `tsc --build`, shared Zod schemas exported from `libs/@app/data`, and tRPC routers reused on both client/server.
-* **Offline caching:** TanStack Query persistent storage backed by MMKV on mobile and IndexedDB on web/desktop; Zustand slices subscribe to Query cache for optimistic updates.
-* **AI integration:** Nx targets `nx run tools:ai-lint` and `nx run tools:ai-test` call AI agents (OpenAI/GPT-5 Codex) to review diffs and suggest fixes.
-* **Design system:** NativeWind theme tokens defined in `libs/@app/shared-ui/theme.ts`, consumed by both RN and web components.
+### 5-Minute Setup
 
-## Testing strategy
-
-| Surface | Tooling |
-| --- | --- |
-| Unit/type | Jest + ts-jest + Testing Library for RN/Web components, MSW for network mocks. |
-| Mobile e2e | Maestro flows for black-box functional tests; Detox for component-level assertions. |
-| Web/desktop e2e | Playwright projects for web and Tauri builds, reusing fixtures from shared libs. |
-
-Nx target examples:
 ```bash
-nx run mobile:test    # Jest + RN Testing Library
-nx run web:e2e        # Playwright
-nx run mobile:maestro # Maestro YAML suites
+# 1. Use this template (click "Use this template" on GitHub)
+#    OR clone directly:
+git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
+cd YOUR-APP-NAME
+
+# 2. Run the automated setup script
+./scripts/setup-template.sh
+
+# 3. Install dependencies
+pnpm install
+
+# 4. Copy environment variables
+cp .env.example .env.local
+# Edit .env.local with your Supabase credentials
+
+# 5. Start development
+pnpm dev:mobile  # Start Expo (mobile)
+pnpm dev:web     # Start Vite (web)
 ```
 
-## CI/CD pipelines
+**📖 Need detailed setup instructions?** See [SETUP.md](./SETUP.md)
 
-* **GitHub Actions:** Matrix jobs for lint/test/build across apps. Caching uses `pnpm store` + Nx Cloud. Secrets stored via Actions environments.
-* **Web deploys:** `nx run web:build` output published to Netlify via `netlify deploy --dir=dist/apps/web`. Preview deploys on PRs.
-* **Mobile releases:** Expo EAS Build profiles triggered via `eas build --platform ios|android`, plus `eas update` for OTA updates referencing Nx build artifacts.
-* **Desktop builds:** Tauri GitHub Action builds per OS and uploads artifacts to Releases.
+## 📦 What's Included
 
-## Monitoring, analytics, and security
+### Applications
 
-* **Observability:** Sentry SDK added in `libs/@app/shared-ui/providers/sentry.tsx` and initialized in app entrypoints. Release health uses sourcemaps emitted by Nx builds.
-* **Product analytics:** PostHog auto-capture integrated via `libs/@app/data/analytics.ts` and gated behind user consent.
-* **Security:** Supabase Row Level Security policies defined in `/supabase/policies.sql`, secrets managed through `.env`, `.env.local`, and Nx `dotenv` targets. Edge Functions enforce JWT validation and rate limiting.
+| App | Description | Port |
+|-----|-------------|------|
+| **apps/mobile** | React Native + Expo app (iOS & Android) | Expo Dev Tools |
+| **apps/web** | React + Vite web application | 3000 |
 
-## Scaling considerations
+### Shared Libraries
 
-* Use Nx module boundaries + tagging to prevent unintended coupling as more feature libs (e.g., `libs/@app/features/*`) are added.
-* Split TanStack Query caches by route segments to avoid waterfall fetches, and leverage Suspense boundaries for streaming.
-* Introduce background sync workers (Service Workers + Expo Task Manager) for offline-first collaboration features.
-* Invest in automated upgrade scripts (`nx migrate`, `expo install --fix`) to stay current with Nx, Expo, and React Native ecosystems.
+| Library | Description |
+|---------|-------------|
+| **@app/shared-ui** | Cross-platform UI components with NativeWind/Tailwind |
+| **@app/data** | Data fetching, Supabase client, tRPC utilities |
+| **@app/state** | Zustand stores with MMKV/IndexedDB persistence |
+| **@app/utils** | Shared utilities, validators, formatters |
 
-## References
+### Infrastructure
 
-* [Nx Docs – React Native & Expo](https://nx.dev/packages/react-native)
-* [Expo Application Services](https://docs.expo.dev/eas/)
-* [TanStack Start & Router](https://tanstack.com/router/latest)
-* [Supabase Edge Functions](https://supabase.com/docs/guides/functions)
-* [Tauri Apps](https://tauri.app/)
+- **Backend:** Supabase (PostgreSQL, Auth, Storage, Edge Functions)
+- **CI/CD:** GitHub Actions workflows
+- **Testing:** Jest, Testing Library, Playwright, Detox
+- **Code Quality:** ESLint, Prettier, Husky, lint-staged
+- **Tooling:** Nx task orchestration, pnpm workspaces
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- **Mobile:** [Expo](https://expo.dev/) (SDK 50+) + [Expo Router](https://docs.expo.dev/router/introduction/)
+- **Web:** [React](https://react.dev/) 18 + [Vite](https://vitejs.dev/) 5
+- **Styling:** [NativeWind](https://www.nativewind.dev/) (mobile) + [Tailwind CSS](https://tailwindcss.com/) (web)
+- **Navigation:** [Expo Router](https://docs.expo.dev/router/introduction/) (mobile) + [React Router](https://reactrouter.com/) (web)
+- **State:** [Zustand](https://zustand-demo.pmnd.rs/) + [MMKV](https://github.com/mrousavy/react-native-mmkv)
+- **Data Fetching:** [TanStack Query](https://tanstack.com/query) v5
+- **Forms:** [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
+
+### Backend
+
+- **Database:** [Supabase](https://supabase.com/) (PostgreSQL 15+)
+- **Authentication:** Supabase Auth
+- **Storage:** Supabase Storage
+- **Serverless:** Supabase Edge Functions (Deno)
+- **API Layer:** [tRPC](https://trpc.io/) for type-safe APIs
+
+### DevOps & Tooling
+
+- **Monorepo:** [Nx](https://nx.dev/) 18+
+- **Package Manager:** [pnpm](https://pnpm.io/) 8+
+- **Language:** [TypeScript](https://www.typescriptlang.org/) 5+
+- **Linting:** [ESLint](https://eslint.org/) 8+
+- **Formatting:** [Prettier](https://prettier.io/) 3+
+- **Git Hooks:** [Husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/okonet/lint-staged)
+- **Testing:** [Jest](https://jestjs.io/), [Playwright](https://playwright.dev/), [Detox](https://wix.github.io/Detox/)
+- **CI/CD:** GitHub Actions
+
+## 📁 Project Structure
+
+```
+.
+├── apps/
+│   ├── mobile/              # Expo mobile application
+│   │   ├── app/            # Expo Router file-based routing
+│   │   ├── components/     # Mobile-specific components
+│   │   └── project.json    # Nx project configuration
+│   └── web/                # React web application
+│       ├── src/
+│       │   ├── app/        # Application routes
+│       │   ├── components/ # Web-specific components
+│       │   └── main.tsx    # Entry point
+│       └── project.json
+│
+├── libs/
+│   └── @app/
+│       ├── shared-ui/      # Shared UI components & design system
+│       ├── data/           # API clients, data fetching hooks
+│       ├── state/          # Global state management
+│       └── utils/          # Shared utilities
+│
+├── supabase/
+│   ├── migrations/         # Database migrations
+│   ├── functions/          # Edge Functions
+│   └── config.toml         # Supabase configuration
+│
+├── docs/                   # Detailed documentation
+│   ├── ARCHITECTURE.md     # System architecture
+│   ├── API.md             # API documentation
+│   ├── LIBRARIES.md       # Library usage guides
+│   ├── MOBILE.md          # Mobile development
+│   ├── WEB.md             # Web development
+│   ├── BACKEND.md         # Backend setup
+│   ├── CICD.md            # CI/CD pipelines
+│   └── ENVIRONMENT.md     # Environment variables
+│
+├── .github/
+│   ├── workflows/          # CI/CD workflows
+│   ├── ISSUE_TEMPLATE/     # Issue templates
+│   └── PULL_REQUEST_TEMPLATE.md
+│
+├── scripts/                # Automation scripts
+├── tools/                  # Custom Nx generators & executors
+│
+├── nx.json                 # Nx workspace configuration
+├── tsconfig.base.json      # TypeScript base configuration
+├── pnpm-workspace.yaml     # pnpm workspace configuration
+├── .env.example            # Environment variable template
+└── package.json            # Root package.json
+```
+
+## 📚 Documentation
+
+### Getting Started
+- **[Setup Guide](./SETUP.md)** - Detailed installation and configuration
+- **[Development Workflow](./DEVELOPMENT.md)** - Day-to-day development guide
+- **[Environment Variables](./docs/ENVIRONMENT.md)** - All environment configuration
+
+### Architecture & Design
+- **[Architecture Overview](./ARCHITECTURE.md)** - System design and decisions
+- **[Project Libraries](./docs/LIBRARIES.md)** - Guide to shared libraries
+- **[API Documentation](./docs/API.md)** - Backend API contracts
+
+### Platform-Specific
+- **[Mobile Development](./docs/MOBILE.md)** - Expo and React Native guide
+- **[Web Development](./docs/WEB.md)** - React and Vite guide
+- **[Backend Development](./docs/BACKEND.md)** - Supabase and Edge Functions
+
+### Operations
+- **[Testing Strategy](./TESTING.md)** - Unit, integration, and e2e tests
+- **[Deployment Guide](./DEPLOYMENT.md)** - Deploy to production
+- **[CI/CD Pipelines](./docs/CICD.md)** - Automated workflows
+- **[Troubleshooting](./TROUBLESHOOTING.md)** - Common issues and solutions
+
+### Contributing
+- **[Contributing Guidelines](./CONTRIBUTING.md)** - How to contribute
+- **[Code of Conduct](./CODE_OF_CONDUCT.md)** - Community standards
+- **[Security Policy](./SECURITY.md)** - Security reporting
+
+### Planning
+- **[Roadmap](./ROADMAP.md)** - Future features and improvements
+- **[Changelog](./CHANGELOG.md)** - Version history
+
+## 🎨 Key Features
+
+### Cross-Platform UI
+- Shared design system with NativeWind (mobile) and Tailwind (web)
+- Consistent theming and dark mode support
+- Reusable components across platforms
+
+### Type-Safe Development
+- End-to-end TypeScript from database to UI
+- Zod schemas for runtime validation
+- tRPC for type-safe API contracts
+- Auto-generated types from Supabase
+
+### Offline-First Architecture
+- TanStack Query with persistent cache
+- MMKV for fast mobile storage
+- IndexedDB for web storage
+- Optimistic updates and conflict resolution
+
+### Developer Experience
+- Hot reload on mobile and web
+- Fast builds with Nx computation caching
+- Code generation with Nx generators
+- Pre-commit hooks for code quality
+- VS Code workspace configuration
+
+### Production-Ready
+- Authentication flow with Supabase Auth
+- Row Level Security (RLS) policies
+- Error tracking (Sentry ready)
+- Analytics (PostHog ready)
+- Automated deployments
+
+## 🚀 Common Commands
+
+```bash
+# Development
+pnpm dev:mobile          # Start Expo mobile app
+pnpm dev:web            # Start Vite web app
+pnpm dev:all            # Start all apps
+
+# Building
+pnpm build              # Build all apps
+pnpm build:mobile       # Build mobile app
+pnpm build:web          # Build web app
+
+# Testing
+pnpm test               # Run all tests
+pnpm test:watch         # Run tests in watch mode
+pnpm test:mobile        # Test mobile app
+pnpm test:web          # Test web app
+pnpm e2e               # Run e2e tests
+
+# Code Quality
+pnpm lint              # Lint all projects
+pnpm format            # Format all files
+pnpm typecheck         # Type check all projects
+
+# Nx Commands
+nx graph               # View dependency graph
+nx affected:test       # Test affected projects
+nx affected:build      # Build affected projects
+nx reset               # Clear Nx cache
+```
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](./CONTRIBUTING.md) for details.
+
+### Quick Contribution Steps
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Make your changes
+4. Run tests (`pnpm test`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+Built with amazing open-source tools:
+- [Nx](https://nx.dev/) - Smart monorepo tooling
+- [Expo](https://expo.dev/) - Universal React applications
+- [Supabase](https://supabase.com/) - Open-source Firebase alternative
+- [TanStack](https://tanstack.com/) - High-quality React tools
+- [NativeWind](https://www.nativewind.dev/) - Tailwind for React Native
+
+## 💬 Support
+
+- 📖 [Documentation](./docs/)
+- 🐛 [Issue Tracker](https://github.com/YOUR-ORG/YOUR-APP/issues)
+- 💬 [Discussions](https://github.com/YOUR-ORG/YOUR-APP/discussions)
+
+## 🗺️ Roadmap
+
+See our [Roadmap](./ROADMAP.md) for planned features and improvements.
+
+---
+
+**⭐ If you find this template useful, please consider giving it a star!**
+
+Made with ❤️ by [Your Team/Organization]
