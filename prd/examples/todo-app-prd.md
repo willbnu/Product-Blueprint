@@ -276,7 +276,6 @@ WEB:
   due_date?: date
   priority?: 'high' | 'medium' | 'low'
   tags?: string[] (array of tag strings)
-  order: integer (for custom sorting)
   created_at: timestamp
   updated_at: timestamp
 }
@@ -339,10 +338,56 @@ WEB:
 - Offline mode with queue sync
 
 ### Security
-- Row Level Security (RLS) on all tables
-- Users can only access their own tasks
-- Password requirements: min 8 chars
-- Rate limiting on API endpoints
+
+**Row Level Security (RLS):**
+```sql
+-- Enable RLS on tasks table
+ALTER TABLE tasks ENABLE ROW LEVEL SECURITY;
+
+-- Policy: Users can only view their own tasks
+CREATE POLICY "Users can view own tasks"
+  ON tasks FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Policy: Users can only insert tasks for themselves
+CREATE POLICY "Users can insert own tasks"
+  ON tasks FOR INSERT
+  WITH CHECK (auth.uid() = user_id);
+
+-- Policy: Users can only update their own tasks
+CREATE POLICY "Users can update own tasks"
+  ON tasks FOR UPDATE
+  USING (auth.uid() = user_id);
+
+-- Policy: Users can only delete their own tasks
+CREATE POLICY "Users can delete own tasks"
+  ON tasks FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- CRITICAL: Verify no cross-tenant access
+-- Test with different user IDs to ensure isolation
+```
+
+**Authentication & Passwords:**
+- Minimum password length: 8 characters
+- Require: 1 uppercase, 1 lowercase, 1 number
+- Use Supabase Auth (secure by default)
+- Password hashing: bcrypt (handled by Supabase)
+- Session timeout: 24 hours
+- Refresh token rotation enabled
+
+**API Security:**
+- Rate limiting: 100 requests/minute per user
+- CORS: Whitelist specific domains only
+- SQL injection prevention: Use parameterized queries (Supabase client handles this)
+- XSS prevention: React escapes by default
+- CSRF protection: Use SameSite cookies
+
+**Data Protection:**
+- TLS 1.3 in transit
+- Encrypted at rest (Supabase default)
+- No sensitive data in logs
+- PII handling complies with GDPR/CCPA
 
 ---
 

@@ -9,8 +9,8 @@
 
 ## 📋 Table of Contents
 
-- [PRD-First Workflow](#-prd-first-workflow-start-here)
-- [Quick Start](#-quick-start)
+- [Quick Start (Code-First)](#-quick-start-code-first)
+- [PRD-First Workflow (Recommended)](#-prd-first-workflow-recommended)
 - [What's Included](#-whats-included)
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
@@ -18,13 +18,47 @@
 - [Contributing](#-contributing)
 - [License](#-license)
 
-## 📝 PRD-First Workflow (START HERE!)
+## ⚡ Quick Start (Code-First)
 
-**Before writing code, start with a Product Requirements Document (PRD).**
+**Want to start coding immediately? Get up and running in 5 minutes.**
+
+### Prerequisites
+
+- **Node.js** 20+ ([install via nvm](https://github.com/nvm-sh/nvm))
+- **pnpm** 8+ (`npm install -g pnpm`)
+- **Git** 2.40+
+
+### 5-Minute Setup
+
+```bash
+# 1. Use this template (click "Use this template" on GitHub)
+#    OR clone directly:
+git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
+cd YOUR-APP-NAME
+
+# 2. Install dependencies
+pnpm install
+
+# 3. Copy environment variables and add your Supabase credentials
+cp .env.example .env.local
+# ⚠️ Edit .env.local with your Supabase keys (from dashboard)
+
+# 4. Start development
+pnpm dev:mobile  # Start Expo (mobile)
+pnpm dev:web     # Start Vite (web)
+```
+
+**📖 Detailed Setup:** See [GETTING_STARTED.md](./GETTING_STARTED.md)
+
+---
+
+## 📝 PRD-First Workflow (Recommended)
+
+**For larger projects, we strongly recommend starting with a Product Requirements Document (PRD).**
 
 ### Why PRD-First?
 
-A well-written PRD is your blueprint for success. It ensures:
+A well-written PRD is your blueprint for success, especially for complex projects. It ensures:
 - ✅ Clear product vision and goals
 - ✅ Aligned stakeholder expectations
 - ✅ Well-defined requirements before coding
@@ -69,38 +103,6 @@ This is a **production-ready app template** that you can duplicate to start any 
 - ✅ **Testing** infrastructure (unit, integration, e2e)
 - ✅ **Type-safe** API contracts with TypeScript
 
-## ⚡ Quick Start
-
-### Prerequisites
-
-- **Node.js** 20+ ([install via nvm](https://github.com/nvm-sh/nvm))
-- **pnpm** 8+ (`npm install -g pnpm`)
-- **Git** 2.40+
-
-### 5-Minute Setup
-
-```bash
-# 1. Use this template (click "Use this template" on GitHub)
-#    OR clone directly:
-git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
-cd YOUR-APP-NAME
-
-# 2. Run the automated setup script
-./scripts/setup-template.sh
-
-# 3. Install dependencies
-pnpm install
-
-# 4. Copy environment variables
-cp .env.example .env.local
-# Edit .env.local with your Supabase credentials
-
-# 5. Start development
-pnpm dev:mobile  # Start Expo (mobile)
-pnpm dev:web     # Start Vite (web)
-```
-
-**📖 Need detailed setup instructions?** See [SETUP.md](./SETUP.md)
 
 ## 📦 What's Included
 
@@ -221,9 +223,21 @@ pnpm dev:web     # Start Vite (web)
 ## 📚 Documentation
 
 ### Getting Started
+- **[Getting Started Guide](./GETTING_STARTED.md)** - Complete walkthrough (start here!)
 - **[Setup Guide](./SETUP.md)** - Detailed installation and configuration
 - **[Development Workflow](./DEVELOPMENT.md)** - Day-to-day development guide
 - **[Environment Variables](./docs/ENVIRONMENT.md)** - All environment configuration
+
+### PRD & Planning
+- **[PRD Workflow](./prd/README.md)** - Product Requirements Document guide
+- **[PRD Template](./prd/templates/prd-template.md)** - Copy this for your app
+- **[PRD Examples](./prd/examples/)** - Example PRDs (todo app, etc.)
+
+### Design System
+- **[Design System Overview](./design-system/README.md)** - Complete design system guide
+- **[Design Tokens](./design-system/DESIGN_TOKENS.md)** - Colors, typography, spacing
+- **[Figma Templates](./design-system/FIGMA.md)** - Figma setup and usage
+- **[Design Workflow](./design-system/WORKFLOW.md)** - Design-to-code process
 
 ### Architecture & Design
 - **[Architecture Overview](./ARCHITECTURE.md)** - System design and decisions

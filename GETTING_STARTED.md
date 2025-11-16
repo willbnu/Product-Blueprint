@@ -4,10 +4,10 @@
 
 ## 🎯 What You Have
 
-A **PRD-first, production-ready app template** with:
+A **production-ready app template** with:
 
 ✅ **Complete documentation** (22+ files)
-✅ **PRD-first workflow** (Product Requirements Documents)
+✅ **PRD-first workflow** (Product Requirements Documents - recommended for larger projects)
 ✅ **Cross-platform ready** (Mobile + Web)
 ✅ **Modern tech stack** (Expo, React, Vite, Supabase, Nx)
 ✅ **Best practices built-in** (Testing, CI/CD, Security)
@@ -15,7 +15,68 @@ A **PRD-first, production-ready app template** with:
 
 ---
 
-## 📝 The PRD-First Workflow (START HERE!)
+## Choose Your Path
+
+### ⚡ Path A: Quick Start (Code-First)
+
+**Best for:** Small projects, prototypes, or developers who prefer to start coding immediately.
+
+**Time:** 5 minutes
+
+[Jump to Quick Start →](#-quick-start-code-first)
+
+### 📝 Path B: PRD-First Workflow (Recommended)
+
+**Best for:** Complex projects, team collaboration, or when you need stakeholder alignment.
+
+**Time:** 2-4 hours for PRD, then development
+
+[Jump to PRD-First →](#-prd-first-workflow-recommended)
+
+---
+
+## ⚡ Quick Start (Code-First)
+
+**Get up and running in 5 minutes:**
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
+cd YOUR-APP-NAME
+
+# 2. Install dependencies
+pnpm install
+
+# 3. Configure environment
+cp .env.example .env.local
+
+# ⚠️ SECURITY WARNING: Never commit .env.local to git!
+# Verify it's in .gitignore:
+grep -q ".env.local" .gitignore || echo ".env.local" >> .gitignore
+
+# Edit .env.local with your Supabase credentials
+# (from Supabase Dashboard → Settings → API)
+
+# 4. Start development
+pnpm dev:mobile  # Mobile app
+pnpm dev:web     # Web app
+```
+
+**🔒 Security Checklist:**
+- [ ] `.env.local` is in `.gitignore`
+- [ ] Never commit secrets to version control
+- [ ] Use different credentials for dev/staging/production
+- [ ] Rotate secrets if accidentally exposed
+- [ ] Use environment variables in CI/CD (GitHub Secrets)
+
+**Next Steps:**
+- Read [SETUP.md](./SETUP.md) for detailed configuration
+- Explore [DEVELOPMENT.md](./DEVELOPMENT.md) for development workflows
+- Check out the [example PRD](./prd/examples/todo-app-prd.md) for inspiration
+
+---
+
+## 📝 PRD-First Workflow (Recommended)
 
 ### Step 1: Write Your PRD
 
@@ -52,28 +113,7 @@ cp prd/templates/prd-template.md prd/my-app-prd.md
 
 ### Step 3: Setup Development
 
-**Once PRD is approved:**
-
-```bash
-# 1. Read the setup guide
-open SETUP.md
-
-# 2. Install prerequisites
-# - Node.js 20+
-# - pnpm 8+
-# - Expo CLI
-
-# 3. Configure environment
-cp .env.example .env.local
-# Edit .env.local with your Supabase credentials
-
-# 4. Install dependencies
-pnpm install
-
-# 5. Start development
-pnpm dev:mobile  # Mobile app
-pnpm dev:web     # Web app
-```
+**Once PRD is approved, follow the [Quick Start steps above](#-quick-start-code-first).**
 
 ### Step 4: Build According to PRD
 
