@@ -35,6 +35,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0 # Full history for accurate change detection
 
       - name: Setup Node.js
@@ -70,7 +71,9 @@ jobs:
           for optimized AI agent consumption.
 
           $(cat .toon/stats.json | grep -A5 'tokens' || echo 'Token statistics updated')"
-          git push
+
+          # Push to the branch (works for both PR and push events)
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
 
       - name: Display stats
         if: steps.check_changes.outputs.changes == 'true'

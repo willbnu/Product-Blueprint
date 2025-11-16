@@ -1,0 +1,136 @@
+{
+  "version": "1.0",
+  "source": "AGENTS.md",
+  "sourceHash": "61b496d837e298a84f8c419b89799e119c2f4885282ef878f2f0c5dfafc3cf55",
+  "generatedAt": "2025-11-16T15:49:23.620Z",
+  "tokenCount": {
+    "original": 3195,
+    "compressed": 872,
+    "savings": 73
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "AGENTS.md - AI Coding Agent Guide",
+      "description": "",
+      "tags": [
+        "github actions"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "Project Overview",
+        "level": 2,
+        "summary": "**ChatGPT Workspace Blueprint** is a comprehensive architectural blueprint for building production-ready full-stack applications. It combines:",
+        "keyPoints": [
+          "**Documentation-First Approach**: PRD templates, architecture guides, security implementation patterns",
+          "**TOON Integration**: Token-Oriented Object Notation system for AI agent optimization (60-85% token savings)",
+          "**Enterprise Compliance**: Structured audit logging, error categorization, security event tracking",
+          "**Best Practices**: Security checklist, development workflows, deployment guides"
+        ]
+      },
+      {
+        "heading": "Key Technologies",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "**Node.js v20**: JavaScript runtime",
+          "**TOON Format**: Markdown-to-JSON converter for AI optimization",
+          "**Git**: Version control with branch naming conventions"
+        ]
+      },
+      {
+        "heading": "TOON Configuration",
+        "level": 3,
+        "summary": "Edit `.toon/config.json` to control which files are processed:",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "json",
+            "purpose": "Example",
+            "code": "{\n  \"include\": [\n    \"README.md\",\n    \"docs/**/*.md\",\n    \"prd/**/*.md\"\n  ],\n  \"exclude\": [\n    \"**/node_modules/**\",\n    \"**/.git/**\"\n  ],\n  \"priority\": [\n    \"README.md\",\n    \"docs/ARCHITECTURE.md\"\n  ]\n}"
+          }
+        ]
+      },
+      {
+        "heading": "Audit Logs",
+        "level": 3,
+        "summary": "TOON operations are logged to:",
+        "keyPoints": [
+          "**Console**: Human-readable output with emoji indicators",
+          "**Files**: `.toon/logs/audit-YYYY-MM-DD.log` (structured JSON)"
+        ]
+      },
+      {
+        "heading": "Parser Validation",
+        "level": 3,
+        "summary": "The TOON parser handles:",
+        "keyPoints": [
+          "**Nested headings** (h2-h6) with stack-based hierarchy",
+          "**Multi-line list items** with continuation tracking",
+          "**Code blocks** with language detection",
+          "**Glob patterns** (`**` = any depth, `*` = single level)"
+        ]
+      },
+      {
+        "heading": "GitHub Actions Workflow",
+        "level": 3,
+        "summary": "**TOON Update Workflow** (`.github/workflows/toon-update.yml`):",
+        "keyPoints": [
+          "**Triggers**: Push/PR to main/develop branches with markdown changes",
+          "**Actions**: Auto-generates TOON files, commits with `[skip ci]`, posts PR comment",
+          "**Permissions**: `contents: write`, `pull-requests: write`, `issues: write`"
+        ]
+      },
+      {
+        "heading": "Issue: Git push fails with 403",
+        "level": 3,
+        "summary": "**Cause**: Branch name doesn't match required format.",
+        "keyPoints": []
+      },
+      {
+        "heading": "Issue: GitHub Actions detached HEAD",
+        "level": 3,
+        "summary": "**Cause**: Workflow needs `ref` parameter in checkout action.",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "yaml",
+            "purpose": "Example",
+            "code": "- name: Checkout repository\n  uses: actions/checkout@v4\n  with:\n    ref: ${{ github.head_ref || github.ref_name }}\n    fetch-depth: 0"
+          }
+        ]
+      },
+      {
+        "heading": "Issue: npm version command fails",
+        "level": 3,
+        "summary": "**Cause**: `npm version` creates commit and tag automatically.",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "bash",
+            "purpose": "Example",
+            "code": "git add CHANGELOG.md\nnpm version minor -m \"chore: release v%s\"\ngit push origin main --tags"
+          }
+        ]
+      },
+      {
+        "heading": "Resources",
+        "level": 2,
+        "summary": "---",
+        "keyPoints": [
+          "**TOON Format Specification**: https://github.com/toon-format/toon",
+          "**Keep a Changelog**: https://keepachangelog.com/",
+          "**Semantic Versioning**: https://semver.org/",
+          "**Conventional Commits**: https://www.conventionalcommits.org/"
+        ]
+      },
+      {
+        "heading": "Questions or Issues?",
+        "level": 2,
+        "summary": "For AI agents encountering problems:",
+        "keyPoints": []
+      }
+    ]
+  }
+}
