@@ -478,6 +478,6 @@ git push origin main --tags
 
 ---
 
-**Built with [ChatGPT Workspace Blueprint](https://github.com/willbnu/ChatGPT-Workspace)**
+**Built with [ChatGPT Workspace Blueprint](https://github.com/willbnu/Product-Blueprint)**
 
 *This changelog template is designed to help you maintain clear, professional release notes for your application. Customize it to fit your project's needs.*

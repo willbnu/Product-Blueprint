@@ -1,8 +1,8 @@
 {
   "version": "1.0",
   "source": "README.md",
-  "sourceHash": "c4c4d92ec681e569655363e95053e0431d27ac18eaccd4207385f2730a296d5a",
-  "generatedAt": "2025-11-16T18:31:02.299Z",
+  "sourceHash": "25958f95ba168848af1862be225a7bbf90917148963b9b0721a553d0d6b6f07b",
+  "generatedAt": "2025-11-16T18:47:19.404Z",
   "tokenCount": {
     "original": 5353,
     "compressed": 1572,
@@ -199,8 +199,8 @@
         "keyPoints": [
           "📖 [Complete Documentation](./docs/)",
           "📝 [Release Notes](./CHANGELOG.md)",
-          "🐛 [Issue Tracker](https://github.com/willbnu/ChatGPT-Workspace/issues)",
-          "💬 [Discussions](https://github.com/willbnu/ChatGPT-Workspace/discussions)"
+          "🐛 [Issue Tracker](https://github.com/willbnu/Product-Blueprint/issues)",
+          "💬 [Discussions](https://github.com/willbnu/Product-Blueprint/discussions)"
         ]
       },
       {

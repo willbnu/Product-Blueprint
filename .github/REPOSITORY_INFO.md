@@ -40,7 +40,7 @@ authentication
 
 **Website:**
 ```
-https://github.com/willbnu/ChatGPT-Workspace
+https://github.com/willbnu/Product-Blueprint
 ```
 
 ## Repository Settings to Update

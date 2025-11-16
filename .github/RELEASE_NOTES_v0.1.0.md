@@ -253,7 +253,7 @@ This blueprint emphasizes security and compliance:
 We welcome contributions! See [CONTRIBUTING.md](../CONTRIBUTING.md) for guidelines.
 
 ### Report Issues
-Found a bug or have a suggestion? [Open an issue](https://github.com/willbnu/ChatGPT-Workspace/issues)
+Found a bug or have a suggestion? [Open an issue](https://github.com/willbnu/Product-Blueprint/issues)
 
 ---
 

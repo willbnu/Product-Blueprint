@@ -557,7 +557,7 @@ If you **cannot agree** to these terms, please **do not submit** a contribution.
 #### 9. Questions
 
 For questions about these terms, please contact:
-- **William Finger** via [GitHub Issues](https://github.com/willbnu/ChatGPT-Workspace/issues)
+- **William Finger** via [GitHub Issues](https://github.com/willbnu/Product-Blueprint/issues)
 
 ### Why We Need This
 

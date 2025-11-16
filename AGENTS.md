@@ -191,7 +191,7 @@ Store team-wide plugin preferences:
 
 ```bash
 # 1. Analyze current codebase health
-/analyze /home/user/ChatGPT-Workspace
+/analyze /home/user/Product-Blueprint
 
 # 2. Create feature branch (follows naming convention)
 git checkout -b claude/new-feature-<session-id>

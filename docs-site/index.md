@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: ChatGPT Workspace
+  name: Product
   text: Blueprint
   tagline: Production-ready full-stack app template with comprehensive architectural documentation for Expo (mobile) and React (web)
   image:
     src: /logo.svg
-    alt: ChatGPT Workspace Blueprint
+    alt: Product Blueprint
   actions:
     - theme: brand
       text: Get Started
@@ -17,7 +17,7 @@ hero:
       link: /docs/paths/
     - theme: alt
       text: View on GitHub
-      link: https://github.com/willbnu/ChatGPT-Workspace
+      link: https://github.com/willbnu/Product-Blueprint
 
 features:
   - icon: 📱
@@ -80,7 +80,7 @@ This is an **architectural blueprint and documentation repository** that provide
 
 This is a **GitHub Template Repository**. Click "Use this template" to create your own repository:
 
-[Create from Template →](https://github.com/willbnu/ChatGPT-Workspace/generate)
+[Create from Template →](https://github.com/willbnu/Product-Blueprint/generate)
 
 ### 2. Choose Your Path
 
@@ -127,6 +127,6 @@ Use this blueprint's documentation as your reference guide while building.
 
 ## 📄 License
 
-Released under the [MIT License](https://github.com/willbnu/ChatGPT-Workspace/blob/main/LICENSE).
+Released under the [MIT License](https://github.com/willbnu/Product-Blueprint/blob/main/LICENSE).
 
 Copyright © 2025 [William Finger](https://github.com/willbnu)
