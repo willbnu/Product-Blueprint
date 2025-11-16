@@ -77,7 +77,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - App size < 50MB [for mobile]
 
 ### Noted
-- Built with ChatGPT Workspace Blueprint
+- Built with Product Blueprint
 - Following enterprise-grade architecture patterns
 - Comprehensive audit logging enabled
 
@@ -478,6 +478,6 @@ git push origin main --tags
 
 ---
 
-**Built with [ChatGPT Workspace Blueprint](https://github.com/willbnu/Product-Blueprint)**
+**Built with [Product Blueprint](https://github.com/willbnu/Product-Blueprint)**
 
 *This changelog template is designed to help you maintain clear, professional release notes for your application. Customize it to fit your project's needs.*
