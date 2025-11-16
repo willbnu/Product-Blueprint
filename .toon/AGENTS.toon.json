@@ -1,12 +1,12 @@
 {
   "version": "1.0",
   "source": "AGENTS.md",
-  "sourceHash": "946aece2d71c048007e4c4792f0713fbf81a9b047b2acc273ca43c0cf74d3641",
-  "generatedAt": "2025-11-16T16:45:16.999Z",
+  "sourceHash": "8dccc27656efd33570f51fa9c5d42cced69b04f7af87edbed96e71c34900b399",
+  "generatedAt": "2025-11-16T16:57:44.336Z",
   "tokenCount": {
-    "original": 4673,
-    "compressed": 1225,
-    "savings": 74
+    "original": 6596,
+    "compressed": 1627,
+    "savings": 75
   },
   "type": "markdown",
   "content": {
@@ -17,6 +17,8 @@
         "ci/cd",
         "rest",
         "api",
+        "auth",
+        "postgresql",
         "github actions"
       ]
     },
@@ -40,7 +42,8 @@
           "**Node.js v20**: JavaScript runtime",
           "**TOON Format**: Markdown-to-JSON converter for AI optimization",
           "**Git**: Version control with branch naming conventions",
-          "**Claude Code Plugins Plus**: 253 production-ready plugins for enhanced development workflows"
+          "**Claude Code Plugins Plus**: 253 production-ready plugins for enhanced development workflows",
+          "**MCP Servers**: Model-Context-Protocol servers for browser automation, debugging, and extended capabilities"
         ]
       },
       {
@@ -83,6 +86,47 @@
           "**Schema Specification**: SKILLS_SCHEMA_2025.md",
           "**Activation Guide**: SKILL_ACTIVATION_GUIDE.md",
           "**Security Guidelines**: USER_SECURITY_GUIDE.md"
+        ]
+      },
+      {
+        "heading": "Troubleshooting",
+        "level": 4,
+        "summary": "**Issue: Chrome won't launch**",
+        "keyPoints": [
+          "**Cause**: MCP client sandbox restrictions",
+          "**Solution**: Use `--browserUrl` to connect to manually-started Chrome: ```bash # Terminal 1: Start Chrome with remote debugging google-chrome --remote-debugging-port=9222",
+          "**Cause**: Category disabled or Node.js version too old",
+          "**Solution**: Check Node.js version (v20.19+) and enable categories: ```bash \"args\": [..., \"--categoryPerformance\", \"--categoryNetwork\"] ```"
+        ]
+      },
+      {
+        "heading": "Resources",
+        "level": 4,
+        "summary": "",
+        "keyPoints": [
+          "**GitHub Repository**: https://github.com/ChromeDevTools/chrome-devtools-mcp",
+          "**Tool Reference**: `/docs/tool-reference.md`",
+          "**Troubleshooting Guide**: `/docs/troubleshooting.md`",
+          "**Changelog**: `/CHANGELOG.md`"
+        ]
+      },
+      {
+        "heading": "Adding More MCP Servers",
+        "level": 3,
+        "summary": "MCP servers can be added for various capabilities:",
+        "keyPoints": [
+          "PostgreSQL MCP for database queries",
+          "MongoDB MCP for document operations",
+          "Redis MCP for caching operations",
+          "Git MCP for advanced repository operations",
+          "Docker MCP for container management"
+        ],
+        "codeBlocks": [
+          {
+            "language": "json",
+            "purpose": "Example",
+            "code": "{\n  \"mcpServers\": {\n    \"chrome-devtools\": { \"command\": \"npx\", \"args\": [\"-y\", \"chrome-devtools-mcp@latest\"] },\n    \"postgres\": { \"command\": \"npx\", \"args\": [\"-y\", \"postgres-mcp\"] },\n    \"docker\": { \"command\": \"npx\", \"args\": [\"-y\", \"docker-mcp\"] }\n  }\n}"
+          }
         ]
       },
       {
