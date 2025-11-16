@@ -1,10 +1,10 @@
 {
   "version": "1.0",
   "source": "ARCHITECTURE.md",
-  "sourceHash": "a152243464b29a638f35a17b994488f1aa6bf34dc15e9cfbca9274c88e7161c9",
-  "generatedAt": "2025-11-16T18:00:59.453Z",
+  "sourceHash": "86aaa26215c8fd93a8760c6ccd56c2b3cafc9c37728083e09fb1e0f9148503b9",
+  "generatedAt": "2025-11-16T18:10:46.974Z",
   "tokenCount": {
-    "original": 4293,
+    "original": 5128,
     "compressed": 193,
     "savings": 96
   },
@@ -17,13 +17,13 @@
         "api",
         "expo",
         "react",
-        "trpc",
         "supabase",
-        "postgresql",
+        "trpc",
         "auth",
+        "rls",
+        "postgresql",
         "edge functions",
-        "typescript",
-        "rls"
+        "typescript"
       ]
     },
     "structure": [
