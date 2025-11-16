@@ -87,6 +87,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            // Only proceed if we have a valid PR context
+            if (!context.payload.pull_request || !context.payload.pull_request.number) {
+              console.log('No pull request context available, skipping comment');
+              return;
+            }
+
             const stats = require('./.toon/stats.json');
             const comment = `## 🤖 TOON Cache Updated
 
@@ -99,7 +105,7 @@ jobs:
 
             AI agents reading this repository will automatically use the optimized TOON versions, saving ${stats.tokens.savingsPercent}% tokens.`;
 
-            github.rest.issues.createComment({
+            await github.rest.issues.createComment({
               issue_number: context.payload.pull_request.number,
               owner: context.repo.owner,
               repo: context.repo.name,
