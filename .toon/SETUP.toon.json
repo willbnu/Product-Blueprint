@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "source": "SETUP.md",
+  "sourceHash": "db203c4c1539b273b76ffa8a9139fb5a532a45d248e9f8f94da931510c6b2bd8",
+  "generatedAt": "2025-11-16T12:41:35.263Z",
+  "tokenCount": {
+    "original": 2592,
+    "compressed": 654,
+    "savings": 75
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Setup Guide",
+      "description": "",
+      "tags": [
+        "supabase",
+        "expo",
+        "typescript",
+        "react",
+        "api",
+        "postgresql"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "Table of Contents",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "[Prerequisites](#prerequisites)",
+          "[Initial Setup](#initial-setup)",
+          "[Environment Configuration](#environment-configuration)",
+          "[Supabase Setup](#supabase-setup)",
+          "[Mobile Development Setup](#mobile-development-setup)"
+        ]
+      },
+      {
+        "heading": "1. Node.js (v20 or higher)",
+        "level": 4,
+        "summary": "**Using nvm (recommended):**",
+        "keyPoints": []
+      },
+      {
+        "heading": "Optional but Recommended",
+        "level": 3,
+        "summary": "- ESLint",
+        "keyPoints": [
+          "**VS Code** with extensions:",
+          "**Watchman** (for better file watching):"
+        ]
+      },
+      {
+        "heading": "3. Install Dependencies",
+        "level": 3,
+        "summary": "This may take 5-10 minutes on first install.",
+        "keyPoints": [
+          "If you see peer dependency warnings, it's usually safe to ignore them",
+          "On macOS with M1/M2, you may need to run with Rosetta if you encounter native module issues"
+        ],
+        "codeBlocks": [
+          {
+            "language": "bash",
+            "purpose": "Example",
+            "code": "pnpm install"
+          }
+        ]
+      },
+      {
+        "heading": "2. Edit `.env.local`",
+        "level": 3,
+        "summary": "Open `.env.local` and configure the following variables:",
+        "keyPoints": []
+      },
+      {
+        "heading": "3. Platform-Specific Environment Files",
+        "level": 3,
+        "summary": "The template automatically loads environment variables in this order:",
+        "keyPoints": []
+      },
+      {
+        "heading": "Database Setup",
+        "level": 3,
+        "summary": "1. **Apply migrations:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "3. Run on Device/Simulator",
+        "level": 3,
+        "summary": "**On Physical Device:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "2. Configure for Production",
+        "level": 3,
+        "summary": "Edit `apps/web/vite.config.ts` if you need to:",
+        "keyPoints": [
+          "Change port",
+          "Add proxy rules",
+          "Configure build options"
+        ]
+      },
+      {
+        "heading": "5. View Dependency Graph",
+        "level": 3,
+        "summary": "Opens Nx dependency graph in browser.",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "bash",
+            "purpose": "Example",
+            "code": "pnpm graph"
+          }
+        ]
+      },
+      {
+        "heading": "Node Version Issues",
+        "level": 3,
+        "summary": "**Problem:** \"The engine 'node' is incompatible\"",
+        "keyPoints": []
+      },
+      {
+        "heading": "Android Emulator Issues",
+        "level": 3,
+        "summary": "**Problem:** Emulator won't start",
+        "keyPoints": []
+      },
+      {
+        "heading": "Build Failures",
+        "level": 3,
+        "summary": "**Problem:** \"Module not found\" during build",
+        "keyPoints": []
+      },
+      {
+        "heading": "Next Steps",
+        "level": 2,
+        "summary": "After completing setup:",
+        "keyPoints": []
+      },
+      {
+        "heading": "Getting Help",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "**Documentation:** Check [docs/](./docs/) directory",
+          "**Issues:** [GitHub Issues](https://github.com/YOUR-ORG/YOUR-APP/issues)",
+          "**Discussions:** [GitHub Discussions](https://github.com/YOUR-ORG/YOUR-APP/discussions)"
+        ]
+      }
+    ]
+  }
+}

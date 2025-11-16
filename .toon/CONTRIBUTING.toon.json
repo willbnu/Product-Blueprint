@@ -1,0 +1,136 @@
+{
+  "version": "1.0",
+  "source": "CONTRIBUTING.md",
+  "sourceHash": "c1beb2cf11421dda9452dc550dab3f4b921195ed4415e2b094950883a870f55d",
+  "generatedAt": "2025-11-16T12:41:35.254Z",
+  "tokenCount": {
+    "original": 2648,
+    "compressed": 733,
+    "savings": 72
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Contributing Guidelines",
+      "description": "",
+      "tags": [
+        "typescript",
+        "react",
+        "ci/cd",
+        "api"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "Table of Contents",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "[Code of Conduct](#code-of-conduct)",
+          "[Getting Started](#getting-started)",
+          "[Development Workflow](#development-workflow)",
+          "[Pull Request Process](#pull-request-process)",
+          "[Coding Standards](#coding-standards)"
+        ]
+      },
+      {
+        "heading": "Code of Conduct",
+        "level": 2,
+        "summary": "This project adheres to a [Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.",
+        "keyPoints": []
+      },
+      {
+        "heading": "Import Order",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "typescript",
+            "purpose": "Example",
+            "code": "// 1. External dependencies\nimport React from 'react';\nimport { View, Text } from 'react-native';\n\n// 2. Internal absolute imports\nimport { Button } from '@app/shared-ui';\nimport { useAuth } from '@app/data';\n\n// 3. Relative imports\nimport { Header } from './Header';\nimport { styles } from './styles';\n\n// 4. Types\nimport type { User } from './types';"
+          }
+        ]
+      },
+      {
+        "heading": "Conventional Commits",
+        "level": 3,
+        "summary": "We follow [Conventional Commits](https://www.conventionalcommits.org/) specification.",
+        "keyPoints": [
+          "`feat`: New feature",
+          "`fix`: Bug fix",
+          "`docs`: Documentation changes",
+          "`style`: Code style changes (formatting, etc.)",
+          "`refactor`: Code refactoring"
+        ],
+        "codeBlocks": [
+          {
+            "language": "text",
+            "purpose": "Example",
+            "code": "<type>(<scope>): <subject>\n\n<body>\n\n<footer>"
+          }
+        ]
+      },
+      {
+        "heading": "Commit Best Practices",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "**One logical change per commit**",
+          "**Write clear, descriptive messages**",
+          "**Use present tense** (\"add feature\" not \"added feature\")",
+          "**Reference issues** in commit footer",
+          "**Keep commits focused and atomic**"
+        ]
+      },
+      {
+        "heading": "Test Coverage",
+        "level": 3,
+        "summary": "Aim for:",
+        "keyPoints": [
+          "**Utilities/Helpers:** 90%+ coverage",
+          "**Components:** 80%+ coverage",
+          "**Hooks:** 80%+ coverage",
+          "**Integration:** Key user flows"
+        ]
+      },
+      {
+        "heading": "README Updates",
+        "level": 3,
+        "summary": "When adding new features, update relevant documentation:",
+        "keyPoints": [
+          "Main README.md",
+          "Feature-specific docs in `docs/`",
+          "API documentation",
+          "Setup instructions"
+        ]
+      },
+      {
+        "heading": "Getting Help",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "**Questions:** Open a [GitHub Discussion](https://github.com/YOUR-ORG/YOUR-REPO/discussions)",
+          "**Bugs:** Create an [Issue](https://github.com/YOUR-ORG/YOUR-REPO/issues)",
+          "**Chat:** Join our [Discord/Slack] (if applicable)"
+        ]
+      },
+      {
+        "heading": "Recognition",
+        "level": 2,
+        "summary": "Contributors will be:",
+        "keyPoints": [
+          "Listed in CHANGELOG.md for their contributions",
+          "Mentioned in release notes for significant features",
+          "Added to contributors list (via all-contributors bot)"
+        ]
+      },
+      {
+        "heading": "License",
+        "level": 2,
+        "summary": "By contributing, you agree that your contributions will be licensed under the same license as the project (MIT).",
+        "keyPoints": []
+      }
+    ]
+  }
+}

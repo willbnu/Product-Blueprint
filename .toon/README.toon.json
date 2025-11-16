@@ -1,0 +1,165 @@
+{
+  "version": "1.0",
+  "source": "README.md",
+  "sourceHash": "bdcbff4c3a7dcc8a405e8e80ee08f8304721f1a25113bcda5f9a4b45d3082419",
+  "generatedAt": "2025-11-16T12:41:35.250Z",
+  "tokenCount": {
+    "original": 4017,
+    "compressed": 1021,
+    "savings": 75
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "🚀 Full-Stack App Template Blueprint",
+      "description": "**v0.1.0 - Documentation-Only Blueprint**",
+      "tags": [
+        "expo",
+        "react",
+        "supabase",
+        "rls",
+        "postgresql",
+        "auth",
+        "edge functions",
+        "ci/cd",
+        "github actions",
+        "api"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "📋 Table of Contents",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "[Quick Start (Coming in v1.0.0)](#-quick-start-coming-in-v100)",
+          "[PRD-First Workflow (Recommended)](#-prd-first-workflow-recommended)",
+          "[What is This?](#-what-is-this)",
+          "[What's Documented](#-whats-documented)",
+          "[Tech Stack](#-tech-stack)"
+        ]
+      },
+      {
+        "heading": "Planned Quick Start (v1.0.0)",
+        "level": 3,
+        "summary": "**When v1.0.0 is released, you'll be able to start coding immediately:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "🎯 What is This?",
+        "level": 2,
+        "summary": "This is an **architectural blueprint and documentation repository** (v0.1.0) that provides comprehensive guidance for building production-ready, full-",
+        "keyPoints": [
+          "✅ **Complete architectural documentation** for mobile (iOS & Android) + web applications",
+          "✅ **Security implementation patterns** (RLS, audit logging, error handling)",
+          "✅ **PRD (Product Requirements Document) templates** and examples",
+          "✅ **Design system documentation** with Figma integration guide",
+          "✅ **Best practices** for authentication, state management, testing, deployment"
+        ]
+      },
+      {
+        "heading": "Documentation Coverage",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "✅ **Backend Patterns:** Supabase (PostgreSQL, Auth, Storage, Edge Functions)",
+          "✅ **CI/CD Guides:** GitHub Actions workflow examples",
+          "✅ **Testing Strategies:** Jest, Testing Library, Playwright, Detox",
+          "✅ **Code Quality:** ESLint, Prettier, Husky, lint-staged configurations",
+          "✅ **Tooling:** Nx monorepo architecture and pnpm workspace patterns"
+        ]
+      },
+      {
+        "heading": "DevOps & Tooling",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "**Monorepo:** [Nx](https://nx.dev/) 18+",
+          "**Package Manager:** [pnpm](https://pnpm.io/) 8+",
+          "**Language:** [TypeScript](https://www.typescriptlang.org/) 5+",
+          "**Linting:** [ESLint](https://eslint.org/) 8+",
+          "**Formatting:** [Prettier](https://prettier.io/) 3+"
+        ]
+      },
+      {
+        "heading": "Planning",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "**[Roadmap](./ROADMAP.md)** - Future features and improvements",
+          "**[Changelog](./CHANGELOG.md)** - Version history"
+        ]
+      },
+      {
+        "heading": "Security & Compliance",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "**Authentication patterns** with Supabase Auth",
+          "**Row Level Security (RLS)** implementation examples",
+          "**Audit logging** for SOC 2, HIPAA, GDPR compliance",
+          "**Error handling** best practices",
+          "**Secret management** guidance"
+        ]
+      },
+      {
+        "heading": "4. Customize for Your Needs",
+        "level": 3,
+        "summary": "This blueprint is opinionated but flexible:",
+        "keyPoints": [
+          "Adapt the tech stack to your requirements",
+          "Customize the design system",
+          "Modify the PRD templates",
+          "Extend the security patterns"
+        ]
+      },
+      {
+        "heading": "Quick Contribution Steps",
+        "level": 3,
+        "summary": "1. Fork the repository",
+        "keyPoints": []
+      },
+      {
+        "heading": "📄 License",
+        "level": 2,
+        "summary": "This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.",
+        "keyPoints": []
+      },
+      {
+        "heading": "🙏 Acknowledgments",
+        "level": 2,
+        "summary": "This blueprint documents architectural patterns using amazing open-source tools:",
+        "keyPoints": [
+          "[Nx](https://nx.dev/) - Smart monorepo tooling",
+          "[Expo](https://expo.dev/) - Universal React applications",
+          "[Supabase](https://supabase.com/) - Open-source Firebase alternative",
+          "[TanStack Query](https://tanstack.com/query) - Powerful data synchronization",
+          "[NativeWind](https://www.nativewind.dev/) - Tailwind for React Native"
+        ]
+      },
+      {
+        "heading": "💬 Support",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "📖 [Complete Documentation](./docs/)",
+          "📝 [Release Notes](./CHANGELOG.md)",
+          "🐛 [Issue Tracker](https://github.com/willbnu/ChatGPT-Workspace/issues)",
+          "💬 [Discussions](https://github.com/willbnu/ChatGPT-Workspace/discussions)"
+        ]
+      },
+      {
+        "heading": "Coming in v1.0.0",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "✅ Actual Nx workspace with working apps",
+          "✅ Runnable mobile application (Expo)",
+          "✅ Runnable web application (React + Vite)",
+          "✅ Implemented shared libraries",
+          "✅ Working Supabase backend integration"
+        ]
+      }
+    ]
+  }
+}

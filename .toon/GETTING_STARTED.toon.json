@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "source": "GETTING_STARTED.md",
+  "sourceHash": "ec941d1ff765d3fb5cb4f310325a8061c2d2f4ee16a56924bba66a8a43b9cbc9",
+  "generatedAt": "2025-11-16T12:41:35.258Z",
+  "tokenCount": {
+    "original": 2376,
+    "compressed": 684,
+    "savings": 71
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "🚀 Getting Started with This Template",
+      "description": "",
+      "tags": [
+        "expo",
+        "react",
+        "supabase",
+        "ci/cd",
+        "api",
+        "typescript",
+        "auth"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "🎯 What You Have",
+        "level": 2,
+        "summary": "A **production-ready app template** with:",
+        "keyPoints": []
+      },
+      {
+        "heading": "📝 Path B: PRD-First Workflow (Recommended)",
+        "level": 3,
+        "summary": "**Best for:** Complex projects, team collaboration, or when you need stakeholder alignment.",
+        "keyPoints": []
+      },
+      {
+        "heading": "⚡ Quick Start (Code-First)",
+        "level": 2,
+        "summary": "**Get up and running in 5 minutes:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "Step 1: Write Your PRD",
+        "level": 3,
+        "summary": "**Before writing any code, define your product:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "Step 4: Build According to PRD",
+        "level": 3,
+        "summary": "Use your PRD as the source of truth:",
+        "keyPoints": [
+          "Reference user stories during development",
+          "Implement features in priority order (P0 → P1 → P2)",
+          "Check off completed items",
+          "Update PRD when requirements change"
+        ]
+      },
+      {
+        "heading": "For Contributors",
+        "level": 3,
+        "summary": "| File | Purpose | When to Read |",
+        "keyPoints": []
+      },
+      {
+        "heading": "Nx Utilities",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "bash",
+            "purpose": "Example",
+            "code": "pnpm nx graph           # View dependency graph\npnpm nx affected:test   # Test affected projects\npnpm nx affected:build  # Build affected projects"
+          }
+        ]
+      },
+      {
+        "heading": "3. Customize Branding",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "Update app icons (apps/mobile/assets/)",
+          "Update color scheme (libs/@app/shared-ui/src/theme/)",
+          "Update fonts if needed",
+          "Update splash screens"
+        ]
+      },
+      {
+        "heading": "Week 9: Launch!",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "[ ] Submit to app stores",
+          "[ ] Deploy web app",
+          "[ ] Launch marketing",
+          "[ ] Monitor and iterate"
+        ]
+      },
+      {
+        "heading": "Q: How do I get help?",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "**Documentation:** Check the docs/ folder",
+          "**Issues:** Open a GitHub issue",
+          "**Discussions:** Use GitHub Discussions",
+          "**Community:** Join our community (link TBD)"
+        ]
+      },
+      {
+        "heading": "🎯 Success Checklist",
+        "level": 2,
+        "summary": "Before starting development, ensure you have:",
+        "keyPoints": [
+          "[ ] PRD written and approved",
+          "[ ] User stories defined",
+          "[ ] Features prioritized",
+          "[ ] Technical architecture planned",
+          "[ ] Development environment configured"
+        ]
+      },
+      {
+        "heading": "🌟 Next Steps",
+        "level": 2,
+        "summary": "1. **[Write your PRD](./prd/README.md)** ← Start here!",
+        "keyPoints": []
+      },
+      {
+        "heading": "💡 Pro Tips",
+        "level": 2,
+        "summary": "---",
+        "keyPoints": [
+          "**Start small:** Build MVP first, add features later",
+          "**Stay organized:** Keep PRD updated as requirements change",
+          "**Test early:** Write tests as you build features",
+          "**Ship often:** Use EAS Update for rapid iteration",
+          "**Get feedback:** Beta test before public launch"
+        ]
+      }
+    ]
+  }
+}

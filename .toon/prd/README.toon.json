@@ -1,0 +1,164 @@
+{
+  "version": "1.0",
+  "source": "prd/README.md",
+  "sourceHash": "2e7babc7e554a7c08ab39f6ed80b3a4d10a0248fd40ee74ebb2fa6cf6f66d698",
+  "generatedAt": "2025-11-16T12:41:35.260Z",
+  "tokenCount": {
+    "original": 1774,
+    "compressed": 901,
+    "savings": 49
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "PRD (Product Requirements Document) - Starting Point for New Apps",
+      "description": "",
+      "tags": [
+        "api",
+        "ci/cd"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "📋 What is a PRD?",
+        "level": 2,
+        "summary": "A Product Requirements Document (PRD) is a comprehensive document that defines:",
+        "keyPoints": [
+          "**What** you're building",
+          "**Why** you're building it",
+          "**Who** it's for",
+          "**How** it should work",
+          "**When** it needs to be delivered"
+        ]
+      },
+      {
+        "heading": "3. Use PRD to Build",
+        "level": 3,
+        "summary": "Once your PRD is complete:",
+        "keyPoints": []
+      },
+      {
+        "heading": "📁 Folder Structure",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "text",
+            "purpose": "Example",
+            "code": "prd/\n├── README.md                    # This file\n├── templates/\n│   ├── prd-template.md          # Main PRD template\n│   ├── feature-spec.md          # (Coming Soon) Individual feature specification\n│   └── technical-spec.md        # (Coming Soon) Technical architecture spec\n├── examples/\n│   ├── todo-app-prd.md          # Example: Simple todo app\n│   ├── social-app-prd.md        # (Coming Soon) Example: Social networking app\n│   └── ecommerce-app-prd.md     # (Coming Soon) Example: E-commerce "
+          }
+        ]
+      },
+      {
+        "heading": "Phase 4: Iteration",
+        "level": 3,
+        "summary": "1. **Update PRD** as requirements change",
+        "keyPoints": []
+      },
+      {
+        "heading": "3. **technical-spec.md**",
+        "level": 3,
+        "summary": "Technical architecture and implementation details.",
+        "keyPoints": [
+          "Finalizing technical approach",
+          "Documenting system design",
+          "Planning infrastructure"
+        ]
+      },
+      {
+        "heading": "E-commerce App (Complex)",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "Product catalog",
+          "Shopping cart",
+          "Payment processing",
+          "Order management",
+          "**Complexity:** High"
+        ]
+      },
+      {
+        "heading": "External Resources",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "[Product School PRD Guide](https://productschool.com/blog/product-management-2/how-to-write-product-requirements-document/)",
+          "[Atlassian PRD Template](https://www.atlassian.com/software/confluence/templates/product-requirements-document)",
+          "[Lenny's Newsletter on PRDs](https://www.lennysnewsletter.com/p/product-requirement-documents)"
+        ]
+      },
+      {
+        "heading": "✅ PRD Checklist",
+        "level": 2,
+        "summary": "Before starting development, ensure your PRD has:",
+        "keyPoints": [
+          "[ ] Clear product vision and goals",
+          "[ ] Target audience defined",
+          "[ ] Problem statement articulated",
+          "[ ] Success metrics identified",
+          "[ ] User stories written"
+        ]
+      },
+      {
+        "heading": "🔄 PRD Lifecycle",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "text",
+            "purpose": "Example",
+            "code": "1. Draft → 2. Review → 3. Approved → 4. In Development → 5. Completed\n   │          │           │              │                   │\n   └──────────┴───────────┴──────────────┴───────────────────┘\n                  Update as needed"
+          }
+        ]
+      },
+      {
+        "heading": "For Designers",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "Use PRD to understand user needs",
+          "Design flows based on user stories",
+          "Collaborate on wireframes",
+          "Ensure designs match requirements"
+        ]
+      },
+      {
+        "heading": "Week 11-12: Launch",
+        "level": 3,
+        "summary": "",
+        "keyPoints": [
+          "Beta testing",
+          "Marketing preparation",
+          "App store submission",
+          "Production deployment"
+        ]
+      },
+      {
+        "heading": "🎯 Success Stories",
+        "level": 2,
+        "summary": "Learn from apps built with this template:",
+        "keyPoints": [
+          "[Link to showcase once available]"
+        ]
+      },
+      {
+        "heading": "💬 Getting Help",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [
+          "**Questions:** Open a [Discussion](https://github.com/YOUR-ORG/YOUR-REPO/discussions)",
+          "**PRD Reviews:** Request feedback via PR",
+          "**Examples:** Check `prd/examples/` folder"
+        ]
+      },
+      {
+        "heading": "🚀 Ready to Start?",
+        "level": 2,
+        "summary": "1. **Read:** [How to Write a PRD](./guides/how-to-write-prd.md)",
+        "keyPoints": []
+      }
+    ]
+  }
+}

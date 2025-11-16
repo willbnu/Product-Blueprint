@@ -1,0 +1,212 @@
+{
+  "version": "1.0",
+  "source": "prd/examples/todo-app-prd.md",
+  "sourceHash": "85c63c94e075c64db9b6d312585e2ad3bcf3a81469faeccfd4fc4798bdcd1754",
+  "generatedAt": "2025-11-16T12:41:35.259Z",
+  "tokenCount": {
+    "original": 3015,
+    "compressed": 1326,
+    "savings": 56
+  },
+  "type": "markdown",
+  "content": {
+    "metadata": {
+      "title": "Product Requirements Document: Todo Master",
+      "description": "",
+      "tags": [
+        "supabase",
+        "typescript",
+        "api",
+        "auth",
+        "rls",
+        "react",
+        "rest"
+      ]
+    },
+    "structure": [
+      {
+        "heading": "Executive Summary",
+        "level": 2,
+        "summary": "Todo Master is a simple, beautiful todo list app that helps users organize their tasks across mobile and web platforms. Unlike cluttered task managers",
+        "keyPoints": [
+          "**Platform:** iOS, Android, Web",
+          "**MVP Timeline:** 6 weeks",
+          "**Core Value Prop:** The fastest way to manage your daily tasks"
+        ]
+      },
+      {
+        "heading": "Mission",
+        "level": 3,
+        "summary": "Help people clear their minds by capturing tasks instantly, organizing them effortlessly, and feeling satisfied as they complete them.",
+        "keyPoints": []
+      },
+      {
+        "heading": "Persona 2: Mike - College Student",
+        "level": 4,
+        "summary": "---",
+        "keyPoints": [
+          "**Age:** 21",
+          "**Background:** Computer Science major, juggling classes and part-time job",
+          "**Goals:** Remember assignments and deadlines",
+          "**Pain Points:** Forgets tasks, needs quick capture between classes",
+          "**Needs:** Mobile-first, fast sync, simple interface"
+        ]
+      },
+      {
+        "heading": "The Problem",
+        "level": 3,
+        "summary": "People need a quick way to capture tasks, but existing solutions are either:",
+        "keyPoints": [
+          "Users resort to sticky notes or notebook apps",
+          "Tasks get forgotten or lost",
+          "No satisfaction from completing tasks",
+          "Switching between devices causes friction",
+          "Decreased productivity"
+        ]
+      },
+      {
+        "heading": "Success Metrics (KPIs)",
+        "level": 3,
+        "summary": "**Acquisition:**",
+        "keyPoints": [
+          "Downloads: 10,000 in first 3 months",
+          "Signups: 5,000 registered users",
+          "DAU: 2,000 users",
+          "Tasks created per user per day: 3+",
+          "Tasks completed per user per day: 2+"
+        ]
+      },
+      {
+        "heading": "User Stories",
+        "level": 2,
+        "summary": "**Authentication & Onboarding**",
+        "keyPoints": [
+          "As a new user, I want to sign up in under 30 seconds, so I can start using the app immediately",
+          "As a returning user, I want automatic login, so I don't waste time",
+          "As a user, I want to add a task with just a title, so I can capture thoughts quickly",
+          "As a user, I want to mark tasks complete with one tap, so I feel productive",
+          "As a user, I want to see my tasks in a clean list, so I'm not overwhelmed"
+        ]
+      },
+      {
+        "heading": "Post-MVP (Phase 2)",
+        "level": 3,
+        "summary": "1. **Enhanced Organization**",
+        "keyPoints": []
+      },
+      {
+        "heading": "Flow 3: Complete Task",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [],
+        "codeBlocks": [
+          {
+            "language": "text",
+            "purpose": "Example",
+            "code": "1. User sees task in list\n2. Tap checkbox (mobile) or click checkbox (web)\n3. Satisfying animation (checkbox fill, confetti)\n4. Task marked complete\n5. Moves to \"Completed\" filter\n6. Undo option appears briefly"
+          }
+        ]
+      },
+      {
+        "heading": "Third-Party Services",
+        "level": 3,
+        "summary": "**Required:**",
+        "keyPoints": [
+          "Supabase (database, auth, real-time)",
+          "Sentry (error tracking)",
+          "PostHog (analytics)"
+        ]
+      },
+      {
+        "heading": "Key UI Elements",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "**Floating Action Button:** Primary CTA for adding tasks",
+          "**Checkboxes:** Large touch targets (44x44px minimum)",
+          "**Animations:** Spring animations for satisfaction",
+          "**Empty States:** Friendly illustrations when no tasks"
+        ]
+      },
+      {
+        "heading": "Security",
+        "level": 3,
+        "summary": "**Row Level Security (RLS):**",
+        "keyPoints": [
+          "Minimum password length: 8 characters",
+          "Require: 1 uppercase, 1 lowercase, 1 number",
+          "Use Supabase Auth (secure by default)",
+          "Password hashing: bcrypt (handled by Supabase)",
+          "Session timeout: 24 hours"
+        ],
+        "codeBlocks": [
+          {
+            "language": "sql",
+            "purpose": "Example",
+            "code": "-- Enable RLS on tasks table\nALTER TABLE tasks ENABLE ROW LEVEL SECURITY;\n\n-- Policy: Users can only view their own tasks\nCREATE POLICY \"Users can view own tasks\"\n  ON tasks FOR SELECT\n  USING (auth.uid() = user_id);\n\n-- Policy: Users can only insert tasks for themselves\nCREATE POLICY \"Users can insert own tasks\"\n  ON tasks FOR INSERT\n  WITH CHECK (auth.uid() = user_id);\n\n-- Policy: Users can only update their own tasks\nCREATE POLICY \"Users can update own tasks\"\n  ON tasks FOR UPDATE\n  USING (au"
+          }
+        ]
+      },
+      {
+        "heading": "Week 6: Launch Prep",
+        "level": 3,
+        "summary": "---",
+        "keyPoints": [
+          "[ ] Beta testing",
+          "[ ] Bug fixes",
+          "[ ] App store submission",
+          "[ ] Launch!"
+        ]
+      },
+      {
+        "heading": "Success Criteria",
+        "level": 2,
+        "summary": "**MVP is successful if:**",
+        "keyPoints": []
+      },
+      {
+        "heading": "Out of Scope (MVP)",
+        "level": 2,
+        "summary": "These will be considered for Phase 2 based on user feedback.",
+        "keyPoints": [
+          "Recurring tasks",
+          "Subtasks",
+          "Team collaboration",
+          "Calendar integration",
+          "File attachments"
+        ]
+      },
+      {
+        "heading": "Risks & Mitigation",
+        "level": 2,
+        "summary": "**Risk:** Users find it too simple, want more features",
+        "keyPoints": [
+          "**Mitigation:** Focus on nailing core experience first, gather feedback",
+          "**Mitigation:** Robust offline queue, retry logic, testing",
+          "**Mitigation:** Habit-forming features (streaks, weekly summaries), notifications"
+        ]
+      },
+      {
+        "heading": "Competitor Analysis",
+        "level": 3,
+        "summary": "**Our Advantage:** Fastest task entry + beautiful design + cross-platform + free",
+        "keyPoints": [
+          "**Todoist:** Too complex, too many features",
+          "**Things 3:** Great design, but iOS only, expensive",
+          "**Microsoft To Do:** Solid, but not delightful",
+          "**Google Tasks:** Too basic, ugly UI"
+        ]
+      },
+      {
+        "heading": "Sign-Off",
+        "level": 2,
+        "summary": "**Approved By:**",
+        "keyPoints": [
+          "[x] Product Lead - John Doe - 2024-01-15",
+          "[x] Tech Lead - Jane Smith - 2024-01-15",
+          "[x] Design Lead - Alex Johnson - 2024-01-15"
+        ]
+      }
+    ]
+  }
+}
