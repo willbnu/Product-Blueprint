@@ -325,21 +325,16 @@ When ready to release, move items from [Unreleased] to a new version section:
 # Move items from [Unreleased] to new version section
 # Add release date in YYYY-MM-DD format
 
-# 2. Update package.json version
-npm version minor  # or major, or patch
+# 2. Stage changelog and update version
+# npm version creates commit + tag automatically
+git add CHANGELOG.md
+npm version minor -m "chore: release v%s"  # or major, or patch
 
-# 3. Commit the changes
-git add CHANGELOG.md package.json
-git commit -m "chore: release v1.1.0"
-
-# 4. Create git tag
-git tag -a v1.1.0 -m "Release v1.1.0"
-
-# 5. Push commits and tags
+# 3. Push commits and tags
 git push origin main
 git push --tags
 
-# 6. Create GitHub Release
+# 4. Create GitHub Release
 # Go to Releases → Draft new release
 # Select tag v1.1.0
 # Copy changelog entry as release notes
@@ -361,8 +356,12 @@ git checkout -b hotfix/critical-bug
 git checkout main
 git merge hotfix/critical-bug
 
-# Tag and release
-git tag -a v1.0.1 -m "Hotfix v1.0.1"
+# Stage changelog and create patch release
+# npm version creates commit + tag automatically
+git add CHANGELOG.md
+npm version patch -m "chore: hotfix v%s"
+
+# Push commits and tags
 git push origin main --tags
 ```
 
