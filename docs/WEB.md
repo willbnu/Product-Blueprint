@@ -571,13 +571,22 @@ interface TodoStore {
   deleteTodo: (id: string) => void;
 }
 
+// Helper function for generating UUIDs with fallback for older browsers
+const generateId = () => {
+  if (typeof crypto?.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  // Fallback for older browsers (use timestamp + random)
+  return `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+};
+
 export const useTodoStore = create<TodoStore>()(
   persist(
     (set) => ({
       todos: [],
       addTodo: (title) =>
         set((state) => ({
-          todos: [...state.todos, { id: crypto.randomUUID(), title, completed: false }],
+          todos: [...state.todos, { id: generateId(), title, completed: false }],
         })),
       toggleTodo: (id) =>
         set((state) => ({
@@ -842,16 +851,33 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for auth changes (fires immediately with current session)
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    let mounted = true;
+
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!mounted) return;
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
+    }).catch((error) => {
+      console.error('Failed to get session:', error);
+      if (!mounted) return;
+      setLoading(false);
     });
 
-    return () => subscription.unsubscribe();
+    // Listen for auth changes
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!mounted) return;
+      setSession(session);
+      setUser(session?.user ?? null);
+    });
+
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
