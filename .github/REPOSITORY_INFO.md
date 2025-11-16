@@ -6,7 +6,7 @@ This file contains information for updating the GitHub repository settings.
 
 **Description:**
 ```
-Production-ready full-stack app template with PRD-first workflow. Mobile (Expo) + Web (React/Vite) + Backend (Supabase). Start with Product Requirements, build with confidence.
+Production-ready full-stack app template with PRD-first workflow, comprehensive security, and audit logging. Mobile (Expo) + Web (React/Vite) + Backend (Supabase). Includes complete documentation, design system, and compliance-ready features (SOC 2, GDPR, HIPAA).
 ```
 
 **Topics/Tags:**
@@ -29,11 +29,18 @@ cross-platform
 tailwind-css
 tanstack-query
 zustand
+security
+audit-logging
+compliance
+design-system
+error-handling
+rls
+authentication
 ```
 
 **Website:**
 ```
-https://github.com/YOUR-ORG/YOUR-REPO
+https://github.com/willbnu/ChatGPT-Workspace
 ```
 
 ## Repository Settings to Update
