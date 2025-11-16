@@ -48,6 +48,11 @@ function sanitizeLogData(data) {
                .replace(/C:\\Users\\[^\\]+/g, 'C:\\Users\\***');
   }
 
+  // Handle arrays before objects (arrays are objects in JavaScript)
+  if (Array.isArray(data)) {
+    return data.map(item => sanitizeLogData(item));
+  }
+
   if (typeof data === 'object' && data !== null) {
     const sanitized = {};
     for (const [key, value] of Object.entries(data)) {
