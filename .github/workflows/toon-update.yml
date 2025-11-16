@@ -8,6 +8,13 @@ on:
       - 'README.md'
       - '**/*.md'
       - '.toon/config.json'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'docs/**/*.md'
+      - 'README.md'
+      - '**/*.md'
+      - '.toon/config.json'
   workflow_dispatch: # Allow manual trigger
 
 concurrency:
@@ -17,6 +24,12 @@ concurrency:
 jobs:
   generate-toon:
     runs-on: ubuntu-latest
+
+    # Explicit permissions (principle of least privilege)
+    permissions:
+      contents: write        # Required for git push
+      pull-requests: write   # Required for PR comments
+      issues: write          # Required for issue comments (via PR)
 
     steps:
       - name: Checkout repository

@@ -2,11 +2,11 @@
   "version": "1.0",
   "source": "README.md",
   "sourceHash": "bdcbff4c3a7dcc8a405e8e80ee08f8304721f1a25113bcda5f9a4b45d3082419",
-  "generatedAt": "2025-11-16T12:41:35.250Z",
+  "generatedAt": "2025-11-16T13:59:31.771Z",
   "tokenCount": {
     "original": 4017,
-    "compressed": 1021,
-    "savings": 75
+    "compressed": 1212,
+    "savings": 70
   },
   "type": "markdown",
   "content": {
@@ -40,10 +40,24 @@
         ]
       },
       {
-        "heading": "Planned Quick Start (v1.0.0)",
-        "level": 3,
-        "summary": "**When v1.0.0 is released, you'll be able to start coding immediately:**",
-        "keyPoints": []
+        "heading": "📝 PRD-First Workflow (Recommended)",
+        "level": 2,
+        "summary": "**For larger projects, we strongly recommend starting with a Product Requirements Document (PRD).**",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Why PRD-First?",
+            "level": 3,
+            "summary": "A well-written PRD is your blueprint for success, especially for complex projects. It ensures:",
+            "keyPoints": [
+              "✅ Clear product vision and goals",
+              "✅ Aligned stakeholder expectations",
+              "✅ Well-defined requirements before coding",
+              "✅ Faster development with fewer pivots",
+              "✅ Better product-market fit"
+            ]
+          }
+        ]
       },
       {
         "heading": "🎯 What is This?",
@@ -58,66 +72,68 @@
         ]
       },
       {
-        "heading": "Documentation Coverage",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "✅ **Backend Patterns:** Supabase (PostgreSQL, Auth, Storage, Edge Functions)",
-          "✅ **CI/CD Guides:** GitHub Actions workflow examples",
-          "✅ **Testing Strategies:** Jest, Testing Library, Playwright, Detox",
-          "✅ **Code Quality:** ESLint, Prettier, Husky, lint-staged configurations",
-          "✅ **Tooling:** Nx monorepo architecture and pnpm workspace patterns"
+        "heading": "📖 How to Use This Blueprint",
+        "level": 2,
+        "summary": "Since this is v0.1.0 (documentation-only), here's how to use it effectively:",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "1. Review the Documentation",
+            "level": 3,
+            "summary": "Start by exploring the comprehensive guides:",
+            "keyPoints": [
+              "Read [GETTING_STARTED.md](./GETTING_STARTED.md) for an overview",
+              "Review [ARCHITECTURE.md](./ARCHITECTURE.md) to understand the system design",
+              "Study [docs/SECURITY_IMPLEMENTATION.md](./docs/SECURITY_IMPLEMENTATION.md) for security patterns"
+            ]
+          },
+          {
+            "heading": "2. Plan with PRD Templates",
+            "level": 3,
+            "summary": "Use the PRD system to plan your application:",
+            "keyPoints": [
+              "Explore [prd/examples/todo-app-prd.md](./prd/examples/todo-app-prd.md) for a complete example",
+              "Copy [prd/templates/prd-template.md](./prd/templates/prd-template.md) for your app",
+              "Fill out your requirements before coding"
+            ]
+          },
+          {
+            "heading": "3. Implement Using the Patterns",
+            "level": 3,
+            "summary": "Copy the documented patterns into your own codebase:",
+            "keyPoints": [
+              "Use the SQL examples for database schema (RLS policies, audit logs)",
+              "Adapt the TypeScript patterns for your application code",
+              "Follow the security checklist",
+              "Implement error handling using the provided examples"
+            ]
+          },
+          {
+            "heading": "4. Customize for Your Needs",
+            "level": 3,
+            "summary": "This blueprint is opinionated but flexible:",
+            "keyPoints": [
+              "Adapt the tech stack to your requirements",
+              "Customize the design system",
+              "Modify the PRD templates",
+              "Extend the security patterns"
+            ]
+          }
         ]
       },
       {
-        "heading": "DevOps & Tooling",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "**Monorepo:** [Nx](https://nx.dev/) 18+",
-          "**Package Manager:** [pnpm](https://pnpm.io/) 8+",
-          "**Language:** [TypeScript](https://www.typescriptlang.org/) 5+",
-          "**Linting:** [ESLint](https://eslint.org/) 8+",
-          "**Formatting:** [Prettier](https://prettier.io/) 3+"
+        "heading": "🤝 Contributing",
+        "level": 2,
+        "summary": "We welcome contributions! Please see our [Contributing Guidelines](./CONTRIBUTING.md) for details.",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Quick Contribution Steps",
+            "level": 3,
+            "summary": "1. Fork the repository",
+            "keyPoints": []
+          }
         ]
-      },
-      {
-        "heading": "Planning",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "**[Roadmap](./ROADMAP.md)** - Future features and improvements",
-          "**[Changelog](./CHANGELOG.md)** - Version history"
-        ]
-      },
-      {
-        "heading": "Security & Compliance",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "**Authentication patterns** with Supabase Auth",
-          "**Row Level Security (RLS)** implementation examples",
-          "**Audit logging** for SOC 2, HIPAA, GDPR compliance",
-          "**Error handling** best practices",
-          "**Secret management** guidance"
-        ]
-      },
-      {
-        "heading": "4. Customize for Your Needs",
-        "level": 3,
-        "summary": "This blueprint is opinionated but flexible:",
-        "keyPoints": [
-          "Adapt the tech stack to your requirements",
-          "Customize the design system",
-          "Modify the PRD templates",
-          "Extend the security patterns"
-        ]
-      },
-      {
-        "heading": "Quick Contribution Steps",
-        "level": 3,
-        "summary": "1. Fork the repository",
-        "keyPoints": []
       },
       {
         "heading": "📄 License",
@@ -149,15 +165,23 @@
         ]
       },
       {
-        "heading": "Coming in v1.0.0",
-        "level": 3,
-        "summary": "---",
-        "keyPoints": [
-          "✅ Actual Nx workspace with working apps",
-          "✅ Runnable mobile application (Expo)",
-          "✅ Runnable web application (React + Vite)",
-          "✅ Implemented shared libraries",
-          "✅ Working Supabase backend integration"
+        "heading": "🗺️ Roadmap",
+        "level": 2,
+        "summary": "See our [Roadmap](./ROADMAP.md) for planned features and the path to v1.0.0 (Production Ready).",
+        "keyPoints": [],
+        "subsections": [
+          {
+            "heading": "Coming in v1.0.0",
+            "level": 3,
+            "summary": "---",
+            "keyPoints": [
+              "✅ Actual Nx workspace with working apps",
+              "✅ Runnable mobile application (Expo)",
+              "✅ Runnable web application (React + Vite)",
+              "✅ Implemented shared libraries",
+              "✅ Working Supabase backend integration"
+            ]
+          }
         ]
       }
     ]

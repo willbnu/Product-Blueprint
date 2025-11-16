@@ -21,6 +21,29 @@ function estimateTokens(text) {
   return Math.ceil(text.length / 4);
 }
 
+// Validate that output path is within .toon directory (prevent path traversal)
+function validateOutputPath(outputPath) {
+  const absoluteOutput = path.resolve(outputPath);
+  const absoluteToonDir = path.resolve('.toon');
+
+  // Check if output path is within .toon directory
+  if (!absoluteOutput.startsWith(absoluteToonDir + path.sep) && absoluteOutput !== absoluteToonDir) {
+    throw new Error(
+      `Security: Output path must be within .toon/ directory. Got: ${outputPath}`
+    );
+  }
+
+  // Additional check: ensure no path traversal attempts in the path itself
+  const normalizedPath = path.normalize(outputPath);
+  if (normalizedPath.includes('..')) {
+    throw new Error(
+      `Security: Path traversal detected in output path: ${outputPath}`
+    );
+  }
+
+  return absoluteOutput;
+}
+
 // Calculate SHA-256 hash of file
 function calculateHash(content) {
   return crypto.createHash('sha256').update(content).digest('hex');
@@ -46,12 +69,13 @@ function extractMetadata(markdown) {
   };
 }
 
-// Parse markdown into sections
+// Parse markdown into sections with proper nesting
 function parseMarkdown(markdown) {
   const lines = markdown.split('\n');
   const sections = [];
-  let currentSection = null;
+  const sectionStack = []; // Stack to track section hierarchy
   let currentCodeBlock = null;
+  let currentListItem = null; // Track multi-line list items
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -62,34 +86,59 @@ function parseMarkdown(markdown) {
       const level = headingMatch[1].length;
       const heading = headingMatch[2].trim();
 
-      // Save previous section
-      if (currentSection && level <= 2) {
-        sections.push(currentSection);
-        currentSection = null;
+      // Finalize any pending multi-line list item
+      if (currentListItem && sectionStack.length > 0) {
+        const currentSection = sectionStack[sectionStack.length - 1];
+        currentSection.keyPoints.push(currentListItem.trim());
+        currentListItem = null;
       }
 
-      // Start new section for h2 and below
-      if (level >= 2) {
-        currentSection = {
-          heading,
-          level,
-          summary: '',
-          keyPoints: [],
-          codeBlocks: [],
-          subsections: []
-        };
+      // Create new section
+      const newSection = {
+        heading,
+        level,
+        summary: '',
+        keyPoints: [],
+        codeBlocks: [],
+        subsections: []
+      };
+
+      // Pop sections from stack until we find the parent level
+      while (sectionStack.length > 0 && sectionStack[sectionStack.length - 1].level >= level) {
+        const poppedSection = sectionStack.pop();
+
+        // Add popped section to its parent or root
+        if (sectionStack.length > 0) {
+          sectionStack[sectionStack.length - 1].subsections.push(poppedSection);
+        } else {
+          sections.push(poppedSection);
+        }
       }
+
+      // Only track sections at level 2 and below to avoid h1 (page title)
+      if (level >= 2) {
+        sectionStack.push(newSection);
+      }
+
       continue;
     }
 
     // Code block detection
     if (line.startsWith('```')) {
+      // Finalize any pending multi-line list item
+      if (currentListItem && sectionStack.length > 0) {
+        const currentSection = sectionStack[sectionStack.length - 1];
+        currentSection.keyPoints.push(currentListItem.trim());
+        currentListItem = null;
+      }
+
       if (!currentCodeBlock) {
         const language = line.substring(3).trim() || 'text';
         currentCodeBlock = { language, code: '', lines: [] };
       } else {
         // End code block
-        if (currentSection && currentCodeBlock.lines.length > 0) {
+        if (sectionStack.length > 0 && currentCodeBlock.lines.length > 0) {
+          const currentSection = sectionStack[sectionStack.length - 1];
           // Only keep minimal code blocks
           const code = currentCodeBlock.lines.join('\n').trim();
           if (code.length < 1000 && estimateTokens(code) < 200) {
@@ -112,24 +161,65 @@ function parseMarkdown(markdown) {
       continue;
     }
 
-    // Key points (bullet points)
-    if (currentSection && line.match(/^[-*]\s+(.+)$/)) {
-      const point = line.replace(/^[-*]\s+/, '').trim();
-      if (point.length < 200) {
-        currentSection.keyPoints.push(point);
+    // Key points (bullet points) - support multi-line
+    if (sectionStack.length > 0) {
+      const bulletMatch = line.match(/^[-*]\s+(.+)$/);
+
+      if (bulletMatch) {
+        // Finalize previous list item if exists
+        if (currentListItem) {
+          const currentSection = sectionStack[sectionStack.length - 1];
+          currentSection.keyPoints.push(currentListItem.trim());
+        }
+        // Start new list item
+        currentListItem = bulletMatch[1].trim();
+        continue;
       }
-      continue;
+
+      // Continuation line for multi-line list items
+      if (currentListItem && line.match(/^\s+\S/)) {
+        currentListItem += ' ' + line.trim();
+        continue;
+      }
+
+      // If we hit a non-continuation line, finalize the list item
+      if (currentListItem && line.trim() === '') {
+        const currentSection = sectionStack[sectionStack.length - 1];
+        if (currentListItem.length < 300) {
+          currentSection.keyPoints.push(currentListItem.trim());
+        }
+        currentListItem = null;
+        continue;
+      }
     }
 
     // Summary text (first paragraph after heading)
-    if (currentSection && !currentSection.summary && line.trim() && !line.startsWith('>')) {
-      currentSection.summary = line.trim().substring(0, 200);
+    if (sectionStack.length > 0) {
+      const currentSection = sectionStack[sectionStack.length - 1];
+      if (!currentSection.summary && line.trim() && !line.startsWith('>') && !currentListItem) {
+        currentSection.summary = line.trim().substring(0, 200);
+      }
     }
   }
 
-  // Save last section
-  if (currentSection) {
-    sections.push(currentSection);
+  // Finalize any pending multi-line list item
+  if (currentListItem && sectionStack.length > 0) {
+    const currentSection = sectionStack[sectionStack.length - 1];
+    if (currentListItem.length < 300) {
+      currentSection.keyPoints.push(currentListItem.trim());
+    }
+  }
+
+  // Pop all remaining sections from stack
+  while (sectionStack.length > 0) {
+    const poppedSection = sectionStack.pop();
+
+    // Add popped section to its parent or root
+    if (sectionStack.length > 0) {
+      sectionStack[sectionStack.length - 1].subsections.push(poppedSection);
+    } else {
+      sections.push(poppedSection);
+    }
   }
 
   return sections;
@@ -167,6 +257,9 @@ function compressSections(sections) {
 // Main conversion function
 function convertToTOON(inputFile, outputFile) {
   try {
+    // Validate output path to prevent path traversal attacks
+    const validatedOutputPath = validateOutputPath(outputFile);
+
     // Read source file
     const sourceContent = fs.readFileSync(inputFile, 'utf8');
     const sourceHash = calculateHash(sourceContent);
@@ -201,13 +294,13 @@ function convertToTOON(inputFile, outputFile) {
     };
 
     // Ensure output directory exists
-    const outputDir = path.dirname(outputFile);
+    const outputDir = path.dirname(validatedOutputPath);
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true });
     }
 
     // Write TOON file
-    fs.writeFileSync(outputFile, JSON.stringify(toon, null, 2), 'utf8');
+    fs.writeFileSync(validatedOutputPath, JSON.stringify(toon, null, 2), 'utf8');
 
     // Log results
     console.log(`✅ Converted: ${inputFile}`);

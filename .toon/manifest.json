@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generatedAt": "2025-11-16T12:41:35.264Z",
+  "generatedAt": "2025-11-16T13:59:31.783Z",
   "files": [
     {
       "source": "README.md",
@@ -15,20 +15,12 @@
       "toon": ".toon/CONTRIBUTING.toon.json"
     },
     {
-      "source": "design-system/README.md",
-      "toon": ".toon/design-system/README.toon.json"
-    },
-    {
       "source": "GETTING_STARTED.md",
       "toon": ".toon/GETTING_STARTED.toon.json"
     },
     {
       "source": "prd/examples/todo-app-prd.md",
       "toon": ".toon/prd/examples/todo-app-prd.toon.json"
-    },
-    {
-      "source": "prd/README.md",
-      "toon": ".toon/prd/README.toon.json"
     },
     {
       "source": "prd/templates/prd-template.md",
