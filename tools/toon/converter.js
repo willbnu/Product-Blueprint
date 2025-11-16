@@ -37,8 +37,8 @@ function validateOutputPath(outputPath) {
   }
 
   // Additional check: ensure no path traversal attempts in the path itself
-  const normalizedPath = path.normalize(outputPath);
-  if (normalizedPath.includes('..')) {
+  // Check original string to prevent bypasses via normalization
+  if (outputPath.includes('..')) {
     throw new Error(
       `Security: Path traversal detected in output path: ${outputPath}`
     );
