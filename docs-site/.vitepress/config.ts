@@ -88,6 +88,7 @@ export default defineConfig({
           text: 'Design System',
           items: [
             { text: 'Overview', link: '/design-system/' },
+            { text: 'Web Interface Guidelines', link: '/design-system/WEB_INTERFACE_GUIDELINES' },
             { text: 'Design Tokens', link: '/design-system/DESIGN_TOKENS' },
             { text: 'Figma Integration', link: '/design-system/FIGMA' },
             { text: 'Workflow', link: '/design-system/WORKFLOW' },
@@ -115,7 +116,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/willbnu/ChatGPT-Workspace' }
+      { icon: 'github', link: 'https://github.com/willbnu/Product-Blueprint' }
     ],
 
     footer: {
@@ -128,7 +129,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/willbnu/ChatGPT-Workspace/edit/main/:path',
+      pattern: 'https://github.com/willbnu/Product-Blueprint/edit/main/:path',
       text: 'Edit this page on GitHub'
     },
 
