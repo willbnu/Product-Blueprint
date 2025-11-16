@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /getting-started/
+      link: /GETTING_STARTED
     - theme: alt
       text: Choose Your Path
-      link: /paths/
+      link: /docs/paths/
     - theme: alt
       text: View on GitHub
       link: https://github.com/willbnu/ChatGPT-Workspace
@@ -23,17 +23,17 @@ features:
   - icon: 📱
     title: Cross-Platform Ready
     details: Build for iOS, Android, and web from a single codebase with Expo and React
-    link: /architecture/
+    link: /ARCHITECTURE
 
   - icon: 🔐
     title: Security-First
     details: Enterprise-grade security patterns with RLS, audit logging, and compliance guidance
-    link: /security/
+    link: /docs/SECURITY_IMPLEMENTATION
 
   - icon: 📚
     title: Comprehensive Documentation
     details: 9,000+ lines of documentation covering architecture, security, testing, and deployment
-    link: /architecture/
+    link: /ARCHITECTURE
 
   - icon: 🚀
     title: PRD-First Workflow
@@ -48,22 +48,22 @@ features:
   - icon: 🧪
     title: Testing Strategies
     details: Complete testing guide with Jest, Testing Library, Playwright, and Detox
-    link: /architecture/
+    link: /TESTING
 
   - icon: 📖
     title: Documentation Paths
     details: Guided journeys for mobile, web, full-stack, compliance, and MVP development
-    link: /paths/
+    link: /docs/paths/
 
   - icon: 🏥
     title: Compliance Ready
     details: HIPAA, GDPR, SOC 2, and PCI DSS compliance patterns and checklists
-    link: /security/
+    link: /docs/SECURITY_IMPLEMENTATION
 
   - icon: ⚡
     title: Modern Tech Stack
     details: Expo, React, Vite, Supabase, Nx, TypeScript, and more
-    link: /architecture/tech-stack
+    link: /ARCHITECTURE
 ---
 
 ## 🎯 What is This?
@@ -86,11 +86,11 @@ This is a **GitHub Template Repository**. Click "Use this template" to create yo
 
 Follow a guided documentation journey based on what you're building:
 
-- [📱 Mobile-First Application](/paths/mobile-first) - 3-4 weeks to MVP
-- [🌐 Web-First Application](/paths/web-first) - 2-3 weeks to MVP
-- [🚀 Full-Stack Application](/paths/full-stack) - 4-6 weeks to MVP
-- [🏥 Compliance-Heavy Application](/paths/compliance-heavy) - 5-8 weeks to MVP
-- [⚡ Quick MVP](/paths/quick-mvp) - 1-2 weeks to prototype
+- [📱 Mobile-First Application](/docs/paths/mobile-first-app) - 3-4 weeks to MVP
+- [🌐 Web-First Application](/docs/paths/web-first-app) - 2-3 weeks to MVP
+- [🚀 Full-Stack Application](/docs/paths/full-stack-app) - 4-6 weeks to MVP
+- [🏥 Compliance-Heavy Application](/docs/paths/compliance-heavy-app) - 5-8 weeks to MVP
+- [⚡ Quick MVP](/docs/paths/quick-mvp) - 1-2 weeks to prototype
 
 ### 3. Build Your App
 
@@ -119,10 +119,10 @@ Use this blueprint's documentation as your reference guide while building.
 
 ## 📚 Learn More
 
-- [Getting Started Guide](/getting-started/)
-- [Documentation Paths](/paths/)
-- [Architecture Overview](/architecture/)
-- [Security Implementation](/security/)
+- [Getting Started Guide](/GETTING_STARTED)
+- [Documentation Paths](/docs/paths/)
+- [Architecture Overview](/ARCHITECTURE)
+- [Security Implementation](/docs/SECURITY_IMPLEMENTATION)
 - [PRD System](/prd/)
 
 ## 📄 License
