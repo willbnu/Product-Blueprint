@@ -765,18 +765,10 @@ steps:
   - uses: actions/setup-node@v4
     with:
       node-version: '20'
-      cache: 'pnpm'  # Automatic caching
+      cache: 'pnpm'  # Automatic dependency caching
 
-  - name: Get pnpm store directory
-    id: pnpm-cache
-    run: echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-  - uses: actions/cache@v3
-    with:
-      path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-      key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      restore-keys: |
-        ${{ runner.os }}-pnpm-store-
+  # Note: Manual caching is not needed when using cache: 'pnpm'
+  # The setup-node action handles pnpm store caching automatically
 ```
 
 ### Build Caching

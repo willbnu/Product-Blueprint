@@ -577,7 +577,7 @@ export const useTodoStore = create<TodoStore>()(
       todos: [],
       addTodo: (title) =>
         set((state) => ({
-          todos: [...state.todos, { id: Date.now().toString(), title, completed: false }],
+          todos: [...state.todos, { id: crypto.randomUUID(), title, completed: false }],
         })),
       toggleTodo: (id) =>
         set((state) => ({
@@ -634,9 +634,13 @@ export function useTodos() {
 
   const addTodo = useMutation({
     mutationFn: async (title: string) => {
+      // Get authenticated user
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('User not authenticated');
+
       const { data, error } = await supabase
         .from('todos')
-        .insert({ title })
+        .insert({ title, user_id: user.id })
         .select()
         .single();
 
@@ -838,19 +842,13 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    // Listen for auth changes
+    // Listen for auth changes (fires immediately with current session)
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
       setUser(session?.user ?? null);
+      setLoading(false);
     });
 
     return () => subscription.unsubscribe();
