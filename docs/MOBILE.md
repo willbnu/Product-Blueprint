@@ -67,6 +67,18 @@ pnpm install
 pnpm start
 ```
 
+**📦 Required Dependencies for UUID Generation:**
+
+React Native doesn't include the Web Crypto API, so you'll need these packages for UUID generation:
+
+```bash
+# Install UUID library and crypto polyfill
+pnpm add uuid react-native-get-random-values
+
+# Install types (development)
+pnpm add -D @types/uuid
+```
+
 ### app.json Configuration
 
 ```json
@@ -490,6 +502,8 @@ export function Input({
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 import { MMKV } from 'react-native-mmkv';
+import 'react-native-get-random-values'; // Polyfill for crypto in React Native
+import { v4 as uuidv4 } from 'uuid';
 
 const storage = new MMKV();
 
@@ -512,7 +526,7 @@ export const useTodoStore = create<TodoStore>()(
       todos: [],
       addTodo: (title) =>
         set((state) => ({
-          todos: [...state.todos, { id: Date.now().toString(), title, completed: false }],
+          todos: [...state.todos, { id: uuidv4(), title, completed: false }],
         })),
       toggleTodo: (id) =>
         set((state) => ({
@@ -581,9 +595,13 @@ export function useTodos() {
 
   const addTodo = useMutation({
     mutationFn: async (title: string) => {
+      // Get authenticated user
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) throw new Error('User not authenticated');
+
       const { data, error } = await supabase
         .from('todos')
-        .insert({ title })
+        .insert({ title, user_id: user.id })
         .select()
         .single();
 
@@ -856,10 +874,17 @@ export function useAuth() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let mounted = true;
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!mounted) return;
       setSession(session);
       setUser(session?.user ?? null);
+      setLoading(false);
+    }).catch((error) => {
+      console.error('Failed to get session:', error);
+      if (!mounted) return;
       setLoading(false);
     });
 
@@ -867,11 +892,15 @@ export function useAuth() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!mounted) return;
       setSession(session);
       setUser(session?.user ?? null);
     });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      mounted = false;
+      subscription.unsubscribe();
+    };
   }, []);
 
   const signIn = async (email: string, password: string) => {
@@ -1254,4 +1283,4 @@ npx expo start --clear
 
 ---
 
-**Made with ❤️ for mobile developers**
+**Made with ❤️ by [William Finger](https://github.com/willbnu) for mobile developers**

@@ -615,24 +615,34 @@ serve(async (req) => {
   }
 
   try {
-    // Initialize Supabase client
-    const supabaseClient = createClient(
-      Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
-    );
-
     // Verify authentication
     const authHeader = req.headers.get('Authorization');
     if (!authHeader) {
-      throw new Error('Missing authorization header');
+      return new Response(
+        JSON.stringify({ error: 'Missing authorization header' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
-    const { data: { user }, error: authError } = await supabaseClient.auth.getUser(
-      authHeader.replace('Bearer ', '')
+    // Initialize Supabase client with user's auth token (enforces RLS)
+    const supabaseClient = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      {
+        global: {
+          headers: { Authorization: authHeader },
+        },
+      }
     );
 
+    // Get authenticated user (RLS will be enforced on all queries)
+    const { data: { user }, error: authError } = await supabaseClient.auth.getUser();
+
     if (authError || !user) {
-      throw new Error('Unauthorized');
+      return new Response(
+        JSON.stringify({ error: 'Unauthorized' }),
+        { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      );
     }
 
     // Parse request body
@@ -1047,11 +1057,14 @@ describe('Todos API', () => {
 
 ---
 
-**Next Steps:**
-1. Choose your API architecture (REST, tRPC, or Edge Functions)
-2. Implement authentication and authorization
-3. Set up validation with Zod
-4. Add comprehensive error handling
-5. Implement rate limiting
-6. Write API documentation
-7. Add automated tests
+## Next Steps
+
+- **[Mobile Development](./MOBILE.md)** - Mobile app integration with APIs
+- **[Web Development](./WEB.md)** - Web app integration with APIs
+- **[Backend Guide](./BACKEND.md)** - Supabase backend setup
+- **[Testing Strategy](../TESTING.md)** - API testing patterns
+- **[Security Implementation](./SECURITY_IMPLEMENTATION.md)** - Security best practices
+
+---
+
+**Made with ❤️ by [William Finger](https://github.com/willbnu) for developers building production-ready APIs**
