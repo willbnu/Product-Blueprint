@@ -33,7 +33,7 @@ zustand
 
 **Website:**
 ```
-https://github.com/YOUR-ORG/ChatGPT-Workspace
+https://github.com/YOUR-ORG/YOUR-REPO
 ```
 
 ## Repository Settings to Update

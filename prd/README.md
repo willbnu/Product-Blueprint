@@ -44,16 +44,16 @@ prd/
 ├── README.md                    # This file
 ├── templates/
 │   ├── prd-template.md          # Main PRD template
-│   ├── feature-spec.md          # Individual feature specification
-│   └── technical-spec.md        # Technical architecture spec
+│   ├── feature-spec.md          # (Coming Soon) Individual feature specification
+│   └── technical-spec.md        # (Coming Soon) Technical architecture spec
 ├── examples/
 │   ├── todo-app-prd.md          # Example: Simple todo app
-│   ├── social-app-prd.md        # Example: Social networking app
-│   └── ecommerce-app-prd.md     # Example: E-commerce app
+│   ├── social-app-prd.md        # (Coming Soon) Example: Social networking app
+│   └── ecommerce-app-prd.md     # (Coming Soon) Example: E-commerce app
 └── guides/
-    ├── how-to-write-prd.md      # Guide to writing effective PRDs
-    ├── prd-to-implementation.md # How to go from PRD to code
-    └── best-practices.md        # PRD best practices
+    ├── how-to-write-prd.md      # (Coming Soon) Guide to writing effective PRDs
+    ├── prd-to-implementation.md # (Coming Soon) How to go from PRD to code
+    └── best-practices.md        # (Coming Soon) PRD best practices
 ```
 
 ## 🎯 PRD-Driven Development Workflow

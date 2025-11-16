@@ -276,7 +276,6 @@ WEB:
   due_date?: date
   priority?: 'high' | 'medium' | 'low'
   tags?: string[] (array of tag strings)
-  order: integer (for custom sorting)
   created_at: timestamp
   updated_at: timestamp
 }
