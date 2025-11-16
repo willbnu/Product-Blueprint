@@ -2,11 +2,11 @@
   "version": "1.0",
   "source": "CONTRIBUTING.md",
   "sourceHash": "c1beb2cf11421dda9452dc550dab3f4b921195ed4415e2b094950883a870f55d",
-  "generatedAt": "2025-11-16T12:41:35.254Z",
+  "generatedAt": "2025-11-16T13:59:31.776Z",
   "tokenCount": {
     "original": 2648,
-    "compressed": 733,
-    "savings": 72
+    "compressed": 677,
+    "savings": 74
   },
   "type": "markdown",
   "content": {
@@ -40,34 +40,41 @@
         "keyPoints": []
       },
       {
-        "heading": "Import Order",
+        "heading": "2. Install Dependencies",
         "level": 3,
         "summary": "",
         "keyPoints": [],
         "codeBlocks": [
           {
-            "language": "typescript",
+            "language": "bash",
             "purpose": "Example",
-            "code": "// 1. External dependencies\nimport React from 'react';\nimport { View, Text } from 'react-native';\n\n// 2. Internal absolute imports\nimport { Button } from '@app/shared-ui';\nimport { useAuth } from '@app/data';\n\n// 3. Relative imports\nimport { Header } from './Header';\nimport { styles } from './styles';\n\n// 4. Types\nimport type { User } from './types';"
+            "code": "pnpm install"
           }
         ]
       },
       {
-        "heading": "Conventional Commits",
-        "level": 3,
-        "summary": "We follow [Conventional Commits](https://www.conventionalcommits.org/) specification.",
-        "keyPoints": [
-          "`feat`: New feature",
-          "`fix`: Bug fix",
-          "`docs`: Documentation changes",
-          "`style`: Code style changes (formatting, etc.)",
-          "`refactor`: Code refactoring"
-        ],
+        "heading": "Related Issues",
+        "level": 2,
+        "summary": "",
+        "keyPoints": [],
         "codeBlocks": [
           {
-            "language": "text",
+            "language": "markdown",
             "purpose": "Example",
-            "code": "<type>(<scope>): <subject>\n\n<body>\n\n<footer>"
+            "code": "Brief description of what this PR does.\n\n- [ ] Bug fix (non-breaking change which fixes an issue)\n- [ ] New feature (non-breaking change which adds functionality)\n- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)\n- [ ] Documentation update\n\n- Change 1\n- Change 2\n- Change 3\n\nDescribe how you tested your changes:\n- [ ] Unit tests added/updated\n- [ ] E2E tests added/updated\n- [ ] Manually tested on iOS\n- [ ] Manually tested on Android\n- [ ] Manua"
+          }
+        ],
+        "subsections": [
+          {
+            "heading": "4. Review Process",
+            "level": 3,
+            "summary": "",
+            "keyPoints": [
+              "**Automated Checks:** CI will run tests, linting, and builds",
+              "**Code Review:** Maintainers will review your code",
+              "**Requested Changes:** Address feedback and push updates",
+              "**Approval:** Once approved, a maintainer will merge"
+            ]
           }
         ]
       },
@@ -81,28 +88,6 @@
           "**Use present tense** (\"add feature\" not \"added feature\")",
           "**Reference issues** in commit footer",
           "**Keep commits focused and atomic**"
-        ]
-      },
-      {
-        "heading": "Test Coverage",
-        "level": 3,
-        "summary": "Aim for:",
-        "keyPoints": [
-          "**Utilities/Helpers:** 90%+ coverage",
-          "**Components:** 80%+ coverage",
-          "**Hooks:** 80%+ coverage",
-          "**Integration:** Key user flows"
-        ]
-      },
-      {
-        "heading": "README Updates",
-        "level": 3,
-        "summary": "When adding new features, update relevant documentation:",
-        "keyPoints": [
-          "Main README.md",
-          "Feature-specific docs in `docs/`",
-          "API documentation",
-          "Setup instructions"
         ]
       },
       {

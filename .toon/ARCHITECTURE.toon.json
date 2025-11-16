@@ -2,11 +2,11 @@
   "version": "1.0",
   "source": "ARCHITECTURE.md",
   "sourceHash": "a152243464b29a638f35a17b994488f1aa6bf34dc15e9cfbca9274c88e7161c9",
-  "generatedAt": "2025-11-16T12:41:35.253Z",
+  "generatedAt": "2025-11-16T13:59:31.775Z",
   "tokenCount": {
     "original": 4293,
-    "compressed": 1253,
-    "savings": 71
+    "compressed": 193,
+    "savings": 96
   },
   "type": "markdown",
   "content": {
@@ -37,160 +37,6 @@
           "[Monorepo Structure](#monorepo-structure)",
           "[Data Flow](#data-flow)",
           "[State Management](#state-management)"
-        ]
-      },
-      {
-        "heading": "Realtime",
-        "level": 4,
-        "summary": "",
-        "keyPoints": [
-          "PostgreSQL CDC (Change Data Capture)",
-          "WebSocket subscriptions",
-          "Presence tracking",
-          "Broadcast channels"
-        ]
-      },
-      {
-        "heading": "Module Boundaries",
-        "level": 3,
-        "summary": "Enforced via ESLint `@nx/enforce-module-boundaries`:",
-        "keyPoints": [],
-        "codeBlocks": [
-          {
-            "language": "typescript",
-            "purpose": "Example",
-            "code": "// ✅ Allowed\nimport { Button } from '@app/shared-ui';\nimport { useAuth } from '@app/data';\n\n// ❌ Not allowed - apps can't import from each other\nimport { Screen } from '../../mobile/src/screens';"
-          }
-        ]
-      },
-      {
-        "heading": "Persistence Strategy",
-        "level": 3,
-        "summary": "**Mobile (MMKV):**",
-        "keyPoints": [
-          "Synchronous storage",
-          "Fast performance",
-          "Used by Zustand persist",
-          "Asynchronous storage",
-          "Large capacity"
-        ]
-      },
-      {
-        "heading": "Protected Routes",
-        "level": 3,
-        "summary": "**Mobile (Expo Router):**",
-        "keyPoints": [],
-        "codeBlocks": [
-          {
-            "language": "typescript",
-            "purpose": "Example",
-            "code": "// app/_layout.tsx\nexport default function RootLayout() {\n  const session = useSession();\n\n  if (!session) {\n    return <Redirect href=\"/login\" />;\n  }\n\n  return <Stack />;\n}"
-          },
-          {
-            "language": "typescript",
-            "purpose": "Example",
-            "code": "// ProtectedRoute.tsx\nexport function ProtectedRoute({ children }: PropsWithChildren) {\n  const session = useSession();\n\n  if (!session) {\n    return <Navigate to=\"/login\" replace />;\n  }\n\n  return <>{children}</>;\n}"
-          }
-        ]
-      },
-      {
-        "heading": "Optional tRPC Integration",
-        "level": 3,
-        "summary": "For custom business logic not suited for direct database queries:",
-        "keyPoints": [],
-        "codeBlocks": [
-          {
-            "language": "typescript",
-            "purpose": "Example",
-            "code": "// Edge Function with tRPC\nimport { initTRPC } from '@trpc/server';\n\nconst t = initTRPC.create();\n\nexport const appRouter = t.router({\n  todo: {\n    list: t.procedure.query(async () => {\n      // Custom logic here\n    }),\n  },\n});\n\nexport type AppRouter = typeof appRouter;"
-          }
-        ]
-      },
-      {
-        "heading": "Cross-Platform Styling",
-        "level": 3,
-        "summary": "**Mobile:**",
-        "keyPoints": [],
-        "codeBlocks": [
-          {
-            "language": "tsx",
-            "purpose": "Example",
-            "code": "import { View, Text } from 'react-native';\n\nexport function Card({ children }) {\n  return (\n    <View className=\"bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md\">\n      <Text className=\"text-lg font-semibold text-gray-900 dark:text-white\">\n        {children}\n      </Text>\n    </View>\n  );\n}"
-          },
-          {
-            "language": "tsx",
-            "purpose": "Example",
-            "code": "export function Card({ children }) {\n  return (\n    <div className=\"bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md\">\n      <h3 className=\"text-lg font-semibold text-gray-900 dark:text-white\">\n        {children}\n      </h3>\n    </div>\n  );\n}"
-          }
-        ]
-      },
-      {
-        "heading": "Offline Mutation Queue",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [],
-        "codeBlocks": [
-          {
-            "language": "typescript",
-            "purpose": "Example",
-            "code": "// libs/@app/data/src/offline-queue.ts\nexport function useMutationWithQueue() {\n  const isOnline = useNetworkStatus();\n\n  return useMutation({\n    mutationFn: async (data) => {\n      if (!isOnline) {\n        // Queue for later\n        await queueMutation(data);\n        return data;\n      }\n\n      // Execute immediately\n      return await executeRemote(data);\n    },\n  });\n}"
-          }
-        ]
-      },
-      {
-        "heading": "Deployment Targets",
-        "level": 3,
-        "summary": "**Mobile:**",
-        "keyPoints": [
-          "EAS Build → App Store / Play Store",
-          "EAS Update → OTA to existing apps",
-          "Vite build → Static assets",
-          "Deploy to Netlify / Vercel / Cloudflare Pages",
-          "Supabase migrations → Cloud database"
-        ]
-      },
-      {
-        "heading": "Why pnpm Over npm/yarn?",
-        "level": 3,
-        "summary": "**Decision:** pnpm as package manager",
-        "keyPoints": [
-          "Faster installs",
-          "Strict dependency resolution",
-          "Disk space efficient",
-          "Better monorepo support",
-          "Content-addressable storage"
-        ]
-      },
-      {
-        "heading": "Rendering",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "React.memo for expensive components",
-          "useMemo/useCallback where needed",
-          "Virtualized lists for long data",
-          "Suspense boundaries for code splitting"
-        ]
-      },
-      {
-        "heading": "Data",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "Encrypted at rest (Supabase default)",
-          "TLS in transit",
-          "Environment variables for secrets",
-          "No sensitive data in logs"
-        ]
-      },
-      {
-        "heading": "Performance",
-        "level": 3,
-        "summary": "",
-        "keyPoints": [
-          "Web Vitals (Core Web Vitals)",
-          "React Native performance monitor",
-          "Supabase query performance"
         ]
       },
       {

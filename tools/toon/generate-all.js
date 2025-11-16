@@ -27,9 +27,27 @@ function findMarkdownFiles(config) {
   const files = [];
 
   function matchPattern(filePath, patterns) {
+    // Normalize path separators for cross-platform support
+    const normalizedFilePath = filePath.replace(/\\/g, '/');
+
     return patterns.some(pattern => {
-      const regex = new RegExp(pattern.replace(/\*/g, '.*').replace(/\//g, '\\/'));
-      return regex.test(filePath);
+      // Normalize pattern separators
+      const normalizedPattern = pattern.replace(/\\/g, '/');
+
+      // Escape special regex characters first
+      let regexPattern = normalizedPattern.replace(/[.+?^${}()|[\]\\]/g, '\\$&');
+
+      // Handle glob patterns:
+      // ** matches any path depth (including /)
+      // * matches any characters except /
+      regexPattern = regexPattern
+        .replace(/\*\*/g, '<!GLOBSTAR!>') // Temporary placeholder
+        .replace(/\*/g, '[^/]*')           // Single * = match any non-slash chars
+        .replace(/<!GLOBSTAR!>/g, '.*');   // ** = match any chars including /
+
+      // Anchor the pattern to match entire path
+      const regex = new RegExp(`^${regexPattern}$`);
+      return regex.test(normalizedFilePath);
     });
   }
 
