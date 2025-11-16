@@ -1,11 +1,11 @@
 {
   "version": "1.0",
   "source": "README.md",
-  "sourceHash": "e7172164e6a3dc0509c90780dbf5e2fc398b3aaa45d5e26a090cba87809c1a31",
-  "generatedAt": "2025-11-16T14:24:03.398Z",
+  "sourceHash": "366615c27a7937164a24746dde97022840361b175e83d10ee5e5fd34b1208cfc",
+  "generatedAt": "2025-11-16T14:34:48.759Z",
   "tokenCount": {
-    "original": 4362,
-    "compressed": 1173,
+    "original": 4370,
+    "compressed": 1181,
     "savings": 73
   },
   "type": "markdown",
@@ -140,11 +140,11 @@
         "level": 2,
         "summary": "This blueprint documents architectural patterns using amazing open-source tools:",
         "keyPoints": [
+          "[TOON Format](https://github.com/toon-format/toon) - Token-Oriented Object Notation by Johann Schopplich",
           "[Nx](https://nx.dev/) - Smart monorepo tooling",
           "[Expo](https://expo.dev/) - Universal React applications",
           "[Supabase](https://supabase.com/) - Open-source Firebase alternative",
-          "[TanStack Query](https://tanstack.com/query) - Powerful data synchronization",
-          "[NativeWind](https://www.nativewind.dev/) - Tailwind for React Native"
+          "[TanStack Query](https://tanstack.com/query) - Powerful data synchronization"
         ]
       },
       {
