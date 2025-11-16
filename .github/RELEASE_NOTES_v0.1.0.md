@@ -270,4 +270,4 @@ This blueprint documents patterns using amazing open-source tools:
 
 **⭐ If you find this blueprint useful, please consider giving it a star!**
 
-Made with ❤️ for developers planning production-ready apps
+Made with ❤️ by [William Finger](https://github.com/willbnu) for developers planning production-ready apps

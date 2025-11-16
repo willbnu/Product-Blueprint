@@ -1139,4 +1139,4 @@ EXPLAIN ANALYZE SELECT * FROM todos WHERE user_id = 'uuid';
 
 ---
 
-**Made with ❤️ for backend developers**
+**Made with ❤️ by [William Finger](https://github.com/willbnu) for backend developers**

@@ -1254,4 +1254,4 @@ npx expo start --clear
 
 ---
 
-**Made with ❤️ for mobile developers**
+**Made with ❤️ by [William Finger](https://github.com/willbnu) for mobile developers**

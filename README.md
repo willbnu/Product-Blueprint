@@ -410,4 +410,4 @@ See our [Roadmap](./ROADMAP.md) for planned features and the path to v1.0.0 (Pro
 
 **⭐ If you find this blueprint useful, please consider giving it a star!**
 
-Made with ❤️ for developers building production-ready applications
+Made with ❤️ by [William Finger](https://github.com/willbnu) for developers building production-ready applications

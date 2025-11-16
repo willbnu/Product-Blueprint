@@ -1331,4 +1331,4 @@ pnpm typecheck
 
 ---
 
-**Made with ❤️ for web developers**
+**Made with ❤️ by [William Finger](https://github.com/willbnu) for web developers**
