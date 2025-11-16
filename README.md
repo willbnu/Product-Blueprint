@@ -26,18 +26,104 @@
 - [Contributing](#-contributing)
 - [License](#-license)
 
+## 🎯 How to Use This Blueprint
+
+This is a **GitHub Template Repository** - here's how to get started:
+
+### Step 1: Create Your Repository
+
+**Click the "Use this template" button** at the top of this repository, or:
+
+👉 [Create from Template](https://github.com/willbnu/ChatGPT-Workspace/generate)
+
+This creates a **brand new repository** with a clean copy of the blueprint.
+
+### Step 2: Choose Your Path
+
+Based on what you're building, follow the appropriate documentation journey:
+
+```mermaid
+graph TD
+    Start[I want to build...] --> Mobile{Mobile app?}
+    Start --> Web{Web app?}
+    Start --> Both{Both platforms?}
+    Start --> Compliance{Healthcare/Finance?}
+    Start --> Quick{Quick prototype?}
+
+    Mobile --> MobilePath[📱 Mobile-First Path<br/>3-4 weeks]
+    Web --> WebPath[🌐 Web-First Path<br/>2-3 weeks]
+    Both --> FullPath[🚀 Full-Stack Path<br/>4-6 weeks]
+    Compliance --> CompPath[🏥 Compliance Path<br/>5-8 weeks]
+    Quick --> QuickPath[⚡ Quick MVP<br/>1-2 weeks]
+
+    MobilePath --> Docs[Read Docs]
+    WebPath --> Docs
+    FullPath --> Docs
+    CompPath --> Docs
+    QuickPath --> Docs
+
+    Docs --> Build[Build Your App]
+
+    click MobilePath "./docs/paths/mobile-first-app.md"
+    click WebPath "./docs/paths/web-first-app.md"
+    click FullPath "./docs/paths/full-stack-app.md"
+    click CompPath "./docs/paths/compliance-heavy-app.md"
+    click QuickPath "./docs/paths/quick-mvp.md"
+
+    style MobilePath fill:#e1f5ff
+    style WebPath fill:#fff4e1
+    style FullPath fill:#e8f5e9
+    style CompPath fill:#fce4ec
+    style QuickPath fill:#f3e5f5
+```
+
+**📚 [View All Documentation Paths](./docs/paths/README.md)**
+
+### Step 3: Reference the Documentation
+
+Use this blueprint's documentation as your reference guide while building:
+
+- **Planning:** [PRD Templates](./prd/)
+- **Architecture:** [ARCHITECTURE.md](./ARCHITECTURE.md)
+- **Security:** [SECURITY_IMPLEMENTATION.md](./docs/SECURITY_IMPLEMENTATION.md)
+- **Mobile:** [MOBILE.md](./docs/MOBILE.md)
+- **Web:** [WEB.md](./docs/WEB.md)
+- **Backend:** [BACKEND.md](./docs/BACKEND.md)
+
+### Blueprint → Your App Flow
+
+```mermaid
+sequenceDiagram
+    participant You
+    participant Template as Blueprint Template
+    participant Repo as Your New Repo
+    participant Docs as Documentation
+    participant App as Your App
+
+    You->>Template: Click "Use this template"
+    Template->>Repo: Creates independent copy
+    You->>Repo: Clone to local machine
+    You->>Docs: Choose documentation path
+    Docs->>You: Guided reading list
+    You->>App: Build following patterns
+    Docs->>App: Reference as needed
+    You->>App: Deploy to production!
+```
+
+---
+
 ## ⚡ Quick Start (Coming in v1.0.0)
 
 > ⚠️ **Note:** The commands below are for the planned v1.0.0 release. Currently (v0.1.0), this is a documentation-only blueprint.
 >
-> **To use this blueprint now:** Review the documentation, PRD templates, and security patterns to guide your own implementation. [See How to Use](#-how-to-use-this-blueprint)
+> **To use this blueprint now:** Review the documentation, PRD templates, and security patterns to guide your own implementation.
 
 ### Planned Quick Start (v1.0.0)
 
-**When v1.0.0 is released, you'll be able to start coding immediately:**
+**When v1.0.0 is released with working code:**
 
 ```bash
-# 1. Use this template (click "Use this template" on GitHub)
+# 1. After creating from template
 git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
 cd YOUR-APP-NAME
 
@@ -132,6 +218,63 @@ This is an **architectural blueprint and documentation repository** (v0.1.0) tha
 - ✅ **Testing Strategies:** Jest, Testing Library, Playwright, Detox
 - ✅ **Code Quality:** ESLint, Prettier, Husky, lint-staged configurations
 - ✅ **Tooling:** Nx monorepo architecture and pnpm workspace patterns
+
+### System Architecture Overview
+
+```mermaid
+graph TB
+    subgraph "Frontend Applications"
+        Mobile["📱 Mobile App<br/>(Expo/React Native)<br/>iOS + Android"]
+        Web["🌐 Web App<br/>(React + Vite)<br/>Modern Browsers"]
+    end
+
+    subgraph "Shared Libraries (@app/*)"
+        UI["shared-ui<br/>Design System<br/>Components"]
+        Data["data<br/>API Client<br/>Hooks"]
+        State["state<br/>Zustand + MMKV<br/>Global State"]
+        Utils["utils<br/>Helpers<br/>Constants"]
+    end
+
+    subgraph "Backend (Supabase)"
+        Auth["🔐 Authentication<br/>JWT + RLS"]
+        DB[("💾 PostgreSQL<br/>Database")]
+        Storage["📁 Storage<br/>Files/Images"]
+        Edge["⚡ Edge Functions<br/>(Deno)"]
+        Realtime["🔄 Realtime<br/>Subscriptions"]
+    end
+
+    Mobile --> UI
+    Mobile --> Data
+    Mobile --> State
+    Mobile --> Utils
+
+    Web --> UI
+    Web --> Data
+    Web --> State
+    Web --> Utils
+
+    Data --> Auth
+    Data --> DB
+    Data --> Storage
+    Data --> Edge
+    Data --> Realtime
+
+    Auth -.-> DB
+    Edge -.-> DB
+    Realtime -.-> DB
+
+    style Mobile fill:#e1f5ff
+    style Web fill:#fff4e1
+    style UI fill:#e8f5e9
+    style Data fill:#e8f5e9
+    style State fill:#e8f5e9
+    style Utils fill:#e8f5e9
+    style Auth fill:#fce4ec
+    style DB fill:#f3e5f5
+    style Storage fill:#fce4ec
+    style Edge fill:#fce4ec
+    style Realtime fill:#fce4ec
+```
 
 ## 🛠️ Tech Stack
 

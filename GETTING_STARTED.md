@@ -17,6 +17,31 @@ A **production-ready app template** with:
 
 ## Choose Your Path
 
+**First:** This is a **GitHub Template Repository**. [Learn about templates →](./TEMPLATE_USAGE.md)
+
+**Then:** Choose your documentation journey based on what you're building:
+
+### 📱 [Mobile-First Application](./docs/paths/mobile-first-app.md)
+iOS/Android apps with Expo • 3-4 weeks to MVP
+
+### 🌐 [Web-First Application](./docs/paths/web-first-app.md)
+React web apps with Vite • 2-3 weeks to MVP
+
+### 🚀 [Full-Stack Application](./docs/paths/full-stack-app.md)
+Mobile + Web platforms • 4-6 weeks to MVP
+
+### 🏥 [Compliance-Heavy Application](./docs/paths/compliance-heavy-app.md)
+Healthcare, finance, regulated industries • 5-8 weeks to MVP
+
+### ⚡ [Quick MVP](./docs/paths/quick-mvp.md)
+Rapid prototyping and validation • 1-2 weeks to prototype
+
+**📚 [See all paths →](./docs/paths/README.md)**
+
+---
+
+**Or, start with a traditional approach:**
+
 ### ⚡ Path A: Quick Start (Code-First)
 
 **Best for:** Small projects, prototypes, or developers who prefer to start coding immediately.
@@ -39,12 +64,22 @@ A **production-ready app template** with:
 
 **Get up and running in 5 minutes:**
 
+### Step 1: Create Your Repository from Template
+
+**Click the "Use this template" button** on GitHub or visit:
+
+👉 https://github.com/willbnu/ChatGPT-Workspace/generate
+
+This creates a brand new repository with a clean copy.
+
+### Step 2: Clone and Setup
+
 ```bash
-# 1. Clone the repository
-git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
+# 1. Clone YOUR new repository (not the blueprint!)
+git clone https://github.com/YOUR-USERNAME/YOUR-APP-NAME.git
 cd YOUR-APP-NAME
 
-# 2. Install dependencies
+# 2. Install dependencies (when v1.0.0 is released)
 pnpm install
 
 # 3. Configure environment
@@ -57,10 +92,12 @@ grep -q ".env.local" .gitignore || echo ".env.local" >> .gitignore
 # Edit .env.local with your Supabase credentials
 # (from Supabase Dashboard → Settings → API)
 
-# 4. Start development
+# 4. Start development (when v1.0.0 is released)
 pnpm dev:mobile  # Mobile app
 pnpm dev:web     # Web app
 ```
+
+> **Note:** Steps 2-4 apply to v1.0.0 when working code is available. Currently (v0.1.0), use the documentation as your reference guide.
 
 **🔒 Security Checklist:**
 - [ ] `.env.local` is in `.gitignore`
