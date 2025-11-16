@@ -26,6 +26,51 @@ Complete guide for implementing security best practices in your app.
 
 **With RLS:** Each user can only access their own data, enforced at the database level.
 
+```mermaid
+graph TB
+    subgraph "Without RLS (INSECURE)"
+        User1[User A] --> DB1[(Database)]
+        User2[User B] --> DB1
+        DB1 --> AllData1[ALL User Data<br/>❌ No isolation]
+    end
+
+    subgraph "With RLS (SECURE)"
+        UserA[User A<br/>auth.uid()=111] --> DB2[(Database<br/>RLS Enabled)]
+        UserB[User B<br/>auth.uid()=222] --> DB2
+
+        DB2 --> |RLS Filter| DataA[User A's Data Only<br/>✅ Isolated]
+        DB2 --> |RLS Filter| DataB[User B's Data Only<br/>✅ Isolated]
+
+        UserA -.X.-> DataB
+        UserB -.X.-> DataA
+    end
+
+    style AllData1 fill:#ffcccc
+    style DataA fill:#ccffcc
+    style DataB fill:#ccffcc
+    style DB2 fill:#e1f5ff
+```
+
+### How RLS Works
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Supabase
+    participant RLS as RLS Engine
+    participant DB as PostgreSQL
+
+    Client->>Supabase: SELECT * FROM todos<br/>(JWT: user=Alice)
+    Supabase->>RLS: Execute query with context
+    Note over RLS: auth.uid() = Alice's ID
+    RLS->>DB: SELECT * FROM todos<br/>WHERE user_id = Alice
+    DB-->>RLS: Filtered rows
+    RLS-->>Supabase: Alice's data only
+    Supabase-->>Client: JSON response
+
+    Note over Client,DB: User can ONLY see/modify<br/>rows that pass RLS policies
+```
+
 ### Implementing RLS on Supabase
 
 #### Step 1: Enable RLS on All Tables
@@ -149,6 +194,95 @@ CREATE POLICY "View own or shared todos"
 
 ## Authentication Security
 
+### Complete Authentication Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant Supabase
+    participant DB
+    participant Email as Email Service
+
+    Note over User,Email: Sign Up Flow
+
+    User->>App: Sign up (email, password)
+    App->>App: Validate password strength
+    App->>Supabase: auth.signUp()
+    Supabase->>DB: Create user record
+    Supabase->>Email: Send confirmation email
+    Email-->>User: Confirmation link
+    User->>Supabase: Click confirmation link
+    Supabase->>DB: Mark email as verified
+    Supabase-->>App: Redirect with session
+    App-->>User: Logged in
+
+    Note over User,Email: Login Flow
+
+    User->>App: Login (email, password)
+    App->>Supabase: auth.signInWithPassword()
+    Supabase->>DB: Verify credentials
+    DB-->>Supabase: User data
+    Supabase-->>App: JWT + Refresh Token
+    App->>App: Store tokens securely
+    App-->>User: Authenticated
+
+    Note over User,Email: Session Management
+
+    App->>Supabase: API Request (with JWT)
+    Supabase->>Supabase: Verify JWT signature
+    alt JWT Expired
+        Supabase->>App: 401 Unauthorized
+        App->>Supabase: Refresh token request
+        Supabase-->>App: New JWT
+        App->>Supabase: Retry request with new JWT
+    else JWT Valid
+        Supabase->>DB: Query with auth.uid()
+        DB-->>Supabase: Data
+        Supabase-->>App: Response
+    end
+
+    Note over User,Email: Logout
+
+    User->>App: Logout
+    App->>Supabase: auth.signOut()
+    Supabase->>DB: Invalidate refresh token
+    App->>App: Clear local tokens
+    App-->>User: Logged out
+```
+
+### Token Security Architecture
+
+```mermaid
+graph TB
+    subgraph "Client Storage"
+        JWT["JWT (Access Token)<br/>Short-lived (1 hour)<br/>Stored in memory"]
+        Refresh["Refresh Token<br/>Long-lived (30 days)<br/>Stored securely"]
+    end
+
+    subgraph "Secure Storage"
+        Mobile["Mobile: MMKV<br/>Encrypted storage"]
+        Web["Web: httpOnly cookie<br/>or localStorage"]
+    end
+
+    subgraph "Supabase Auth"
+        Verify["Token Verification<br/>Signature check<br/>Expiry check"]
+        Renew["Token Renewal<br/>Refresh → New JWT"]
+    end
+
+    JWT --> Verify
+    Refresh --> Mobile
+    Refresh --> Web
+    Web --> Renew
+    Mobile --> Renew
+    Renew --> JWT
+
+    style JWT fill:#e1f5ff
+    style Refresh fill:#fff4e1
+    style Verify fill:#e8f5e9
+    style Renew fill:#e8f5e9
+```
+
 ### Password Requirements
 
 ```typescript
@@ -217,6 +351,69 @@ Audit logs provide a **reliable record of critical actions** for:
 - 📊 **Compliance** - Meet regulatory requirements (SOC 2, HIPAA, GDPR)
 - 🐛 **Debugging** - Trace actions leading to issues
 - 📈 **Analytics** - Understand user behavior patterns
+
+### Audit Logging Architecture
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant API
+    participant DB
+    participant Audit as Audit Logs Table
+
+    User->>App: Perform action<br/>(e.g., delete todo)
+    App->>API: API request
+    API->>API: Capture context:<br/>- user_id<br/>- action type<br/>- resource<br/>- IP address<br/>- timestamp
+
+    par Execute Action
+        API->>DB: DELETE FROM todos
+        DB-->>API: Success
+    and Log Event
+        API->>Audit: INSERT audit_log<br/>(event, user, resource)
+        Audit-->>API: Logged
+    end
+
+    API-->>App: Response
+    App-->>User: Action complete
+
+    Note over Audit: Immutable record<br/>Queryable for compliance<br/>Retention policy applied
+```
+
+### Audit Log Event Flow
+
+```mermaid
+graph TB
+    Event[Critical Event Occurs]
+
+    Event --> Capture[Capture Context]
+
+    Capture --> Who[Who: user_id, email, IP]
+    Capture --> What[What: resource_type, resource_id]
+    Capture --> When[When: timestamp, timezone]
+    Capture --> How[How: action, method, result]
+    Capture --> Why[Why: metadata, context]
+
+    Who --> Store[Store in Audit Log]
+    What --> Store
+    When --> Store
+    How --> Store
+    Why --> Store
+
+    Store --> Index[Index for Fast Queries]
+    Store --> Retention[Apply Retention Policy]
+    Store --> Alert{Critical Event?}
+
+    Alert -->|Yes| Notify[Send Alert]
+    Alert -->|No| Archive[Archive]
+
+    Index --> Query[Query for:<br/>- Security Analysis<br/>- Compliance Reports<br/>- Debugging]
+
+    style Event fill:#fce4ec
+    style Store fill:#e1f5ff
+    style Query fill:#e8f5e9
+    style Alert fill:#fff4e1
+```
 
 ### What to Log
 

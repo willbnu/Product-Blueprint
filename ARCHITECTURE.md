@@ -18,33 +18,67 @@ This document describes the system architecture, design decisions, and technical
 
 ## High-Level Architecture
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Frontend Layer                        │
-├──────────────────────┬──────────────────────┬───────────────┤
-│   Mobile (Expo)      │    Web (Vite)        │  Desktop*     │
-│   iOS + Android      │    React + Router    │  (Optional)   │
-└──────────────────────┴──────────────────────┴───────────────┘
-                              │
-           ┌──────────────────┼──────────────────┐
-           │                  │                  │
-    ┌──────▼──────┐   ┌──────▼──────┐   ┌──────▼──────┐
-    │  @app/      │   │  @app/      │   │  @app/      │
-    │  shared-ui  │   │   data      │   │   state     │
-    │             │   │             │   │             │
-    │ Components  │   │ API Client  │   │   Zustand   │
-    │ Design Sys. │   │ tRPC Setup  │   │   MMKV      │
-    └─────────────┘   └──────┬──────┘   └─────────────┘
-                              │
-                    ┌─────────▼──────────┐
-                    │  Backend (Supabase) │
-                    ├────────────────────┤
-                    │  PostgreSQL DB     │
-                    │  Auth Service      │
-                    │  Storage           │
-                    │  Edge Functions    │
-                    │  Realtime          │
-                    └────────────────────┘
+```mermaid
+graph TB
+    subgraph "Frontend Applications"
+        Mobile["📱 Mobile App<br/>(Expo + React Native)<br/>iOS + Android"]
+        Web["🌐 Web App<br/>(React + Vite)<br/>Modern Browsers"]
+        Desktop["💻 Desktop App<br/>(Tauri - Optional)<br/>Windows + macOS + Linux"]
+    end
+
+    subgraph "Shared Libraries (@app/*)"
+        UI["shared-ui<br/>Components + Design System<br/>Cross-platform patterns"]
+        Data["data<br/>API Client + Hooks<br/>Supabase + tRPC"]
+        State["state<br/>Zustand + MMKV<br/>Client State"]
+        Utils["utils<br/>Helpers + Constants<br/>Type-safe utilities"]
+    end
+
+    subgraph "Backend Services (Supabase)"
+        Auth["🔐 Authentication<br/>JWT + Session Management<br/>RLS Policies"]
+        DB[("💾 PostgreSQL<br/>Database<br/>Structured Data")]
+        Storage["📁 Storage<br/>Files + Images<br/>S3-compatible"]
+        Edge["⚡ Edge Functions<br/>Serverless Compute<br/>Deno Runtime"]
+        Realtime["🔄 Realtime<br/>WebSocket<br/>Live Updates"]
+    end
+
+    Mobile --> UI
+    Mobile --> Data
+    Mobile --> State
+    Mobile --> Utils
+
+    Web --> UI
+    Web --> Data
+    Web --> State
+    Web --> Utils
+
+    Desktop -.-> UI
+    Desktop -.-> Data
+    Desktop -.-> State
+    Desktop -.-> Utils
+
+    Data --> Auth
+    Data --> DB
+    Data --> Storage
+    Data --> Edge
+    Data --> Realtime
+
+    Auth -.-> DB
+    Edge -.-> DB
+    Edge -.-> Storage
+    Realtime -.-> DB
+
+    style Mobile fill:#e1f5ff
+    style Web fill:#fff4e1
+    style Desktop fill:#f0f0f0,stroke-dasharray: 5 5
+    style UI fill:#e8f5e9
+    style Data fill:#e8f5e9
+    style State fill:#e8f5e9
+    style Utils fill:#e8f5e9
+    style Auth fill:#fce4ec
+    style DB fill:#f3e5f5
+    style Storage fill:#fce4ec
+    style Edge fill:#fce4ec
+    style Realtime fill:#fce4ec
 ```
 
 ## Technology Stack
@@ -192,22 +226,40 @@ Shared utilities and helpers.
 
 ### Project Graph Example
 
-```
-apps/mobile
-  ├─ @app/shared-ui
-  ├─ @app/data
-  └─ @app/state
+```mermaid
+graph TD
+    subgraph "Applications"
+        Mobile["apps/mobile<br/>Expo + React Native"]
+        Web["apps/web<br/>React + Vite"]
+    end
 
-apps/web
-  ├─ @app/shared-ui (theme only)
-  ├─ @app/data
-  └─ @app/state
+    subgraph "Shared Libraries"
+        UI["@app/shared-ui<br/>Components"]
+        Data["@app/data<br/>API + Hooks"]
+        State["@app/state<br/>Zustand"]
+        Utils["@app/utils<br/>Helpers"]
+    end
 
-@app/data
-  └─ @app/utils
+    Mobile --> UI
+    Mobile --> Data
+    Mobile --> State
 
-@app/state
-  └─ @app/utils
+    Web --> UI
+    Web --> Data
+    Web --> State
+
+    Data --> Utils
+    State --> Utils
+
+    style Mobile fill:#e1f5ff
+    style Web fill:#fff4e1
+    style UI fill:#e8f5e9
+    style Data fill:#e8f5e9
+    style State fill:#e8f5e9
+    style Utils fill:#e8f5e9
+
+    classDef appNode fill:#e1f5ff,stroke:#333,stroke-width:2px
+    classDef libNode fill:#e8f5e9,stroke:#333,stroke-width:1px
 ```
 
 ### Module Boundaries
@@ -224,6 +276,60 @@ import { Screen } from '../../mobile/src/screens';
 ```
 
 ## Data Flow
+
+### Complete Data Flow Architecture
+
+```mermaid
+sequenceDiagram
+    participant UI as UI Component
+    participant Hook as Custom Hook
+    participant TQ as TanStack Query
+    participant Cache as Query Cache
+    participant Supabase as Supabase Client
+    participant API as Supabase API
+    participant RLS as Row Level Security
+    participant DB as PostgreSQL
+
+    Note over UI,DB: Read Operation (Query)
+
+    UI->>Hook: useTodos()
+    Hook->>TQ: useQuery({ queryKey, queryFn })
+    TQ->>Cache: Check 'todos' cache
+
+    alt Cache Hit & Fresh
+        Cache-->>TQ: Cached data
+    else Cache Miss or Stale
+        TQ->>Supabase: queryFn()
+        Supabase->>API: GET /todos
+        API->>RLS: Check auth.uid()
+        RLS->>DB: SELECT with user filter
+        DB-->>RLS: Filtered rows
+        RLS-->>API: Authorized data
+        API-->>Supabase: JSON response
+        Supabase-->>TQ: Parsed data
+        TQ->>Cache: Update cache
+    end
+
+    TQ-->>Hook: Return data
+    Hook-->>UI: Render
+
+    Note over UI,DB: Write Operation (Mutation)
+
+    UI->>Hook: createTodo(data)
+    Hook->>TQ: useMutation({ mutationFn })
+    TQ->>Supabase: mutationFn(data)
+    Supabase->>API: POST /todos
+    API->>RLS: Check INSERT permission
+    RLS->>DB: INSERT new row
+    DB-->>RLS: Created row
+    RLS-->>API: Success
+    API-->>Supabase: Created data
+    Supabase-->>TQ: Result
+    TQ->>Cache: Invalidate ['todos']
+    TQ->>Cache: Refetch stale queries
+    TQ-->>Hook: Success
+    Hook-->>UI: Update UI
+```
 
 ### 1. Data Fetching (TanStack Query)
 
@@ -321,21 +427,44 @@ export function useToggleTodo() {
 
 ### Architecture
 
+```mermaid
+graph TB
+    subgraph "Server State (TanStack Query)"
+        API["API Data<br/>- Todos, Users, Posts<br/>- Cached with invalidation<br/>- Automatic refetch"]
+        Persist["Persistent Storage<br/>- AsyncStorage (mobile)<br/>- IndexedDB (web)<br/>- Survives restarts"]
+    end
+
+    subgraph "Client State (Zustand)"
+        UI["UI State<br/>- Modal visibility<br/>- Form values<br/>- Loading states"]
+        Prefs["User Preferences<br/>- Theme (light/dark)<br/>- Language<br/>- Onboarding status"]
+    end
+
+    subgraph "Component Layer"
+        Component["React Components<br/>- Subscribe to state<br/>- Trigger updates<br/>- Auto re-render"]
+    end
+
+    Component --> API
+    Component --> UI
+    Component --> Prefs
+
+    API --> Persist
+    Prefs --> Persist
+
+    style API fill:#e1f5ff
+    style UI fill:#fff4e1
+    style Prefs fill:#fff4e1
+    style Component fill:#e8f5e9
+    style Persist fill:#f3e5f5
 ```
-┌─────────────────────────────────────────────┐
-│         Server State (TanStack Query)       │
-│  - API data                                 │
-│  - Cached with invalidation                 │
-│  - Persisted to storage                     │
-└─────────────────────────────────────────────┘
-                     │
-┌─────────────────────────────────────────────┐
-│         Client State (Zustand)              │
-│  - UI state (modals, forms)                 │
-│  - User preferences                         │
-│  - Derived from server state                │
-└─────────────────────────────────────────────┘
-```
+
+**State Separation Strategy:**
+
+| State Type | Library | Storage | Use Cases |
+|-----------|---------|---------|-----------|
+| **Server State** | TanStack Query | AsyncStorage/IndexedDB | API data, cached queries |
+| **Client State** | Zustand | MMKV (mobile), localStorage (web) | UI state, preferences |
+| **Form State** | React Hook Form | None | Form inputs, validation |
+| **URL State** | React Router / Expo Router | None | Navigation, filters |
 
 ### Zustand Store Example
 
