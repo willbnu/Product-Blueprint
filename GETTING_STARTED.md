@@ -65,7 +65,13 @@ open SETUP.md
 
 # 3. Configure environment
 cp .env.example .env.local
+
+# ⚠️ SECURITY WARNING: Never commit .env.local to git!
+# Verify it's in .gitignore:
+grep -q ".env.local" .gitignore || echo ".env.local" >> .gitignore
+
 # Edit .env.local with your Supabase credentials
+# (from Supabase Dashboard → Settings → API)
 
 # 4. Install dependencies
 pnpm install
@@ -74,6 +80,13 @@ pnpm install
 pnpm dev:mobile  # Mobile app
 pnpm dev:web     # Web app
 ```
+
+**🔒 Security Checklist:**
+- [ ] `.env.local` is in `.gitignore`
+- [ ] Never commit secrets to version control
+- [ ] Use different credentials for dev/staging/production
+- [ ] Rotate secrets if accidentally exposed
+- [ ] Use environment variables in CI/CD (GitHub Secrets)
 
 ### Step 4: Build According to PRD
 

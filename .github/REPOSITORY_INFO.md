@@ -57,15 +57,40 @@ https://github.com/YOUR-ORG/ChatGPT-Workspace
 ### Branch Protection Rules (for main)
 
 **Protect matching branches:**
+
+**Pull Request Requirements:**
 - Require a pull request before merging
-- Require approvals: 1
+- Require approvals: **2** (increased for security)
 - Dismiss stale pull request approvals when new commits are pushed
+- Require review from Code Owners (if CODEOWNERS file exists)
+
+**Status Checks:**
 - Require status checks to pass before merging:
   - ✅ Lint
   - ✅ Test
   - ✅ Build
+  - ✅ Security scan (Dependabot)
+- Require branches to be up to date before merging
+
+**Commit Signing:**
+- ✅ Require signed commits (recommended for production)
+  ```bash
+  # Setup GPG signing:
+  git config --global commit.gpgsign true
+  ```
+
+**Additional Protections:**
 - Require conversation resolution before merging
+- Require linear history (no merge commits)
 - Do not allow bypassing the above settings
+- Restrict who can dismiss pull request reviews
+- Restrict who can push to matching branches
+
+**For Production Environments:**
+- Create separate `production` branch
+- Require 3+ approvals for production
+- Restrict merge permissions to release managers only
+- Enable deployment protections
 
 ### Code Security
 
