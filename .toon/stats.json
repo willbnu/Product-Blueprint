@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2025-11-16T13:59:31.782Z",
+  "generatedAt": "2025-11-16T14:44:07.035Z",
   "files": 7,
   "successful": 7,
   "failed": 0,
   "tokens": {
-    "original": 21807,
-    "compressed": 4271,
-    "saved": 17536,
-    "savingsPercent": 80
+    "original": 23008,
+    "compressed": 4250,
+    "saved": 18758,
+    "savingsPercent": 82
   }
 }

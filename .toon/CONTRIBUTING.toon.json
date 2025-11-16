@@ -1,12 +1,12 @@
 {
   "version": "1.0",
   "source": "CONTRIBUTING.md",
-  "sourceHash": "c1beb2cf11421dda9452dc550dab3f4b921195ed4415e2b094950883a870f55d",
-  "generatedAt": "2025-11-16T13:59:31.776Z",
+  "sourceHash": "52b179aea7cd804ef3333affb0416caf07a3f5e11db5ca1555f3d22e8ee9bfc4",
+  "generatedAt": "2025-11-16T14:44:07.026Z",
   "tokenCount": {
-    "original": 2648,
-    "compressed": 677,
-    "savings": 74
+    "original": 3496,
+    "compressed": 687,
+    "savings": 80
   },
   "type": "markdown",
   "content": {
@@ -113,7 +113,7 @@
       {
         "heading": "License",
         "level": 2,
-        "summary": "By contributing, you agree that your contributions will be licensed under the same license as the project (MIT).",
+        "summary": "By contributing, you agree that your contributions will be licensed under the same license as the project (**MIT License**), and you accept the Contri",
         "keyPoints": []
       }
     ]
