@@ -22,29 +22,42 @@ function showHelp() {
 Product-Blueprint CLI (pb)
 
 Usage:
-  pb prd new <project-name>   Scaffold a new PRD
-  pb docs check               Check documentation links
-  pb help                     Show this help
+  pb prd new <project-name>       Scaffold a new PRD
+  pb docs check                   Check documentation links
+  pb release <version>            Create GitHub release
+  pb release <version> --draft    Create draft release
+  pb release <version> --prerelease   Mark as pre-release
+  pb help                         Show this help
+
+Examples:
+  pb prd new my-awesome-app
+  pb docs check
+  pb release v2.0.0
+  pb release v2.0.0-beta.1 --prerelease
 `);
 }
 
 switch (command) {
     case 'prd':
         if (subCommand === 'new') {
-            // Pass the rest of arguments to the script
-            // If project name is provided as 3rd arg, scaffold-prd should probably accept it.
-            // Currently scaffold-prd asks interactively. We will update it to accept arg.
-            process.exit(runScript('tools/scaffold-prd.js', args.slice(2)));
+            runScript('tools/scaffold-prd.js', args.slice(2));
         }
         break;
 
     case 'docs':
         if (subCommand === 'check') {
-            process.exit(runScript('tools/check-links.js'));
+            runScript('tools/check-links.js');
         }
         break;
 
+    case 'release':
+        // Pass version and flags to release script
+        runScript('tools/release.js', args.slice(1));
+        break;
+
     case 'help':
+    case '--help':
+    case '-h':
         showHelp();
         break;
 
