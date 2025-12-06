@@ -6,7 +6,10 @@
   "scripts": {
     "docs:dev": "pnpm --filter product-blueprint-docs docs:dev",
     "docs:build": "pnpm --filter product-blueprint-docs docs:build",
-    "docs:preview": "pnpm --filter product-blueprint-docs docs:preview"
+    "docs:preview": "pnpm --filter product-blueprint-docs docs:preview",
+    "portfolio:dev": "pnpm --filter @pb/portfolio dev",
+    "portfolio:build": "pnpm --filter @pb/portfolio build",
+    "portfolio:preview": "pnpm --filter @pb/portfolio preview"
   },
   "keywords": [
     "blueprint",
