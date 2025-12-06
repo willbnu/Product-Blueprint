@@ -64,11 +64,11 @@ graph TD
 
     Docs --> Build[Build Your App]
 
-    click MobilePath "./docs/paths/mobile-first-app.md"
-    click WebPath "./docs/paths/web-first-app.md"
-    click FullPath "./docs/paths/full-stack-app.md"
-    click CompPath "./docs/paths/compliance-heavy-app.md"
-    click QuickPath "./docs/paths/quick-mvp.md"
+    click MobilePath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/mobile-first-app.md"
+    click WebPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/web-first-app.md"
+    click FullPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/full-stack-app.md"
+    click CompPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/compliance-heavy-app.md"
+    click QuickPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/quick-mvp.md"
 
     style MobilePath fill:#e1f5ff
     style WebPath fill:#fff4e1
@@ -77,7 +77,7 @@ graph TD
     style QuickPath fill:#f3e5f5
 ```
 
-**📚 [View All Documentation Paths](./docs/paths/README.md)**
+**📚 [View All Documentation Paths](https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/README.md)**
 
 ### Step 3: Reference the Documentation
 
