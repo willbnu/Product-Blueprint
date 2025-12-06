@@ -4,7 +4,7 @@
 >
 > Comprehensive architectural documentation and best practices for building production-ready, full-stack monorepo applications with Expo (mobile) and React (web), powered by Nx and Supabase.
 
-> ✅ **New in v1.1**: Automated dependency updates (Renovate), Nx generators, TypeScript path aliases, and interactive setup wizard.
+> ✨ **New in v1.1:** Automated dependency updates (Renovate), Nx generators for PRD scaffolding, TypeScript path aliases, and interactive setup wizard.
 >
 > **v1.0.0 (Production Ready)** will include working code, runnable apps, and a complete Nx workspace. [See Roadmap](./ROADMAP.md)
 

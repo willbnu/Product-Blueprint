@@ -20,6 +20,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - 2025-12-06
+
+**ENHANCED DEVELOPER EXPERIENCE** - Automation and tooling improvements
+
+### Added
+- **Renovate Integration**: Automated dependency updates via `.github/renovate.json`
+  - Auto-merge for patch and minor updates
+  - Grouped updates for Nx and React packages
+  - Scheduled for Monday mornings
+- **Nx Generators**: Custom generators for common patterns
+  - PRD scaffolding generator in `tools/generators/prd/`
+  - Registered in `nx.json` for easy access
+- **TypeScript Path Aliases**: Added `tsconfig.base.json` with clean import paths
+  - `@app/shared`, `@app/ui`, `@app/api`, `@app/utils`
+- **Interactive Setup Wizard**: `tools/setup-wizard.js` for project configuration
+  - Prompts for project name, platforms, auth provider
+  - Generates `.env.example` with project-specific values
+
+### Changed
+- Updated ROADMAP.md to reflect completed v1.1 features
+- Enhanced documentation with v1.1 feature descriptions
+
+---
+
 
 
 ## [0.1.0] - 2025-11-16
