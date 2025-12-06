@@ -31,14 +31,7 @@ not limited to:
    - Contributing guidelines
    - PRD templates and examples
 
-3. TOON Implementation Tools
-   - Custom markdown parser implementation with nested section preservation
-   - Multi-line list item parsing with continuation tracking
-   - Path traversal prevention and security hardening
-   - Glob pattern matching for selective file discovery
 
-   NOTE: The TOON format specification itself is copyright (c) 2025 Johann
-   Schopplich and used under MIT License. See NOTICE file for attribution.
 
 
 LICENSING
@@ -61,11 +54,7 @@ Subject to:
 THIRD-PARTY INTELLECTUAL PROPERTY
 ================================================================================
 
-TOON Format:
-- "TOON" and "Token-Oriented Object Notation" are associated with the TOON
-  format specification created by Johann Schopplich
-- This project uses the TOON format under MIT License
-- See: https://github.com/toon-format/toon
+
 
 
 CONTRIBUTOR RIGHTS

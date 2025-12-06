@@ -9,14 +9,13 @@
 **Product-Blueprint** is a comprehensive architectural blueprint for building production-ready full-stack applications. It combines:
 
 - **Documentation-First Approach**: PRD templates, architecture guides, security implementation patterns
-- **TOON Integration**: Token-Oriented Object Notation system for AI agent optimization (60-85% token savings)
 - **Enterprise Compliance**: Structured audit logging, error categorization, security event tracking
 - **Best Practices**: Security checklist, development workflows, deployment guides
 
-**Current Version**: v0.2.0 (TOON Integration & Compliance release)
+**Current Version**: v0.1.0 (Documentation release)
 
 **License**: MIT License
-**Copyright**: William Finger (implementation), Johann Schopplich (TOON format specification)
+**Copyright**: William Finger (implementation)
 
 ---
 
@@ -39,13 +38,12 @@ cat .nvmrc  # Shows: v20
 npm install
 
 # Verify installation
-npm run toon:generate  # Should generate TOON files without errors
+npm run docs:build
 ```
 
 ### Key Technologies
 
 - **Node.js v20**: JavaScript runtime
-- **TOON Format**: Markdown-to-JSON converter for AI optimization
 - **Git**: Version control with branch naming conventions
 - **Claude Code Plugins Plus**: 253 production-ready plugins for enhanced development workflows
 - **MCP Servers**: Model-Context-Protocol servers for browser automation, debugging, and extended capabilities
@@ -173,8 +171,7 @@ Store team-wide plugin preferences:
 1. **Use Natural Language**: Say "create a Dockerfile for this Node.js app" instead of searching for Docker commands
 2. **Leverage Auto-Activation**: Skills trigger automatically when context matches
 3. **Check Tool Permissions**: Read-only skills use Read/Grep/Glob, editing skills include Write/Edit
-4. **Combine with TOON**: Use plugins for workflows, TOON for documentation optimization
-5. **Reference Documentation**: All plugins include comprehensive README files with examples
+4. **Reference Documentation**: All plugins include comprehensive README files with examples
 
 #### Plugin Categories Available
 
@@ -494,111 +491,7 @@ MCP servers can be added for various capabilities:
 
 ---
 
-## TOON System Architecture
 
-### What is TOON?
-
-TOON (Token-Oriented Object Notation) is a format specification created by **Johann Schopplich** (MIT License) that compresses markdown documentation into token-efficient JSON for AI agent consumption.
-
-**This project provides tooling** (converter, batch generator, audit logger) based on the TOON spec.
-
-### TOON Tools Location
-
-```
-tools/toon/
-├── converter.js        # Markdown → TOON JSON converter
-├── generate-all.js     # Batch generation with glob patterns
-└── audit-logger.js     # Enterprise audit logging system
-```
-
-### Running TOON Generation
-
-```bash
-# Generate all TOON files (uses .toon/config.json)
-npm run toon:generate
-
-# Generate single file
-node tools/toon/converter.js docs/ARCHITECTURE.md .toon/docs/ARCHITECTURE.toon.json
-
-# Watch mode (auto-regenerate on markdown changes)
-npm run toon:watch
-```
-
-### TOON Configuration
-
-Edit `.toon/config.json` to control which files are processed:
-
-```json
-{
-  "include": [
-    "README.md",
-    "docs/**/*.md",
-    "prd/**/*.md"
-  ],
-  "exclude": [
-    "**/node_modules/**",
-    "**/.git/**"
-  ],
-  "priority": [
-    "README.md",
-    "docs/ARCHITECTURE.md"
-  ]
-}
-```
-
-### Audit Logs
-
-TOON operations are logged to:
-- **Console**: Human-readable output with emoji indicators
-- **Files**: `.toon/logs/audit-YYYY-MM-DD.log` (structured JSON)
-
-**Log Levels**: INFO, WARN, ERROR, SECURITY, AUDIT
-**Error Categories**: VALIDATION_ERROR, SECURITY_ERROR, SYSTEM_ERROR, IO_ERROR
-
----
-
-## Testing & Validation
-
-### TOON Generation Testing
-
-```bash
-# 1. Modify a markdown file
-echo "## New Section\nTest content" >> docs/TESTING.md
-
-# 2. Run TOON generation
-npm run toon:generate
-
-# 3. Verify output
-cat .toon/docs/TESTING.toon.json | grep "New Section"
-
-# 4. Check audit log
-cat .toon/logs/audit-$(date +%Y-%m-%d).log | grep CONVERT_TO_TOON
-```
-
-### Security Testing
-
-```bash
-# Test path traversal prevention (should fail with SECURITY_ERROR)
-node tools/toon/converter.js README.md ../outside-toon/bad.json
-
-# Check security event logging
-cat .toon/logs/audit-$(date +%Y-%m-%d).log | grep SECURITY
-```
-
-### Parser Validation
-
-The TOON parser handles:
-- **Nested headings** (h2-h6) with stack-based hierarchy
-- **Multi-line list items** with continuation tracking
-- **Code blocks** with language detection
-- **Glob patterns** (`**` = any depth, `*` = single level)
-
-**Test cases to verify**:
-```bash
-# Nested sections (should preserve subsections tree)
-# Multi-line lists (should not truncate at first line)
-# Path separators (should normalize cross-platform)
-```
 
 ---
 
@@ -630,17 +523,16 @@ claude/<description>-<session-id>
 #   security: Security improvements
 
 # Examples:
-git commit -m "feat: add TOON batch generation with glob patterns"
-git commit -m "fix: resolve array sanitization bug in audit logger"
+
+
 git commit -m "docs: add comprehensive AGENTS.md for AI agent guidance"
-git commit -m "security: prevent path traversal in TOON output paths"
+
 ```
 
 ### Pre-Push Checklist
 
 ```bash
-# 1. Regenerate TOON files if markdown changed
-npm run toon:generate
+
 
 # 2. Check git status
 git status
@@ -653,25 +545,16 @@ git commit -m "type: description"
 git push -u origin claude/<description>-<session-id>
 ```
 
-### GitHub Actions Workflow
 
-**TOON Update Workflow** (`.github/workflows/toon-update.yml`):
-- **Triggers**: Push/PR to main/develop branches with markdown changes
-- **Actions**: Auto-generates TOON files, commits with `[skip ci]`, posts PR comment
-- **Permissions**: `contents: write`, `pull-requests: write`, `issues: write`
 
-**Important**: Workflow uses `ref: ${{ github.head_ref || github.ref_name }}` to avoid detached HEAD.
 
----
-
-## Important Files Reference
 
 ### Documentation Files
 
 | File | Purpose |
 |------|---------|
 | `README.md` | Project overview, quick start, architecture |
-| `CHANGELOG.md` | Blueprint version history (v0.2.0 current) |
+| `CHANGELOG.md` | Blueprint version history |
 | `docs/APP_CHANGELOG_TEMPLATE.md` | Comprehensive changelog template for apps built from blueprint |
 | `ARCHITECTURE.md` | System design decisions |
 | `SECURITY.md` | Security policy and reporting |
@@ -682,88 +565,24 @@ git push -u origin claude/<description>-<session-id>
 | File | Purpose |
 |------|---------|
 | `COPYRIGHT` | Ownership declaration (William Finger + third-party attributions) |
-| `NOTICE` | Third-party attributions (TOON format by Johann Schopplich) + CLA terms |
+| `NOTICE` | Third-party attributions + CLA terms |
 | `LICENSE` | MIT License text |
 
-### TOON System Files
 
-| File | Purpose |
-|------|---------|
-| `tools/toon/converter.js` | Markdown → TOON JSON converter (stack-based parser) |
-| `tools/toon/generate-all.js` | Batch generation with glob matching |
-| `tools/toon/audit-logger.js` | Structured logging (JSON + console) |
-| `.toon/config.json` | Include/exclude patterns, priority ordering |
-| `.toon/stats.json` | Token statistics (original, compressed, savings) |
-| `.toon/logs/audit-*.log` | Daily rotating audit logs |
 
 ### Configuration Files
 
 | File | Purpose |
 |------|---------|
 | `.nvmrc` | Node.js version (v20) |
-| `.gitignore` | Git ignore patterns (includes `.toon/logs/`) |
+| `.gitignore` | Git ignore patterns |
 | `package.json` | Project metadata, npm scripts |
 
 ---
 
-## Common Tasks for AI Agents
+## Common Tasks
 
-### Task 1: Fix a Bug in TOON Converter
 
-```bash
-# 1. Read the relevant file
-cat tools/toon/converter.js
-
-# 2. Make changes (use Edit tool, not manual file writing)
-# Edit the specific function with the bug
-
-# 3. Test the fix
-npm run toon:generate
-
-# 4. Verify audit logs
-cat .toon/logs/audit-$(date +%Y-%m-%d).log | tail -20
-
-# 5. Commit with proper message
-git add tools/toon/converter.js
-git commit -m "fix: resolve [specific bug description]"
-git push -u origin claude/fix-bug-<session-id>
-```
-
-### Task 2: Add Documentation
-
-```bash
-# 1. Create or modify markdown file
-# (Use Write or Edit tool)
-
-# 2. Regenerate TOON files
-npm run toon:generate
-
-# 3. Verify TOON generation
-cat .toon/docs/[filename].toon.json
-
-# 4. Commit both markdown and TOON files
-git add docs/[filename].md .toon/
-git commit -m "docs: add [description]"
-git push -u origin claude/docs-update-<session-id>
-```
-
-### Task 3: Update CHANGELOG
-
-```bash
-# 1. Read current changelog
-cat CHANGELOG.md | head -50
-
-# 2. Add entry to [Unreleased] section (use Edit tool)
-# Follow format: ### Category, - Description
-
-# 3. Regenerate TOON
-npm run toon:generate
-
-# 4. Commit
-git add CHANGELOG.md .toon/
-git commit -m "docs: update changelog for [feature/fix]"
-git push -u origin claude/changelog-<session-id>
-```
 
 ### Task 4: Create a Pull Request
 
@@ -781,8 +600,8 @@ gh pr create --title "feat: [description]" --body "$(cat <<'EOF'
 - [Bullet point 2]
 
 ## Test plan
-- [ ] Tested TOON generation
-- [ ] Verified audit logs
+
+
 - [ ] Checked for errors
 EOF
 )"
@@ -794,55 +613,17 @@ EOF
 
 ## Security Considerations
 
-### Path Validation
 
-**CRITICAL**: All TOON output paths MUST be within `.toon/` directory.
 
-**Validation checks**:
-1. `outputPath` must start with `.toon/` (after normalization)
-2. `outputPath` must NOT contain `..` (path traversal attempts)
-3. All validation failures logged to audit trail as `SECURITY_ERROR`
 
-### Log Sanitization
 
-Audit logs automatically sanitize:
-- **Home directories**: `/home/username` → `/home/***`
-- **Sensitive keys**: `password`, `token`, `secret`, `key` → `***REDACTED***`
-- **Arrays**: Preserved (not converted to objects)
 
-### Copyright Attribution
-
-**ALWAYS** maintain proper attribution in source files:
-
-```javascript
-/**
- * TOON Format:
- *   Copyright (c) 2025 Johann Schopplich
- *   https://github.com/toon-format/toon
- *   Licensed under the MIT License
- *
- * This Implementation:
- *   Copyright (c) 2025 William Finger
- *   Licensed under the MIT License
- */
-```
 
 ---
 
 ## Troubleshooting
 
-### Issue: TOON generation fails with "file not found"
 
-```bash
-# Check if file exists
-ls -la docs/[filename].md
-
-# Verify include patterns in .toon/config.json
-cat .toon/config.json | grep -A5 include
-
-# Check audit log for details
-cat .toon/logs/audit-$(date +%Y-%m-%d).log | grep ERROR
-```
 
 ### Issue: Git push fails with 403
 
@@ -859,18 +640,7 @@ git cherry-pick <commit-hash>
 git push -u origin claude/fix-issue-<session-id>
 ```
 
-### Issue: GitHub Actions detached HEAD
 
-**Cause**: Workflow needs `ref` parameter in checkout action.
-
-**Solution**: Already fixed in `.github/workflows/toon-update.yml` (line 38):
-```yaml
-- name: Checkout repository
-  uses: actions/checkout@v4
-  with:
-    ref: ${{ github.head_ref || github.ref_name }}
-    fetch-depth: 0
-```
 
 ### Issue: npm version command fails
 
@@ -887,15 +657,7 @@ git push origin main --tags
 
 ## Version History Context
 
-### v0.2.0 (Current) - 2025-11-16
-**TOON INTEGRATION & COMPLIANCE**
 
-Major additions:
-- TOON system with stack-based parser
-- Enterprise audit logging (JSON + console)
-- Intellectual property protection (COPYRIGHT, NOTICE, CLA)
-- Path traversal prevention
-- Array sanitization fix
 
 ### v0.1.0 - 2025-11-16
 **INITIAL BLUEPRINT RELEASE**
@@ -921,7 +683,6 @@ Initial comprehensive documentation
 
 ## Resources
 
-- **TOON Format Specification**: https://github.com/toon-format/toon
 - **Keep a Changelog**: https://keepachangelog.com/
 - **Semantic Versioning**: https://semver.org/
 - **Conventional Commits**: https://www.conventionalcommits.org/
@@ -932,11 +693,8 @@ Initial comprehensive documentation
 
 For AI agents encountering problems:
 
-1. **Check audit logs**: `.toon/logs/audit-YYYY-MM-DD.log`
-2. **Review error category**: VALIDATION, SECURITY, SYSTEM, or IO
-3. **Read relevant source code**: Start with `tools/toon/`
-4. **Check git status and branch name**: Must match `claude/<description>-<session-id>`
-5. **Inform user**: Provide clear error description and suggested solutions
+1. **Check git status and branch name**: Must match `claude/<description>-<session-id>`
+2. **Inform user**: Provide clear error description and suggested solutions
 
 ---
 

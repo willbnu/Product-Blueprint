@@ -6,14 +6,7 @@
   "scripts": {
     "docs:dev": "pnpm --filter product-blueprint-docs docs:dev",
     "docs:build": "pnpm --filter product-blueprint-docs docs:build",
-    "docs:preview": "pnpm --filter product-blueprint-docs docs:preview",
-    "toon:generate": "node tools/toon/generate-all.js",
-    "toon:convert": "node tools/toon/converter.js",
-    "toon:stats": "cat .toon/stats.json | json_pp",
-    "toon:clean": "rm -rf .toon/docs .toon/stats.json .toon/manifest.json",
-    "toon:watch": "nodemon --watch 'docs/**/*.md' --watch 'README.md' --exec 'npm run toon:generate'",
-    "toon:resolve": "node tools/toon/resolve-conflicts.js",
-    "toon:setup": "bash tools/toon/setup-merge-driver.sh"
+    "docs:preview": "pnpm --filter product-blueprint-docs docs:preview"
   },
   "keywords": [
     "blueprint",
