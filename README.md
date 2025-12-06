@@ -532,12 +532,7 @@ This project contains original work including:
 - PRD templates and examples
 - Custom implementation tools
 
-**Third-Party Software:**
 
-This project uses the **TOON (Token-Oriented Object Notation)** format:
-- Copyright (c) 2025 Johann Schopplich
-- Licensed under MIT License
-- See: https://github.com/toon-format/toon
 
 **Important Legal Documents:**
 - [LICENSE](./LICENSE) - MIT License terms
@@ -562,7 +557,7 @@ For licensing inquiries or questions:
 ## 🙏 Acknowledgments
 
 This blueprint documents architectural patterns using amazing open-source tools:
-- [TOON Format](https://github.com/toon-format/toon) - Token-Oriented Object Notation by Johann Schopplich
+
 - [Nx](https://nx.dev/) - Smart monorepo tooling
 - [Expo](https://expo.dev/) - Universal React applications
 - [Supabase](https://supabase.com/) - Open-source Firebase alternative

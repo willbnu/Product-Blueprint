@@ -16,10 +16,7 @@ Original contributions include:
 - Full-stack application blueprint structure and documentation
 - PRD templates and examples
 - Development workflows and tooling
-- Custom markdown parser implementation with nested section preservation
-- Multi-line list item parsing with continuation tracking
-- Path traversal prevention and security hardening
-- Glob pattern matching for selective file discovery
+
 
 
 ATTRIBUTION REQUIREMENTS
@@ -36,13 +33,7 @@ THIRD-PARTY SOFTWARE
 ====================
 This software uses the following third-party libraries and format specifications:
 
-- TOON (Token-Oriented Object Notation) Format (MIT License)
-  Copyright (c) 2025 Johann Schopplich
-  https://github.com/toon-format/toon
 
-  This project implements tooling based on the TOON format specification.
-  The TOON format itself is the intellectual property of Johann Schopplich.
-  We use TOON under the terms of the MIT License.
 
 - Node.js (MIT License)
   Copyright Node.js contributors

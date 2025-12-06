@@ -8,11 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned for v1.0.0 (Production Ready)
-- Actual Nx workspace implementation (apps and libs)
-- Runnable mobile and web applications
-- Working Supabase integration
-- Executable code examples
-- End-to-end functional template
+
 
 ### Planned for v0.2.0
 - Figma design templates
@@ -24,79 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.2.0] - 2025-11-16
 
-**TOON INTEGRATION & COMPLIANCE** - Agent optimization layer with enterprise-grade audit logging
-
-### Added
-- **TOON (Token-Oriented Object Notation) System**
-  - Custom markdown-to-JSON converter for AI agent optimization (60-85% token savings)
-  - Stack-based hierarchical parser preserving nested document structure (h2-h6)
-  - Multi-line list item parsing with continuation line tracking
-  - Batch generation tool with glob pattern matching and priority ordering
-  - Automated TOON file generation via `npm run toon:generate`
-  - Configuration system (`.toon/config.json`) for include/exclude patterns
-  - Daily rotating audit logs in `.toon/logs/audit-YYYY-MM-DD.log`
-
-- **Enterprise Compliance Features**
-  - Structured JSON audit logging with ISO 8601 timestamps
-  - Error categorization system (VALIDATION, SECURITY, SYSTEM, IO)
-  - Security event tracking for path validation and access attempts
-  - Comprehensive log sanitization preventing PII/sensitive data exposure
-  - Dual logging: human-readable console + machine-readable JSON files
-  - Log levels: INFO, WARN, ERROR, SECURITY, AUDIT
-
-- **Intellectual Property Protection**
-  - Comprehensive COPYRIGHT file declaring ownership and rights
-  - NOTICE file with third-party attributions and CLA terms
-  - Contributor License Agreement in CONTRIBUTING.md
-  - Proper attribution to TOON format creator (Johann Schopplich)
-  - Updated package.json with repository metadata
-  - Copyright headers in all TOON tool source files
-
-### Changed
-- **Enhanced Security**
-  - Path traversal validation now checks original string before normalization
-  - Security events logged with attempted path and block reason
-  - All file operations tracked in audit logs
-
-- **Improved Documentation**
-  - README.md now includes TOON format attribution
-  - Updated acknowledgments section with proper credits
-  - Clarified copyright ownership vs. third-party formats
-
-### Fixed
-- **Critical Parser Bugs**
-  - Nested headings (h3-h6) now properly preserved in subsections tree
-  - Multi-line list items no longer truncated at first line
-  - Glob pattern matching now correctly handles `**` (any depth) vs `*` (single level)
-  - Path separators normalized for cross-platform compatibility
-  - Special regex characters properly escaped in glob patterns
-
-- **Security Vulnerabilities**
-  - Path traversal attempts blocked and logged
-  - Output paths validated to stay within `.toon/` directory
-  - GitHub Action permissions restricted to least privilege
-
-- **Code Quality**
-  - Array handling in log sanitization (arrays no longer converted to objects)
-  - File validation errors categorized as VALIDATION_ERROR vs SECURITY_ERROR
-  - Missing `pull_request` trigger added to GitHub workflow
-
-### Security
-- All path validation attempts logged to audit trail
-- Security errors categorized separately from general errors
-- No stack traces exposed in user-facing error messages
-- Log sanitization prevents leaking home directory paths
-- Sensitive keys (password, token, secret, key) automatically redacted
-
-### Noted
-- TOON format specification is copyright Johann Schopplich (MIT License)
-- This implementation provides tooling based on the TOON spec
-- Audit logs written to `.toon/logs/` for compliance review
-- All TOON files are auto-generated and should not be manually edited
-
----
 
 ## [0.1.0] - 2025-11-16
 
