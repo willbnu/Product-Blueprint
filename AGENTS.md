@@ -600,8 +600,8 @@ gh pr create --title "feat: [description]" --body "$(cat <<'EOF'
 - [Bullet point 2]
 
 ## Test plan
-
-
+- [ ] Verified documentation changes are reflected
+- [ ] Ran `npm run docs:build` successfully
 - [ ] Checked for errors
 EOF
 )"
