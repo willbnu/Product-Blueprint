@@ -1,6 +1,17 @@
 # Alternative Database Integration Guide
 
-This guide explains how to replace Supabase with alternative backend/database solutions in Product-Blueprint.
+> **Default Backend:** This blueprint uses [Supabase](https://supabase.com) by default. This guide helps you integrate alternative backends if Supabase doesn't fit your needs.
+
+## When to Choose an Alternative
+
+| Choose... | When you need... |
+|-----------|------------------|
+| **Supabase** (default) | PostgreSQL, built-in auth, generous free tier |
+| **Convex** | Real-time sync, automatic caching, minimal backend code |
+| **Firebase** | Google ecosystem, NoSQL flexibility, mobile-first |
+| **Vercel Postgres** | Tight Vercel integration, serverless PostgreSQL |
+| **PlanetScale** | MySQL, horizontal scaling, branching |
+| **Neon** | Serverless PostgreSQL, branching, autoscaling |
 
 ## Supported Alternatives
 

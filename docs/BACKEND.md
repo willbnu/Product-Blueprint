@@ -4,6 +4,8 @@
 >
 > This guide provides comprehensive patterns and best practices for building production-ready backends with Supabase (PostgreSQL, Auth, Storage, Edge Functions).
 
+> 💡 **Using a different database?** This blueprint also supports [Convex, Firebase, Vercel Postgres, PlanetScale, and Neon](./ALTERNATIVE_DATABASES.md). See the alternative databases guide for integration instructions.
+
 ---
 
 ## Table of Contents

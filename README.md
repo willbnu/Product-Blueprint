@@ -288,13 +288,15 @@ graph TB
 - **Data Fetching:** [TanStack Query](https://tanstack.com/query) v5
 - **Forms:** [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
 
-### Backend
+### Backend (Default: Supabase)
 
 - **Database:** [Supabase](https://supabase.com/) (PostgreSQL 15+)
 - **Authentication:** Supabase Auth
 - **Storage:** Supabase Storage
 - **Serverless:** Supabase Edge Functions (Deno)
 - **API Layer:** [tRPC](https://trpc.io/) for type-safe APIs
+
+> 💡 **Want a different database?** See [Alternative Databases Guide](./docs/ALTERNATIVE_DATABASES.md) for Convex, Firebase, Vercel Postgres, PlanetScale, and more.
 
 ### DevOps & Tooling
 
@@ -394,7 +396,8 @@ graph TB
 ### Platform-Specific
 - **[Mobile Development](./docs/MOBILE.md)** - Expo and React Native guide
 - **[Web Development](./docs/WEB.md)** - React and Vite guide
-- **[Backend Development](./docs/BACKEND.md)** - Supabase and Edge Functions
+- **[Backend Development](./docs/BACKEND.md)** - Supabase integration
+- **[Alternative Databases](./docs/ALTERNATIVE_DATABASES.md)** - Convex, Firebase, Vercel, PlanetScale, Neon
 
 ### Operations
 - **[Testing Strategy](./TESTING.md)** - Unit, integration, and e2e tests
