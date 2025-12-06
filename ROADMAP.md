@@ -28,13 +28,13 @@ Create the most developer-friendly, production-ready full-stack app template for
 - Enhanced tooling
 
 **Features:**
-- [ ] Interactive setup wizard
-- [ ] Custom Nx generators for common patterns
+- [x] Interactive setup wizard
+- [x] Custom Nx generators for common patterns
 - [ ] VS Code extension for template
 - [ ] Storybook integration for UI components
 - [ ] Component playground
-- [ ] Better TypeScript path aliases
-- [ ] Automated dependency updates (Renovate)
+- [x] Better TypeScript path aliases
+- [x] Automated dependency updates (Renovate)
 
 ### 🎯 v1.2 - Production Hardening
 

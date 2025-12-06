@@ -1,0 +1,6 @@
+{
+    "name": "prd",
+    "factory": "./index",
+    "schema": "./schema.json",
+    "description": "Generate a PRD (Product Requirements Document) structure for a new project"
+}

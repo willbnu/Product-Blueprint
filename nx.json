@@ -11,5 +11,15 @@
     "test": {
       "cache": true
     }
+  },
+  "generators": {
+    "@pb/generators:prd": {
+      "factory": "./tools/generators/prd"
+    }
+  },
+  "pluginsConfig": {
+    "@pb/generators": {
+      "root": "./tools/generators"
+    }
   }
 }

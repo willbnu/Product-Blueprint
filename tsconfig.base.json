@@ -1,0 +1,54 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "ES2020",
+        "module": "ESNext",
+        "lib": [
+            "ES2020",
+            "DOM"
+        ],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "@app/shared": [
+                "libs/shared/src/index.ts"
+            ],
+            "@app/shared/*": [
+                "libs/shared/src/*"
+            ],
+            "@app/ui": [
+                "libs/ui/src/index.ts"
+            ],
+            "@app/ui/*": [
+                "libs/ui/src/*"
+            ],
+            "@app/api": [
+                "libs/api/src/index.ts"
+            ],
+            "@app/api/*": [
+                "libs/api/src/*"
+            ],
+            "@app/utils": [
+                "libs/utils/src/index.ts"
+            ],
+            "@app/utils/*": [
+                "libs/utils/src/*"
+            ]
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
