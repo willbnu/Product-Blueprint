@@ -1,7 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(Sort-Object -Descending)"
+      "Bash(Sort-Object -Descending)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(robocopy:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(Remove-Item -Recurse -Force designer-portfolio)",
+      "Bash(nx show:*)",
+      "Bash(pnpm install)",
+      "Bash(npm install)"
     ],
     "deny": [],
     "ask": []

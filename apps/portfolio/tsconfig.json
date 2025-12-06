@@ -21,9 +21,9 @@
         "noFallthroughCasesInSwitch": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": [
-                "./src/*"
-            ]
+            "@/*": ["./src/*"],
+            "@app/shared": ["../../libs/shared/src/index.ts"],
+            "@app/ui": ["../../libs/ui/src/index.ts"]
         }
     },
     "include": [
@@ -32,6 +32,9 @@
     "references": [
         {
             "path": "./tsconfig.node.json"
+        },
+        {
+            "path": "../../libs/shared"
         }
     ]
 }

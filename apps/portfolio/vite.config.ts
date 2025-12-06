@@ -7,10 +7,16 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@app/shared': path.resolve(__dirname, '../../libs/shared/src'),
+            '@app/ui': path.resolve(__dirname, '../../libs/ui/src'),
         },
     },
     server: {
         port: 3000,
         open: true,
+    },
+    build: {
+        outDir: 'dist',
+        sourcemap: true,
     },
 });
