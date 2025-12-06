@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Sort-Object -Descending)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
