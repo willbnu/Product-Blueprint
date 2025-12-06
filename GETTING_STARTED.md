@@ -91,4 +91,4 @@ Select your persona below to jump to your tailored path.
 - **[DEPLOYMENT.md](./DEPLOYMENT.md)**: How to go to production.
 
 ---
-*Built with Product-Blueprint v1.1.0*
+*Built with Product-Blueprint v2.0.0*

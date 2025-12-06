@@ -70,7 +70,7 @@ features:
 
 This is an **architectural blueprint and documentation repository** that provides comprehensive guidance for building production-ready, full-stack applications.
 
-**Currently (v1.1.0):** Documentation blueprint with developer tooling, automation, and patterns.
+**Currently (v2.0.0):** Working Expo mobile app and React web app with Supabase backend.
 
 **Coming (v1.0.0):** Working code, runnable apps, and complete Nx workspace.
 

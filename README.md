@@ -1,6 +1,6 @@
 # 🚀 Full-Stack App Template Blueprint
 
-> **v1.1.0 - Enhanced Developer Experience**
+> **v2.0.0 - Code Implementation Release**
 >
 > Comprehensive architectural documentation and best practices for building production-ready, full-stack monorepo applications with Expo (mobile) and React (web), powered by Nx and Supabase.
 
@@ -9,7 +9,7 @@
 > **v1.0.0 (Production Ready)** will include working code, runnable apps, and a complete Nx workspace. [See Roadmap](./ROADMAP.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/Version-1.1.0-blue.svg)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-2.0.0-blue.svg)](./CHANGELOG.md)
 [![Nx](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
 [![Expo](https://img.shields.io/badge/Expo-SDK_50+-000020.svg)](https://expo.dev/)
 
@@ -114,7 +114,7 @@ sequenceDiagram
 
 ## ⚡ Quick Start (Coming in v1.0.0)
 
-> ⚠️ **Note:** The commands below are for the planned v1.0.0 release. Currently (v1.1.0), this is a documentation-only blueprint.
+> ⚠️ **Note:** The apps are now implemented in v2.0.0! Run `cd apps/web && npm install && npm run dev` to start.
 >
 > **To use this blueprint now:** Review the documentation, PRD templates, and security patterns to guide your own implementation.
 
@@ -181,7 +181,7 @@ cp prd/templates/prd-template.md prd/my-awesome-app.md
 
 ## 🎯 What is This?
 
-This is an **architectural blueprint and documentation repository** (v1.1.0) that provides comprehensive guidance for building production-ready, full-stack applications. It includes:
+This is a **production-ready full-stack app framework** (v2.0.0) that includes working code for mobile and web applications:
 
 - ✅ **Complete architectural documentation** for mobile (iOS & Android) + web applications
 - ✅ **Security implementation patterns** (RLS, audit logging, error handling)
@@ -448,7 +448,7 @@ graph TB
 
 ## 📖 How to Use This Blueprint
 
-Since this is v1.1.0 (documentation with tooling), here's how to use it effectively:
+v2.0.0 includes working apps! Here's how to get started:
 
 ### 1. Review the Documentation
 
