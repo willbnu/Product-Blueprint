@@ -70,7 +70,7 @@ features:
 
 This is an **architectural blueprint and documentation repository** that provides comprehensive guidance for building production-ready, full-stack applications.
 
-**Currently (v0.1.0):** Documentation-only blueprint with patterns, best practices, and architectural guidance.
+**Currently (v1.1.0):** Documentation blueprint with developer tooling, automation, and patterns.
 
 **Coming (v1.0.0):** Working code, runnable apps, and complete Nx workspace.
 

@@ -3,13 +3,19 @@
   "nxCloudId": "6934192b3d00e0658aa5881f",
   "targetDefaults": {
     "build": {
-      "cache": true
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ]
     },
     "lint": {
       "cache": true
     },
     "test": {
       "cache": true
+    },
+    "dev": {
+      "cache": false
     }
   },
   "generators": {
@@ -21,5 +27,9 @@
     "@pb/generators": {
       "root": "./tools/generators"
     }
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "libs"
   }
 }

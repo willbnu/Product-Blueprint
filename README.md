@@ -114,7 +114,7 @@ sequenceDiagram
 
 ## ⚡ Quick Start (Coming in v1.0.0)
 
-> ⚠️ **Note:** The commands below are for the planned v1.0.0 release. Currently (v0.1.0), this is a documentation-only blueprint.
+> ⚠️ **Note:** The commands below are for the planned v1.0.0 release. Currently (v1.1.0), this is a documentation-only blueprint.
 >
 > **To use this blueprint now:** Review the documentation, PRD templates, and security patterns to guide your own implementation.
 
@@ -181,7 +181,7 @@ cp prd/templates/prd-template.md prd/my-awesome-app.md
 
 ## 🎯 What is This?
 
-This is an **architectural blueprint and documentation repository** (v0.1.0) that provides comprehensive guidance for building production-ready, full-stack applications. It includes:
+This is an **architectural blueprint and documentation repository** (v1.1.0) that provides comprehensive guidance for building production-ready, full-stack applications. It includes:
 
 - ✅ **Complete architectural documentation** for mobile (iOS & Android) + web applications
 - ✅ **Security implementation patterns** (RLS, audit logging, error handling)
@@ -445,7 +445,7 @@ graph TB
 
 ## 📖 How to Use This Blueprint
 
-Since this is v0.1.0 (documentation-only), here's how to use it effectively:
+Since this is v1.1.0 (documentation with tooling), here's how to use it effectively:
 
 ### 1. Review the Documentation
 

@@ -1,6 +1,6 @@
 # Backend Development Guide (Supabase)
 
-> **Status:** Documentation-only blueprint (v0.1.0)
+> **Status:** Enhanced developer experience (v1.1.0)
 >
 > This guide provides comprehensive patterns and best practices for building production-ready backends with Supabase (PostgreSQL, Auth, Storage, Edge Functions).
 

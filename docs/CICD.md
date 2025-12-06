@@ -1,6 +1,6 @@
 # CI/CD Guide (GitHub Actions)
 
-> **Status:** Documentation-only blueprint (v0.1.0)
+> **Status:** Enhanced developer experience (v1.1.0)
 >
 > This guide provides comprehensive patterns and best practices for implementing continuous integration and continuous deployment pipelines using GitHub Actions.
 

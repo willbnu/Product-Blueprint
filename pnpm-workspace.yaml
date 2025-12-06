@@ -2,6 +2,10 @@
 # This enables pnpm's workspace features for managing the docs-site package
 
 packages:
+  - 'apps/*'
+  - 'libs/*'
+  - 'docs-site'
+
   # Documentation site
   - 'docs-site'
 
