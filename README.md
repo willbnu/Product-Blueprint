@@ -1,15 +1,15 @@
 # 🚀 Full-Stack App Template Blueprint
 
-> **v0.1.0 - Documentation-Only Blueprint**
+> **v1.1.0 - Enhanced Developer Experience**
 >
 > Comprehensive architectural documentation and best practices for building production-ready, full-stack monorepo applications with Expo (mobile) and React (web), powered by Nx and Supabase.
 
-> ⚠️ **Important:** This is currently a **documentation-only blueprint** (v0.1.0). It provides comprehensive architectural patterns, security implementations, and best practices. No executable code is included yet.
+> ✅ **New in v1.1**: Automated dependency updates (Renovate), Nx generators, TypeScript path aliases, and interactive setup wizard.
 >
 > **v1.0.0 (Production Ready)** will include working code, runnable apps, and a complete Nx workspace. [See Roadmap](./ROADMAP.md)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.1.0-blue.svg)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/Version-1.1.0-blue.svg)](./CHANGELOG.md)
 [![Nx](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
 [![Expo](https://img.shields.io/badge/Expo-SDK_50+-000020.svg)](https://expo.dev/)
 
