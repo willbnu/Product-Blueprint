@@ -659,4 +659,4 @@ export const appColors = {
 
 ---
 
-**Next:** [COMPONENTS.md](./COMPONENTS.md) - Learn how to use these tokens in components
+**Next:** Use these tokens when building components (component documentation coming in future versions)

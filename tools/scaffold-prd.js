@@ -20,10 +20,21 @@ const FILES_TO_CREATE = [
 
 console.log("\x1b[36m%s\x1b[0m", "🚀 Product-Blueprint PRD Scaffolder");
 
-rl.question('Enter the name of your new project (e.g., "my-awesome-app"): ', (projectName) => {
+const args = process.argv.slice(2);
+const preDefinedName = args[0];
+
+if (preDefinedName) {
+    createPrd(preDefinedName);
+} else {
+    rl.question('Enter the name of your new project (e.g., "my-awesome-app"): ', (projectName) => {
+        createPrd(projectName);
+    });
+}
+
+function createPrd(projectName) {
     if (!projectName) {
         console.error('❌ Project name is required.');
-        rl.close();
+        if (!preDefinedName) rl.close();
         process.exit(1);
     }
 
@@ -35,7 +46,7 @@ rl.question('Enter the name of your new project (e.g., "my-awesome-app"): ', (pr
 
     if (fs.existsSync(projectDir)) {
         console.error(`❌ Directory "${safeName}" already exists in prd/. Aborting.`);
-        rl.close();
+        if (!preDefinedName) rl.close();
         process.exit(1);
     }
 
@@ -44,8 +55,6 @@ rl.question('Enter the name of your new project (e.g., "my-awesome-app"): ', (pr
     FILES_TO_CREATE.forEach(file => {
         const targetPath = path.join(projectDir, file.name);
         // Try to read from template, fallback to default content
-        // Note: In v0.1.0 we might not have all templates, so fallback is important.
-        // For now, we'll just write simple headers to get them started.
 
         fs.writeFileSync(targetPath, file.defaultContent);
         console.log(`   ✅ Created ${file.name}`);
@@ -54,5 +63,5 @@ rl.question('Enter the name of your new project (e.g., "my-awesome-app"): ', (pr
     console.log(`\n✨ Success! Your PRD structure is ready at ./prd/${safeName}`);
     console.log(`   Next step: cd prd/${safeName} and start editing 00-product-brief.md`);
 
-    rl.close();
-});
+    if (!preDefinedName) rl.close();
+}

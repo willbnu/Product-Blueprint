@@ -50,10 +50,7 @@ prd/
 │   ├── todo-app-prd.md          # Example: Simple todo app
 │   ├── social-app-prd.md        # (Coming Soon) Example: Social networking app
 │   └── ecommerce-app-prd.md     # (Coming Soon) Example: E-commerce app
-└── guides/
-    ├── how-to-write-prd.md      # (Coming Soon) Guide to writing effective PRDs
-    ├── prd-to-implementation.md # (Coming Soon) How to go from PRD to code
-    └── best-practices.md        # (Coming Soon) PRD best practices
+# guides/ directory will be added in future versions
 ```
 
 ## 🎯 PRD-Driven Development Workflow
@@ -133,11 +130,6 @@ Technical architecture and implementation details.
 - **Time estimate:** 8-12 weeks
 
 ## 🎓 Learning Resources
-
-### Guides
-1. **[How to Write a PRD](./guides/how-to-write-prd.md)** - Step-by-step guide
-2. **[PRD to Implementation](./guides/prd-to-implementation.md)** - Bridge planning to coding
-3. **[Best Practices](./guides/best-practices.md)** - Tips from successful PRDs
 
 ### External Resources
 - [Product School PRD Guide](https://productschool.com/blog/product-management-2/how-to-write-product-requirements-document/)
@@ -252,7 +244,7 @@ Learn from apps built with this template:
 
 ## 🚀 Ready to Start?
 
-1. **Read:** [How to Write a PRD](./guides/how-to-write-prd.md)
+1. **Review:** Check the example PRD in `prd/examples/todo-app-prd.md`
 2. **Copy:** `cp prd/templates/prd-template.md prd/my-app.md`
 3. **Write:** Fill out your PRD
 4. **Build:** Use this template to implement!

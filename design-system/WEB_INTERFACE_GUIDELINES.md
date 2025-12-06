@@ -254,30 +254,6 @@ When writing a PRD using the [PRD Template](../prd/templates/prd-template.md), r
 
 **Example Design Requirements Section**:
 
-```markdown
-## 6. Design Requirements
-
-### 6.1 User Interface Design
-
-**Typography** (see [Typography Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md#typography)):
-- [ ] Apply font smoothing for legibility
-- [ ] Use clamp() for responsive heading sizes
-- [ ] Implement tabular figures in dashboard numbers
-- [ ] Maintain consistent font weights (no hover changes)
-
-**Interactions** (see [Interactivity Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md#interactivity)):
-- [ ] Input labels trigger focus on click
-- [ ] Forms submit via Enter key
-- [ ] Buttons disable after submission
-- [ ] Toggle changes take effect immediately
-
-**Accessibility** (see [Accessibility Guidelines](../../design-system/WEB_INTERFACE_GUIDELINES.md#accessibility)):
-- [ ] Focus rings use box-shadow
-- [ ] Icon buttons have aria-labels
-- [ ] Sequential lists support arrow key navigation
-- [ ] No tooltips on disabled elements
-```
-
 ---
 
 ## Using with Figma

@@ -81,7 +81,7 @@ design-system/
 ├── README.md                    # This file
 │
 ├── DESIGN_TOKENS.md            # Complete token reference
-├── COMPONENTS.md               # Component library docs
+# ├── COMPONENTS.md (Coming in future versions)
 ├── FIGMA.md                    # Figma setup guide
 ├── WORKFLOW.md                 # Design-to-code process
 ├── GUIDELINES.md               # UI/UX best practices
@@ -273,7 +273,7 @@ Our component library is built with:
 **Data Display:**
 - Avatar, Badge, Chip, List, Table
 
-**📖 Component Docs:** [COMPONENTS.md](./COMPONENTS.md)
+**📖 Component Docs:** Coming in future versions
 
 ### Usage Example
 
@@ -460,7 +460,7 @@ apps/web/components/SpecialFeature.tsx
 1. **Read:** [DESIGN_TOKENS.md](./DESIGN_TOKENS.md) - Understand tokens
 2. **Guidelines:** [WEB_INTERFACE_GUIDELINES.md](./WEB_INTERFACE_GUIDELINES.md) - Learn interface best practices
 3. **Setup:** [FIGMA.md](./FIGMA.md) - Get Figma template
-4. **Build:** [COMPONENTS.md](./COMPONENTS.md) - Use components
+4. **Build:** Use the design tokens to create components
 5. **Learn:** [WORKFLOW.md](./WORKFLOW.md) - Master the process
 
 ---
