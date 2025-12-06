@@ -8,7 +8,7 @@ export default function LoginScreen() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const signIn = useAuthStore((state) => state.signIn);
+    const signIn = useAuthStore((state: { signIn: (email: string, password: string) => Promise<{ error: Error | null }> }) => state.signIn);
 
     const handleLogin = async () => {
         if (!email || !password) {

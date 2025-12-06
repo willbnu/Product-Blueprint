@@ -14,6 +14,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.1.0] - 2025-12-06
+
+**🔧 PRIORITY FIXES** - Quality improvements and developer experience
+
+### Added
+- **App READMEs**: Added `README.md` to both `apps/mobile` and `apps/web` with:
+  - Quick start guides
+  - Project structure documentation
+  - Environment setup instructions
+  - Build and development commands
+- **Environment Examples**: Created `.env.example` files in both apps for easy configuration
+
+### Fixed
+- **Mobile TypeScript Config**: Fixed `tsconfig.json` structure
+  - Moved `extends` before `compilerOptions` (proper JSON extends behavior)
+  - Removed redundant settings inherited from `expo/tsconfig.base`
+- **Type Safety**: Fixed implicit `any` type in `login.tsx` selector function
+
+### Changed
+- Improved mobile app TypeScript configuration for better IDE support
+
+---
+
 ## [2.0.0] - 2025-12-06
 
 **🚀 CODE IMPLEMENTATION RELEASE** - Working apps, not just documentation!
