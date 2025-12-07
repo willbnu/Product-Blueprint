@@ -1,9 +1,16 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+// Only create Supabase client if both URL and key are provided
+let supabase: SupabaseClient | null = null;
+
+if (supabaseUrl && supabaseAnonKey) {
+    supabase = createClient(supabaseUrl, supabaseAnonKey);
+}
+
+export { supabase };
 
 // Type definitions for portfolio tables
 export interface PortfolioContact {
@@ -37,7 +44,7 @@ export async function submitContact(data: {
     message: string;
 }) {
     // If Supabase is not configured, log to console (development mode)
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!supabase) {
         console.log('Contact form submission (dev mode):', data);
         return { success: true, data: null };
     }
@@ -59,7 +66,7 @@ export async function submitContact(data: {
 // Fetch published projects
 export async function fetchProjects() {
     // If Supabase is not configured, return null (use static data)
-    if (!supabaseUrl || !supabaseAnonKey) {
+    if (!supabase) {
         return null;
     }
 
