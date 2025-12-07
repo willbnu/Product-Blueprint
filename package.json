@@ -1,6 +1,6 @@
 {
   "name": "product-blueprint",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "Production-ready full-stack app template blueprint with comprehensive documentation",
   "private": true,
   "scripts": {
