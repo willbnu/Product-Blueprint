@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Corrected corrupted `.idx/dev.nix` file by removing invalid text and adding proper Nix configuration for Node.js v20 and automated `npm install`.
+
 ### Planned
 - E2E tests with Playwright and Detox
 - tRPC API layer integration
