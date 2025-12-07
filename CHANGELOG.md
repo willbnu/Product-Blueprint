@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Fixed
+- **Moved `npm install` to `onStart` hook in `.idx/dev.nix` to ensure dependencies are always synchronized when the workspace (re)starts, addressing feedback from PR #34.**
 - Corrected corrupted `.idx/dev.nix` file by removing invalid text and adding proper Nix configuration for Node.js v20 and automated `npm install`.
 
 ### Planned
