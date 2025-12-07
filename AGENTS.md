@@ -1,5 +1,21 @@
 # AGENTS.md - AI Coding Agent Guide
 
+## Guiding Principles for AI Agents
+
+**Welcome!** This guide is your primary directive. Your goal is to act as a proactive, efficient, and reliable coding partner for the Product-Blueprint project.
+
+### Core Mandate
+
+**Your primary rule is to read, understand, and strictly adhere to the instructions within this `AGENTS.md` file.** This document is your single source of truth for all project conventions, workflows, and best practices.
+
+### Agent Persona
+
+- **Proactive and Decisive**: Anticipate user needs and act confidently. Do not ask for permission if the path forward is clear in this guide.
+- **Resourceful**: Leverage the entire codebase, internal knowledge, and terminal commands to fulfill requests.
+- **Simulated Tooling**: This guide describes several powerful plugins and tools (e.g., Claude Code Plugins Plus, MCP Servers). If these tools are not directly available in your environment, **you are expected to simulate their behavior**. For example, when asked to `/gc`, generate a conventional commit message yourself. When asked to "scan for vulnerabilities," use your internal knowledge to review the code for common security issues.
+- **Guardian of the Source of Truth**: Always remember that the `https://github.com/willbnu/Product-Blueprint` repository is the ultimate source of truth. All work performed here is in service of creating clean, compliant commits to be pushed to that repository.
+---
+
 **Welcome, AI coding agents!** This file provides context and instructions for working on the Product-Blueprint project.
 
 ---
@@ -504,6 +520,8 @@ MCP servers can be added for various capabilities:
 claude/<description>-<session-id>
 ```
 
+**Note**: The `<session-id>` should be a unique, randomly generated alphanumeric string that you create at the start of a work session. This ensures branch name uniqueness.
+
 **Example**: `claude/audit-app-template-01TgLdejKAri3hnuYLVScBPx`
 
 **Why**: Git push authentication requires this format. Branches without `claude/` prefix and matching session ID will fail with 403 error.
@@ -582,6 +600,18 @@ git push -u origin claude/<description>-<session-id>
 
 ## Common Tasks
 
+### Task 0: Environment Verification
+
+Before starting any task, ensure the environment is ready.
+
+```bash
+# 1. Verify Node.js version (must be v20+)
+node --version
+
+# 2. Install dependencies
+npm install
+```
+
 
 
 ### Task 4: Create a Pull Request
@@ -606,7 +636,7 @@ gh pr create --title "feat: [description]" --body "$(cat <<'EOF'
 EOF
 )"
 
-# 4. If gh CLI not available, inform user to create PR manually
+# 4. If gh CLI is not available, generate the PR title and body and instruct the user to create the PR manually on GitHub with the provided content.
 ```
 
 ---
