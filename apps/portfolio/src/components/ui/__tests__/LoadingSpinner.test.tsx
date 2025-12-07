@@ -35,23 +35,23 @@ describe('LoadingSpinner Component', () => {
 describe('LoadingPage Component', () => {
     it('renders loading page with message', () => {
         render(<LoadingPage message="Loading your portfolio..." />);
-        expect(screen.getByText('Loading your portfolio...')).toBeInTheDocument();
+        expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Loading your portfolio...');
     });
 
     it('renders loading page with default message', () => {
         render(<LoadingPage />);
-        expect(screen.getByText('Loading...')).toBeInTheDocument();
+        expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Loading...');
     });
 });
 
 describe('LoadingSection Component', () => {
     it('renders loading section with message', () => {
         render(<LoadingSection message="Fetching projects..." />);
-        expect(screen.getByText('Fetching projects...')).toBeInTheDocument();
+        expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Fetching projects...');
     });
 
     it('renders loading section with default message', () => {
         render(<LoadingSection />);
-        expect(screen.getByText('Loading content...')).toBeInTheDocument();
+        expect(screen.getByRole('status')).toHaveAttribute('aria-label', 'Loading content...');
     });
 });

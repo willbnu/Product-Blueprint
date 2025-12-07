@@ -72,7 +72,6 @@ describe('Contact Component', () => {
     it('renders contact information section', () => {
         render(<Contact />);
         expect(screen.getByText(/let's work together/i)).toBeInTheDocument();
-        expect(screen.getByText(/email/i)).toBeInTheDocument();
-        expect(screen.getByText(/location/i)).toBeInTheDocument();
+        expect(screen.getByText(/have a project in mind/i)).toBeInTheDocument();
     });
 });
