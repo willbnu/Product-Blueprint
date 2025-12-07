@@ -188,7 +188,7 @@ graph TB
 
 ## 📚 Documentation
 
-For a complete overview of all available documentation, please see the [**Documentation Hub**](./docs/README.md).
+For a complete overview of all available documentation, please see the [**Documentation Hub**](./docs/paths/README.md).
 
 | Guide                                   | Description                                      |
 | --------------------------------------- | ------------------------------------------------ |
