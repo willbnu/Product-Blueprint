@@ -8,11 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- **Improved workspace startup performance by optimizing the `onStart` hook in `.idx/dev.nix`.** The script now intelligently checks if `package.json` or lockfiles have changed before running `npm install`, avoiding unnecessary executions. This addresses feedback from PR #35.
+- **Enhanced `onStart` hook in `.idx/dev.nix` with robust error handling.** Addressing feedback from PR #36, the script now gracefully handles potential failures (e.g., missing `package.json`, `npm install` errors) and provides clear, actionable error messages.
+- **Improved workspace startup performance by optimizing the `onStart` hook.** Addressing feedback from PR #35, the script now intelligently checks if `package.json` or lockfiles have changed before running `npm install`, avoiding unnecessary executions.
 
 ### Fixed
-- Corrected the dependency installation logic to run on every workspace start (`onStart`) instead of only on creation (`onCreate`), ensuring dependencies stay in sync across branch changes. This addresses feedback from PR #34.
-- Repaired a corrupted `.idx/dev.nix` file and established the initial automated dependency installation.
+- **Fixed a broken relative link to `SECURITY.md` in `ANALYSIS_SUMMARY.md`**, which was causing the `check-links` CI job to fail (feedback from PR #36).
+- **Corrected dependency installation logic to run on every workspace start (`onStart`)** instead of only on creation (`onCreate`), ensuring dependencies stay in sync across branch changes (feedback from PR #34).
+- **Repaired a corrupted `.idx/dev.nix` file** and established the initial automated dependency installation.
 
 ### Planned
 - E2E tests with Playwright and Detox

@@ -27,27 +27,57 @@
       # Runs when a workspace is first created
       onCreate = {
         # For brand new workspaces, always run install the first time.
-        npm-install = "npm install";
+        npm-install = "npm install || echo 'Initial npm install failed. Please check for errors and run manually.'";
       };
       # Runs when the workspace is (re)started
       onStart = {
         # Run install only if package.json or the lockfile has changed.
         install-deps = ''
-          # Create a checksum of the files that define the dependencies.
-          # If package-lock.json exists, it's the most reliable source of truth.
+          # --- Robust Dependency Check Script ---
+          set -e # Exit immediately if a command exits with a non-zero status.
+
+          # Function to print error messages to stderr
+          error_exit() {
+            echo "Error: $1" >&2
+            exit 1
+          }
+
+          # 1. Ensure package.json exists
+          [ -f package.json ] || error_exit "package.json not found. Cannot check dependencies."
+
+          # 2. Determine which lock file to use for checksum
+          checksum_files="package.json"
           if [ -f package-lock.json ]; then
-            current_checksum=$(sha256sum package.json package-lock.json | sha256sum)
-          else
-            current_checksum=$(sha256sum package.json | sha256sum)
+            checksum_files="$checksum_files package-lock.json"
+          elif [ -f pnpm-lock.yaml ]; then
+            checksum_files="$checksum_files pnpm-lock.yaml"
           fi
 
-          # If the checksum file doesn't exist or the checksum is different, run npm install.
-          if ! [ -f node_modules/.last_install_checksum ] || [ "$current_checksum" != "$(cat node_modules/.last_install_checksum 2>/dev/null)" ]; then
-            echo "Dependencies have changed, running npm install..."
-            npm install && echo "$current_checksum" > node_modules/.last_install_checksum
+          # 3. Calculate current checksum
+          current_checksum=$(sha256sum $checksum_files | sha256sum | awk '{print $1}')
+
+          # 4. Define the checksum storage file path
+          checksum_file="node_modules/.last_install_checksum"
+
+          # 5. Compare checksums and act accordingly
+          if ! [ -f "$checksum_file" ] || [ "$current_checksum" != "$(cat "$checksum_file" 2>/dev/null)" ]; then
+            echo "Dependencies have changed or this is the first start. Running npm install..."
+            
+            # Run npm install and capture its exit code
+            if npm install; then
+              echo "npm install successful."
+              # On success, create the directory if it doesn't exist and write the new checksum
+              mkdir -p "$(dirname "$checksum_file")"
+              echo "$current_checksum" > "$checksum_file"
+            else
+              # If npm install fails, report the error and exit
+              error_exit "npm install failed. Please review the logs above for details."
+            fi
           else
-            echo "Dependencies are up to date, skipping install."
+            echo "Dependencies are up to date. Skipping install."
           fi
+
+          echo "Environment is ready."
         '';
       };
     };
