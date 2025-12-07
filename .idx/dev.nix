@@ -6,48 +6,49 @@
 
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    # pkgs.go
-    # pkgs.python311
-    # pkgs.python311Packages.pip
     pkgs.nodejs_20
-    # pkgs.nodePackages.nodemon
+    pkgs.coreutils # Provides sha256sum
   ];
 
   # Sets environment variables in the workspace
   env = {};
   idx = {
     # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
-    extensions = [
-      # "vscodevim.vim"
-    ];
+    extensions = [];
 
     # Enable previews
     previews = {
       enable = true;
-      previews = {
-        # web = {
-        #   # Example: run "npm run dev" with PORT set to IDX's defined port for previews,
-        #   # and show it in IDX's web preview panel
-        #   command = ["npm" "run" "dev"];
-        #   manager = "web";
-        #   env = {
-        #     # Environment variables to set for your server
-        #     PORT = "$PORT";
-        #   };
-        # };
-      };
+      previews = {};
     };
 
     # Workspace lifecycle hooks
     workspace = {
       # Runs when a workspace is first created
       onCreate = {
-        # startup-notice = "echo 'Installing dependencies in onStart hook...'";
+        # For brand new workspaces, always run install the first time.
+        npm-install = "npm install";
       };
       # Runs when the workspace is (re)started
       onStart = {
-        # Ensure dependencies are always in sync on every start
-        npm-install = "npm install";
+        # Run install only if package.json or the lockfile has changed.
+        install-deps = ''
+          # Create a checksum of the files that define the dependencies.
+          # If package-lock.json exists, it's the most reliable source of truth.
+          if [ -f package-lock.json ]; then
+            current_checksum=$(sha256sum package.json package-lock.json | sha256sum)
+          else
+            current_checksum=$(sha256sum package.json | sha256sum)
+          fi
+
+          # If the checksum file doesn't exist or the checksum is different, run npm install.
+          if ! [ -f node_modules/.last_install_checksum ] || [ "$current_checksum" != "$(cat node_modules/.last_install_checksum 2>/dev/null)" ]; then
+            echo "Dependencies have changed, running npm install..."
+            npm install && echo "$current_checksum" > node_modules/.last_install_checksum
+          else
+            echo "Dependencies are up to date, skipping install."
+          fi
+        '';
       };
     };
   };

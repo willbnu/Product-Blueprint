@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **Improved workspace startup performance by optimizing the `onStart` hook in `.idx/dev.nix`.** The script now intelligently checks if `package.json` or lockfiles have changed before running `npm install`, avoiding unnecessary executions. This addresses feedback from PR #35.
+
 ### Fixed
-- **Moved `npm install` to `onStart` hook in `.idx/dev.nix` to ensure dependencies are always synchronized when the workspace (re)starts, addressing feedback from PR #34.**
-- Corrected corrupted `.idx/dev.nix` file by removing invalid text and adding proper Nix configuration for Node.js v20 and automated `npm install`.
+- Corrected the dependency installation logic to run on every workspace start (`onStart`) instead of only on creation (`onCreate`), ensuring dependencies stay in sync across branch changes. This addresses feedback from PR #34.
+- Repaired a corrupted `.idx/dev.nix` file and established the initial automated dependency installation.
 
 ### Planned
 - E2E tests with Playwright and Detox
