@@ -48,7 +48,7 @@ Product-Blueprint has successfully evolved from a documentation-only blueprint (
 
 **Standout Documents:**
 - [ARCHITECTURE.md](ARCHITECTURE.md) - Complete monorepo patterns
-- [SECURITY.md](docs/SECURITY.md) - Enterprise-grade security guidance
+- [SECURITY.md](SECURITY.md) - Enterprise-grade security guidance
 - [prd/templates/prd-template.md](prd/templates/prd-template.md) - Production PRD workflow
 - [design-system/WEB_INTERFACE_GUIDELINES.md](design-system/WEB_INTERFACE_GUIDELINES.md) - Interface best practices
 - [docs/paths/](docs/paths/) - 5 guided implementation paths
