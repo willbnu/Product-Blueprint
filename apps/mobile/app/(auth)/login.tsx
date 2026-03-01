@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { Link, router } from 'expo-router';
-import { useAuthStore } from '../../stores/authStore';
+import { useAuthStore } from '@pb/state';
+import { signInWithEmail } from '@pb/data';
 
 export default function LoginScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const signIn = useAuthStore((state: { signIn: (email: string, password: string) => Promise<{ error: Error | null }> }) => state.signIn);
+    const setSession = useAuthStore((state) => state.setSession);
 
     const handleLogin = async () => {
         if (!email || !password) {
@@ -19,7 +20,7 @@ export default function LoginScreen() {
         setLoading(true);
         setError('');
 
-        const { error: signInError } = await signIn(email, password);
+        const { session, error: signInError } = await signInWithEmail(email, password);
 
         if (signInError) {
             setError(signInError.message);
@@ -27,6 +28,7 @@ export default function LoginScreen() {
             return;
         }
 
+        setSession(session);
         router.replace('/(tabs)');
     };
 

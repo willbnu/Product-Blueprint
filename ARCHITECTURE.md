@@ -26,11 +26,10 @@ graph TB
         Desktop["💻 Desktop App<br/>(Tauri - Optional)<br/>Windows + macOS + Linux"]
     end
 
-    subgraph "Shared Libraries (@app/*)"
-        UI["shared-ui<br/>Components + Design System<br/>Cross-platform patterns"]
-        Data["data<br/>API Client + Hooks<br/>Supabase + tRPC"]
-        State["state<br/>Zustand + MMKV<br/>Client State"]
-        Utils["utils<br/>Helpers + Constants<br/>Type-safe utilities"]
+    subgraph "Shared Libraries (@pb/*)"
+        Data["data<br/>API Client + Hooks<br/>Supabase Client"]
+        State["state<br/>Zustand Stores<br/>Client State"]
+        Shared["shared<br/>Types + Schemas<br/>Utilities"]
     end
 
     subgraph "Backend Services (Supabase)"
@@ -41,20 +40,17 @@ graph TB
         Realtime["🔄 Realtime<br/>WebSocket<br/>Live Updates"]
     end
 
-    Mobile --> UI
     Mobile --> Data
     Mobile --> State
-    Mobile --> Utils
+    Mobile --> Shared
 
-    Web --> UI
     Web --> Data
     Web --> State
-    Web --> Utils
+    Web --> Shared
 
-    Desktop -.-> UI
     Desktop -.-> Data
     Desktop -.-> State
-    Desktop -.-> Utils
+    Desktop -.-> Shared
 
     Data --> Auth
     Data --> DB
@@ -101,7 +97,7 @@ graph TB
 #### Web (apps/web)
 - **Framework:** React 18
 - **Bundler:** Vite 5
-- **Router:** React Router v6
+- **Router:** TanStack Router v1
 - **Styling:** Tailwind CSS
 - **Build Target:** Modern browsers (ES2020+)
 
@@ -113,76 +109,53 @@ graph TB
 
 ### Shared Libraries
 
-#### @app/shared-ui
-Cross-platform UI components and design system.
-
-**Structure:**
-```
-libs/@app/shared-ui/
-├── src/
-│   ├── components/       # Reusable components
-│   │   ├── Button/
-│   │   ├── Input/
-│   │   ├── Card/
-│   │   └── Modal/
-│   ├── theme/           # Design tokens
-│   │   ├── colors.ts
-│   │   ├── spacing.ts
-│   │   ├── typography.ts
-│   │   └── index.ts
-│   ├── providers/       # Context providers
-│   └── hooks/           # Shared hooks
-└── tailwind.config.js   # Shared Tailwind config
-```
-
-#### @app/data
+#### @pb/data
 API clients, data fetching, and backend integration.
 
 **Structure:**
 ```
-libs/@app/data/
+libs/data/
 ├── src/
 │   ├── supabase/        # Supabase client setup
-│   │   ├── client.ts
-│   │   └── types.ts     # Generated from DB
+│   │   ├── client.ts    # Platform-aware client factory
+│   │   └── types.ts     # Database types
 │   ├── api/             # API functions
-│   │   ├── auth.ts
-│   │   ├── users.ts
-│   │   └── todos.ts
-│   ├── trpc/            # tRPC setup (optional)
+│   │   └── auth.ts      # Auth API
 │   ├── hooks/           # TanStack Query hooks
-│   └── schemas/         # Zod schemas
-└── database.types.ts    # Auto-generated
+│   │   └── useSession.ts
+│   └── index.ts         # Public exports
+├── package.json
+└── tsconfig.json
 ```
 
-#### @app/state
-Global state management with persistence.
+#### @pb/state
+Global state management with Zustand.
 
 **Structure:**
 ```
-libs/@app/state/
+libs/state/
 ├── src/
 │   ├── stores/
-│   │   ├── auth.store.ts      # Auth state
-│   │   ├── user.store.ts      # User data
-│   │   └── app.store.ts       # App settings
-│   ├── persistence/
-│   │   ├── mmkv.ts           # Mobile storage
-│   │   └── idb.ts            # Web storage
-│   └── middleware/
-│       └── logger.ts
+│   │   └── auth.store.ts    # Unified auth store
+│   └── index.ts
+├── package.json
+└── tsconfig.json
 ```
 
-#### @app/utils
-Shared utilities and helpers.
+#### @pb/shared
+Shared types, schemas, and utilities.
 
-**Contents:**
-- Date/time formatting
-- String manipulation
-- Validation functions
-- Error handling
-- Type guards
-- Constants
+**Structure:**
+```
+libs/shared/
+├── src/
+│   ├── types.ts         # Shared TypeScript types
+│   ├── schemas.ts       # Zod validation schemas
+│   ├── utils.ts         # Utility functions
+│   └── index.ts
+├── package.json
+└── tsconfig.json
+```
 
 ### Backend (Supabase)
 
@@ -234,22 +207,19 @@ graph TD
     end
 
     subgraph "Shared Libraries"
-        UI["@app/shared-ui<br/>Components"]
-        Data["@app/data<br/>API + Hooks"]
-        State["@app/state<br/>Zustand"]
-        Utils["@app/utils<br/>Helpers"]
+        Data["@pb/data<br/>API + Hooks"]
+        State["@pb/state<br/>Zustand"]
+        Shared["@pb/shared<br/>Types + Utils"]
     end
 
-    Mobile --> UI
     Mobile --> Data
     Mobile --> State
 
-    Web --> UI
     Web --> Data
     Web --> State
 
-    Data --> Utils
-    State --> Utils
+    Data --> Shared
+    State --> Shared
 
     style Mobile fill:#e1f5ff
     style Web fill:#fff4e1
@@ -268,8 +238,8 @@ Enforced via ESLint `@nx/enforce-module-boundaries`:
 
 ```typescript
 // ✅ Allowed
-import { Button } from '@app/shared-ui';
-import { useAuth } from '@app/data';
+import { useAuthStore } from '@pb/state';
+import { signInWithEmail } from '@pb/data';
 
 // ❌ Not allowed - apps can't import from each other
 import { Screen } from '../../mobile/src/screens';

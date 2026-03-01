@@ -2,7 +2,19 @@
 
 /**
  * Database types for Supabase.
- * These can be generated using: pnpm supabase gen types typescript --project-id your-project > types.ts
+ *
+ * To generate these types from your actual database:
+ *
+ * Option 1: Using Supabase CLI (recommended)
+ * 1. Install: `npm install -g supabase`
+ * 2. Login: `supabase login`
+ * 3. Link: `supabase link --project-ref your-project-ref`
+ * 4. Generate: `supabase gen types typescript --local > libs/data/src/supabase/types.ts`
+ *
+ * Option 2: From remote database
+ * `supabase gen types typescript --project-id your-project-id > libs/data/src/supabase/types.ts`
+ *
+ * The types below are a minimal example. Replace them with your generated types.
  */
 
 export type Json =
