@@ -21,30 +21,20 @@
         "resolveJsonModule": true,
         "baseUrl": ".",
         "paths": {
-            "@app/shared": [
-                "libs/shared/src/index.ts"
-            ],
-            "@app/shared/*": [
-                "libs/shared/src/*"
-            ],
-            "@app/ui": [
-                "libs/ui/src/index.ts"
-            ],
-            "@app/ui/*": [
-                "libs/ui/src/*"
-            ],
-            "@app/api": [
-                "libs/api/src/index.ts"
-            ],
-            "@app/api/*": [
-                "libs/api/src/*"
-            ],
-            "@app/utils": [
-                "libs/utils/src/index.ts"
-            ],
-            "@app/utils/*": [
-                "libs/utils/src/*"
-            ]
+            "@pb/shared": ["libs/shared/src/index.ts"],
+            "@pb/shared/*": ["libs/shared/src/*"],
+            "@pb/data": ["libs/data/src/index.ts"],
+            "@pb/data/*": ["libs/data/src/*"],
+            "@pb/state": ["libs/state/src/index.ts"],
+            "@pb/state/*": ["libs/state/src/*"],
+            "@app/shared": ["libs/shared/src/index.ts"],
+            "@app/shared/*": ["libs/shared/src/*"],
+            "@app/ui": ["libs/ui/src/index.ts"],
+            "@app/ui/*": ["libs/ui/src/*"],
+            "@app/api": ["libs/api/src/index.ts"],
+            "@app/api/*": ["libs/api/src/*"],
+            "@app/utils": ["libs/utils/src/index.ts"],
+            "@app/utils/*": ["libs/utils/src/*"]
         }
     },
     "exclude": [

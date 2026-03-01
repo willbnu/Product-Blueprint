@@ -11,6 +11,9 @@
         "test": "jest"
     },
     "dependencies": {
+        "@pb/data": "workspace:*",
+        "@pb/state": "workspace:*",
+        "@pb/shared": "workspace:*",
         "@react-navigation/native": "^7.0.0",
         "@supabase/supabase-js": "^2.45.0",
         "@tanstack/react-query": "^5.60.0",

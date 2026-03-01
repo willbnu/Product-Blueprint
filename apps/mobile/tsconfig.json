@@ -4,12 +4,11 @@
         "strict": true,
         "baseUrl": ".",
         "paths": {
-            "@/*": [
-                "./*"
-            ],
-            "@app/shared": [
-                "../../libs/shared/src"
-            ]
+            "@/*": ["./*"],
+            "@pb/shared": ["../../libs/shared/src"],
+            "@pb/data": ["../../libs/data/src"],
+            "@pb/state": ["../../libs/state/src"],
+            "@app/shared": ["../../libs/shared/src"]
         }
     },
     "include": [
