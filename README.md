@@ -6,11 +6,15 @@
 
 *A production-ready blueprint for building scalable mobile and web applications*
 
-[![Version](https://img.shields.io/badge/Version-2.2.0-blue.svg?style=flat-square)](./CHANGELOG.md)
+[![CI](https://img.shields.io/github/actions/workflow/status/willbnu/Product-Blueprint/ci.yml?style=flat-square&logo=github&label=CI)](https://github.com/willbnu/Product-Blueprint/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/Version-2.3.0-blue.svg?style=flat-square)](./CHANGELOG.md)
 [![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=flat-square)](./LICENSE)
+
 [![Nx](https://img.shields.io/badge/Nx-Monorepo-143055.svg?style=flat-square&logo=nx)](https://nx.dev/)
 [![Expo](https://img.shields.io/badge/Expo-SDK_52-000020.svg?style=flat-square&logo=expo)](https://expo.dev/)
+[![React](https://img.shields.io/badge/React-18-61DAFB.svg?style=flat-square&logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC.svg?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
 
 [![GitHub stars](https://img.shields.io/github/stars/willbnu/Product-Blueprint?style=flat-square&logo=github)](https://github.com/willbnu/Product-Blueprint/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/willbnu/Product-Blueprint?style=flat-square&logo=github)](https://github.com/willbnu/Product-Blueprint/network/members)
