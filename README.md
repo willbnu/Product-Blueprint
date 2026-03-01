@@ -1,123 +1,214 @@
-# 🚀 Product-Blueprint: Full-Stack Application Framework
+<div align="center">
 
-[![Current Version](https://img.shields.io/badge/Version-v2.2.0-blue.svg)](./CHANGELOG.md)
-[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](./LICENSE)
-[![Nx Monorepo](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
-[![Expo SDK 52](https://img.shields.io/badge/Expo-SDK_52-000020.svg)](https://expo.dev/)
+# Product-Blueprint
 
-> A comprehensive architectural blueprint for building production-ready, full-stack monorepo applications. This template includes working code for mobile (Expo) and web (React), powered by Nx and Supabase.
+**Enterprise-Grade Full-Stack Application Framework**
 
-## 🎯 How to Use This Blueprint
+*A production-ready blueprint for building scalable mobile and web applications*
 
-This is a **GitHub Template Repository**. It's designed to be the starting point for your new projects.
+[![Version](https://img.shields.io/badge/Version-2.2.0-blue.svg?style=flat-square)](./CHANGELOG.md)
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg?style=flat-square)](./LICENSE)
+[![Nx](https://img.shields.io/badge/Nx-Monorepo-143055.svg?style=flat-square&logo=nx)](https://nx.dev/)
+[![Expo](https://img.shields.io/badge/Expo-SDK_52-000020.svg?style=flat-square&logo=expo)](https://expo.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-### Step 1: Create Your Repository
-
-**Click the "Use this template" button** at the top of this repository page, or use the direct link below:
-
-👉 [**Create a new repository from this template**](https://github.com/willbnu/Product-Blueprint/generate)
-
-This action creates a brand new, independent repository in your account, containing a clean copy of this blueprint.
-
-### Step 2: Set Up Your Local Environment
-
-Once your new repository is created, clone it to your local machine and install the dependencies.
-
-```bash
-# 1. Clone your new repository (replace with your repo's URL)
-git clone https://github.com/YOUR-ORG/YOUR-APP-NAME.git
-cd YOUR-APP-NAME
-
-# 2. Install dependencies using pnpm
-pnpm install
-
-# 3. Copy the environment variable template
-# (Add your Supabase credentials to this new file)
-cp .env.example .env
-
-# 4. Start the development servers
-pnpm dev:web     # Starts the React web app
-pnpm dev:mobile  # Starts the Expo mobile app
-```
-
-### Step 3: Choose Your Development Path
-
-Based on what you're building, this blueprint provides guided documentation journeys.
-
-```mermaid
-graph TD
-    Start[I want to build...] --> Mobile{Mobile app?}
-    Start --> Web{Web app?}
-    Start --> Both{Both platforms?}
-    Start --> Compliance{Healthcare/Finance? compliance}
-    Start --> Quick{Quick prototype?}
-
-    Mobile --> MobilePath[📱 Mobile-First Path]
-    Web --> WebPath[🌐 Web-First Path]
-    Both --> FullPath[🚀 Full-Stack Path]
-    Compliance --> CompPath[🏥 Compliance-Heavy Path]
-    Quick --> QuickPath[⚡ Quick MVP Path]
-
-    MobilePath --> Docs[Read Docs]
-    WebPath --> Docs
-    FullPath --> Docs
-    CompPath --> Docs
-    QuickPath --> Docs
-
-    Docs --> Build[Build Your App]
-
-    click MobilePath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/mobile-first-app.md" "Mobile-First App Path"
-    click WebPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/web-first-app.md" "Web-First App Path"
-    click FullPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/full-stack-app.md" "Full-Stack App Path"
-    click CompPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/compliance-heavy-app.md" "Compliance-Heavy App Path"
-    click QuickPath "https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/quick-mvp.md" "Quick MVP Path"
-
-    style MobilePath fill:#e1f5ff
-    style WebPath fill:#fff4e1
-    style FullPath fill:#e8f5e9
-    style CompPath fill:#fce4ec
-    style QuickPath fill:#f3e5f5
-```
-
-**📚 [View All Documentation Paths](https://github.com/willbnu/Product-Blueprint/blob/main/docs/paths/README.md)**
+[![GitHub stars](https://img.shields.io/github/stars/willbnu/Product-Blueprint?style=flat-square&logo=github)](https://github.com/willbnu/Product-Blueprint/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/willbnu/Product-Blueprint?style=flat-square&logo=github)](https://github.com/willbnu/Product-Blueprint/network/members)
+[![GitHub issues](https://img.shields.io/github/issues/willbnu/Product-Blueprint?style=flat-square&logo=github)](https://github.com/willbnu/Product-Blueprint/issues)
 
 ---
 
-## 📝 What is Product-Blueprint?
+[**🚀 Quick Start**](#-quick-start) • [**📚 Documentation**](#-documentation) • [**🛠️ Tech Stack**](#%EF%B8%8F-tech-stack) • [**🤝 Contributing**](#-contributing)
 
-This repository is more than just a template; it's a collection of best practices, architectural patterns, and working code designed to accelerate the development of high-quality, scalable applications.
+</div>
 
-- ✅ **Working Code:** Includes a functional Expo mobile app and a React web app.
-- ✅ **Production-Ready Patterns:** Security implementations (RLS), audit logging, and robust error handling.
-- ✅ **PRD-First Workflow:** Includes templates and examples for writing effective Product Requirements Documents.
-- ✅ **Comprehensive Documentation:** Over 27 detailed markdown files covering architecture, security, deployment, and more.
-- ✅ **Compliance Guidance:** Patterns relevant for SOC 2, HIPAA, GDPR, PCI DSS, and ISO 27001.
+---
 
-### System Architecture Overview
+## Why Product-Blueprint?
+
+Building production-ready applications requires more than just code. You need:
+
+| Challenge | Product-Blueprint Solution |
+|-----------|---------------------------|
+| 🔴 **Architecture decisions** | Pre-built monorepo structure with Nx |
+| 🔴 **Authentication & Security** | Supabase Auth + RLS patterns ready to use |
+| 🔴 **Code sharing between platforms** | Shared libraries (`@pb/*`) for data, state, utilities |
+| 🔴 **Type safety across the stack** | End-to-end TypeScript with generated types |
+| 🔴 **Routing complexity** | TanStack Router (web) + Expo Router (mobile) |
+| 🔴 **Documentation overhead** | 30+ markdown files covering everything |
+| 🔴 **Compliance requirements** | Built-in patterns for SOC 2, HIPAA, GDPR |
+
+### What You Get
+
+```
+✅ Working Mobile App (Expo SDK 52)
+✅ Working Web App (React 18 + Vite 6)
+✅ Type-Safe Routing (TanStack Router)
+✅ Shared Libraries (@pb/data, @pb/state, @pb/shared)
+✅ Supabase Backend (Auth, Database, Storage)
+✅ Comprehensive Documentation (30+ guides)
+✅ PRD Templates & Examples
+✅ Security & Compliance Patterns
+```
+
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 📱 Mobile App
+- Expo SDK 52 with Expo Router v4
+- NativeWind v4 (Tailwind for RN)
+- Dark mode support
+- Secure token storage
+- Tab + stack navigation
+
+</td>
+<td width="50%">
+
+### 🌐 Web App
+- React 18 + Vite 6
+- TanStack Router with loaders
+- Type-safe routing
+- Tailwind CSS styling
+- Route-based code splitting
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 📦 Shared Libraries
+- **@pb/data** - Supabase client, API, hooks
+- **@pb/state** - Zustand stores
+- **@pb/shared** - Types, schemas, utilities
+
+</td>
+<td width="50%">
+
+### 🔒 Security Built-In
+- Row Level Security (RLS) policies
+- JWT authentication
+- Audit logging patterns
+- Input validation (Zod)
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🚀 Quick Start
+
+### Use This Template
+
+Click the **"Use this template"** button above, or:
+
+```bash
+# Create your repo from this template
+gh repo create my-app --template willbnu/Product-Blueprint --private
+
+# Clone and setup
+cd my-app
+pnpm install
+cp .env.example .env
+```
+
+### Start Developing
+
+```bash
+# Start web app (http://localhost:3000)
+pnpm --filter @pb/web dev
+
+# Start mobile app (Expo Go)
+pnpm --filter @pb/mobile start
+```
+
+### Environment Setup
+
+```bash
+# .env
+VITE_SUPABASE_URL=https://your-project.supabase.co
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+> 💡 Get your Supabase credentials from [supabase.com](https://supabase.com/dashboard)
+
+---
+
+## 🗺️ Development Paths
+
+Choose your path based on what you're building:
+
+```mermaid
+graph LR
+    A[What are you building?] --> B[Mobile App]
+    A --> C[Web App]
+    A --> D[Both Platforms]
+
+    B --> E[📱 Mobile-First Path]
+    C --> F[🌐 Web-First Path]
+    D --> G[🚀 Full-Stack Path]
+
+    E --> H[→ Start Building]
+    F --> H
+    G --> H
+```
+
+| Path | Best For | Guide |
+|------|----------|-------|
+| 📱 **Mobile-First** | iOS/Android apps | [Mobile-First Guide](./docs/paths/mobile-first-app.md) |
+| 🌐 **Web-First** | Web applications | [Web-First Guide](./docs/paths/web-first-app.md) |
+| 🚀 **Full-Stack** | Multi-platform products | [Full-Stack Guide](./docs/paths/full-stack-app.md) |
+| ⚡ **Quick MVP** | Rapid prototyping | [Quick MVP Guide](./docs/paths/quick-mvp.md) |
+| 🏥 **Compliance** | Healthcare/Finance | [Compliance Guide](./docs/paths/compliance-heavy-app.md) |
+
+---
+
+## 🏗️ Architecture
 
 ```mermaid
 graph TB
-    subgraph "Frontend Applications"
-        Mobile["📱 Mobile App<br/>(Expo/React Native)"]
-        Web["🌐 Web App<br/>(React + Vite + TanStack Router)"]
+    subgraph "📱 Mobile App"
+        M_Routes[Expo Router]
+        M_Screens[Screens]
     end
 
-    subgraph "Shared Libraries (@pb/*)"
-        Shared["@pb/shared<br/>Types, Schemas, Utilities"]
-        Data["@pb/data<br/>Supabase Client, API, Hooks"]
-        State["@pb/state<br/>Zustand Stores"]
+    subgraph "🌐 Web App"
+        W_Routes[TanStack Router]
+        W_Pages[Pages]
     end
 
-    subgraph "Backend (Supabase)"
-        Auth["🔐 Authentication<br/>JWT + RLS"]
-        DB[("💾 PostgreSQL Database")]
-        Storage["📁 File Storage"]
-        Edge["⚡ Edge Functions (Deno)"]
+    subgraph "📦 Shared Libraries"
+        direction LR
+        Data["@pb/data"]
+        State["@pb/state"]
+        Shared["@pb/shared"]
     end
 
-    Mobile --> Shared; Mobile --> Data; Mobile --> State;
-    Web --> Shared; Web --> Data; Web --> State;
-    Data --> Auth; Data --> DB; Data --> Storage; Data --> Edge;
+    subgraph "☁️ Supabase"
+        Auth[Auth Service]
+        DB[(PostgreSQL)]
+        Storage[File Storage]
+    end
+
+    M_Routes --> M_Screens
+    M_Screens --> Data
+    M_Screens --> State
+
+    W_Routes --> W_Pages
+    W_Pages --> Data
+    W_Pages --> State
+
+    Data --> Auth
+    Data --> DB
+    Data --> Storage
+
+    Data -.-> Shared
+    State -.-> Shared
 ```
 
 ---
@@ -126,95 +217,200 @@ graph TB
 
 ### Frontend
 
-| Area           | Technology                                            |
-| -------------- | ----------------------------------------------------- |
-| **Mobile**     | [Expo (SDK 52)](https://expo.dev/) + Expo Router v4   |
-| **Web**        | [React 18](https://react.dev/) + [Vite 6](https://vitejs.dev/) |
-| **Routing**    | [TanStack Router](https://tanstack.com/router) (Web) / Expo Router (Mobile) |
-| **Styling**    | [NativeWind](https://www.nativewind.dev/) / [Tailwind CSS](https://tailwindcss.com/) |
-| **State**      | [Zustand](https://zustand-demo.pmnd.rs/)              |
-| **Data Fetching**| [TanStack Query v5](https://tanstack.com/query)     |
-| **Forms**      | [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/) |
+| Layer | Mobile | Web |
+|-------|--------|-----|
+| **Framework** | Expo SDK 52 + React Native | React 18 + Vite 6 |
+| **Routing** | Expo Router v4 | TanStack Router v1 |
+| **Styling** | NativeWind v4 | Tailwind CSS v3 |
+| **State** | Zustand v5 | Zustand v5 |
+| **Data** | TanStack Query v5 | TanStack Query v5 |
+| **Forms** | React Hook Form + Zod | React Hook Form + Zod |
 
-### Backend (Default: Supabase)
+### Backend
 
-| Area          | Technology                                         |
-| ------------- | -------------------------------------------------- |
-| **Database**  | [Supabase](https://supabase.com/) (PostgreSQL 15+) |
-| **Auth**      | Supabase Auth (JWT)                                |
-| **Storage**   | Supabase Storage                                   |
-| **Serverless**| Supabase Edge Functions (Deno)                     |
+| Service | Technology | Purpose |
+|---------|-----------|---------|
+| **Database** | Supabase (PostgreSQL 15+) | Primary data store |
+| **Auth** | Supabase Auth | JWT authentication |
+| **Storage** | Supabase Storage | File uploads |
+| **Functions** | Supabase Edge Functions | Serverless compute |
 
-> 💡 **Want a different backend?** See our [**Alternative Databases Guide**](./docs/ALTERNATIVE_DATABASES.md) for patterns on using Convex, Firebase, Vercel Postgres, and more.
+### Development
 
-### DevOps & Tooling
-
-| Area               | Technology                                 |
-| ------------------ | ------------------------------------------ |
-| **Monorepo**       | [Nx](https://nx.dev/) 19+                  |
-| **Package Manager**| [pnpm](https://pnpm.io/) 9+                |
-| **Language**       | [TypeScript](https://www.typescriptlang.org/) 5+ |
-| **Testing**        | Jest, Playwright, Detox                    |
-| **CI/CD**          | GitHub Actions                             |
+| Tool | Version | Purpose |
+|------|---------|---------|
+| **Nx** | 22+ | Monorepo orchestration |
+| **pnpm** | 9+ | Package management |
+| **TypeScript** | 5+ | Type safety |
+| **Jest** | 29+ | Unit testing |
+| **Playwright** | 1.40+ | E2E testing (web) |
+| **Detox** | 20+ | E2E testing (mobile) |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-.
+Product-Blueprint/
 ├── apps/
-│   ├── mobile/              # Expo mobile application
-│   │   ├── app/             # Expo Router file-based routes
-│   │   ├── stores/          # Auth store (uses @pb/state)
-│   │   └── lib/             # Supabase client (uses @pb/data)
-│   └── web/                 # React web application
-│       └── src/
-│           ├── routes/      # TanStack Router file-based routes
-│           └── router.tsx   # Router configuration
+│   ├── mobile/                 # 📱 Expo mobile application
+│   │   ├── app/               # File-based routes (Expo Router)
+│   │   ├── stores/            # Auth store
+│   │   └── lib/               # Supabase client
+│   ├── web/                    # 🌐 React web application
+│   │   └── src/
+│   │       ├── routes/        # File-based routes (TanStack Router)
+│   │       └── router.tsx     # Router config
+│   └── docs-site/              # 📚 Documentation website
 ├── libs/
-│   ├── shared/              # @pb/shared - Types, schemas, utilities
-│   ├── data/                # @pb/data - Supabase client, API, hooks
-│   └── state/               # @pb/state - Zustand stores
-├── prd/                     # 📝 START HERE: Product Requirements Docs
-│   ├── templates/
-│   └── examples/
-├── docs/                    # 📚 All project documentation
+│   ├── shared/                 # @pb/shared - Types, schemas, utils
+│   ├── data/                   # @pb/data - API, hooks, Supabase
+│   └── state/                  # @pb/state - Zustand stores
+├── prd/                        # 📝 Product Requirements Documents
+│   ├── templates/              # PRD templates
+│   └── examples/               # Example PRDs
+├── docs/                       # 📚 Comprehensive guides
 │   ├── ARCHITECTURE.md
-│   ├── DEVELOPMENT.md
-│   ├── DEPLOYMENT.md
 │   ├── SECURITY_IMPLEMENTATION.md
-│   └── paths/               # Guided documentation paths
-├── supabase/                # Supabase migrations and functions
-└── tools/                   # Custom Nx generators and scripts
+│   ├── paths/                  # Development path guides
+│   └── ...
+├── supabase/                   # ☁️ Database migrations
+└── tools/                      # 🔧 Nx generators & scripts
 ```
 
 ---
 
 ## 📚 Documentation
 
-For a complete overview of all available documentation, please see the [**Documentation Hub**](./docs/paths/README.md).
+### Essential Guides
 
-| Guide                                   | Description                                      |
-| --------------------------------------- | ------------------------------------------------ |
-| **[Getting Started](./GETTING_STARTED.md)** | Full setup and development walkthrough.          |
-| **[PRD Workflow](./prd/README.md)**         | How to use the PRD-first planning process.       |
-| **[Architecture](./ARCHITECTURE.md)**       | High-level system design and decisions.          |
-| **[Security Guide](./docs/SECURITY_IMPLEMENTATION.md)** | RLS, audit logs, and other security patterns.    |
-| **[Deployment](./DEPLOYMENT.md)**           | How to deploy your applications to production.   |
+| Guide | Description |
+|-------|-------------|
+| [**Getting Started**](./GETTING_STARTED.md) | Full setup walkthrough |
+| [**Architecture**](./ARCHITECTURE.md) | System design decisions |
+| [**Security**](./docs/SECURITY_IMPLEMENTATION.md) | RLS, auth, audit logs |
+| [**Deployment**](./DEPLOYMENT.md) | Production deployment |
+| [**Contributing**](./CONTRIBUTING.md) | How to contribute |
 
-## 🤝 Contributing
+### PRD Resources
 
-We welcome contributions! Please read our [**Contributing Guidelines](./CONTRIBUTING.md)** to get started.
+| Resource | Description |
+|----------|-------------|
+| [**PRD Template**](./prd/templates/prd-template.md) | Enterprise-grade template |
+| [**Todo App Example**](./prd/examples/todo-app-prd.md) | Complete example PRD |
 
-## 📄 License & Copyright
+### All Documentation
 
-This project is proprietary software. All rights reserved.
-
-**Copyright (c) 2025-2026 William Finger. All Rights Reserved.**
-
-See the [LICENSE](./LICENSE) file for details. For licensing inquiries, contact via [GitHub](https://github.com/willbnu).
+> 📖 **[Browse all 30+ documentation files →](./docs/paths/README.md)**
 
 ---
 
-**⭐ If you find this blueprint useful, please consider giving it a star!**
+## 🔒 Security
+
+Product-Blueprint includes production-ready security patterns:
+
+| Feature | Implementation |
+|---------|----------------|
+| **Authentication** | Supabase Auth (JWT) with secure storage |
+| **Authorization** | Row Level Security (RLS) on all tables |
+| **Input Validation** | Zod schemas on client and server |
+| **Audit Logging** | Comprehensive audit trail |
+| **Rate Limiting** | Edge function middleware |
+| **Secrets Management** | Environment variables, never in code |
+
+> 🔐 **[Read the Security Implementation Guide →](./docs/SECURITY_IMPLEMENTATION.md)**
+
+---
+
+## 🌍 Internationalization
+
+Built with global products in mind:
+
+- 🌐 i18n-ready architecture
+- 📅 Locale-aware date/time formatting
+- 💱 Currency formatting support
+- 🔤 RTL layout preparation
+
+---
+
+## 📊 Compliance Patterns
+
+Built-in patterns for regulated industries:
+
+| Standard | Coverage |
+|----------|----------|
+| **SOC 2** | Audit logging, access controls |
+| **HIPAA** | PHI handling patterns |
+| **GDPR** | Data rights, consent management |
+| **PCI DSS** | Payment data patterns |
+| **ISO 27001** | Security controls |
+
+> 🏥 **[Read the Compliance Guide →](./docs/paths/compliance-heavy-app.md)**
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! By contributing, you agree to our Contributor License Agreement.
+
+### Quick Links
+
+- [Contributing Guidelines](./CONTRIBUTING.md)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
+- [Security Policy](./SECURITY.md)
+
+### Development Setup
+
+```bash
+# Clone the repo
+git clone https://github.com/willbnu/Product-Blueprint.git
+cd Product-Blueprint
+
+# Install dependencies
+pnpm install
+
+# Start development
+pnpm --filter @pb/web dev
+```
+
+---
+
+## 📄 License
+
+This project is **proprietary software**. All rights reserved.
+
+```
+Copyright (c) 2025-2026 William Finger. All Rights Reserved.
+
+Unauthorized copying, distribution, or use of this software
+or its documentation is strictly prohibited.
+```
+
+For licensing inquiries, contact via [GitHub](https://github.com/willbnu).
+
+---
+
+## 🙏 Acknowledgments
+
+Built with amazing open-source technologies:
+
+- [React](https://react.dev/) - UI library
+- [Expo](https://expo.dev/) - Mobile development platform
+- [Supabase](https://supabase.com/) - Backend platform
+- [TanStack](https://tanstack.com/) - Router & Query libraries
+- [Nx](https://nx.dev/) - Monorepo tooling
+- [Tailwind Labs](https://tailwindcss.com/) - Styling
+
+---
+
+<div align="center">
+
+**[⭐ Star this repo](https://github.com/willbnu/Product-Blueprint/stargazers)** if you find it useful!
+
+**[📢 Share on Twitter](https://twitter.com/intent/tweet?text=Check%20out%20Product-Blueprint%20-%20a%20production-ready%20full-stack%20application%20framework%20with%20Expo%2C%20React%2C%20and%20Supabase!&url=https%3A%2F%2Fgithub.com%2Fwillbnu%2FProduct-Blueprint)**
+
+---
+
+Made with ❤️ by [William Finger](https://github.com/willbnu)
+
+</div>
