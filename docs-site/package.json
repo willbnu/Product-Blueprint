@@ -3,6 +3,7 @@
   "version": "2.1.0",
   "description": "Documentation site for Product-Blueprint",
   "private": true,
+  "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
