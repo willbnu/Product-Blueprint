@@ -1,0 +1,174 @@
+name: Auto-Update Documentation
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      # Trigger on code changes that may need documentation updates
+      - 'apps/web/src/**'
+      - 'apps/mobile/app/**'
+      - 'libs/**'
+      - 'supabase/**'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Specific documentation file to update (optional)'
+        required: false
+        default: ''
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Get changed files
+        id: changed
+        run: |
+          # Get list of changed code files
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- \
+            'apps/web/src/**' \
+            'apps/mobile/app/**' \
+            'libs/**' \
+            'supabase/**' \
+            2>/dev/null || echo "")
+          echo "files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Detect documentation needs
+        id: detect
+        if: steps.changed.outputs.files != ''
+        run: |
+          NEEDS_UPDATE="false"
+          DOC_TARGETS=""
+
+          # Check for changes that need documentation updates
+          if echo "${{ steps.changed.outputs.files }}" | grep -q "libs/"; then
+            NEEDS_UPDATE="true"
+            DOC_TARGETS="$DOC_TARGETS docs/LIBRARIES.md"
+          fi
+
+          if echo "${{ steps.changed.outputs.files }}" | grep -q "apps/web/"; then
+            NEEDS_UPDATE="true"
+            DOC_TARGETS="$DOC_TARGETS docs/WEB.md"
+          fi
+
+          if echo "${{ steps.changed.outputs.files }}" | grep -q "apps/mobile/"; then
+            NEEDS_UPDATE="true"
+            DOC_TARGETS="$DOC_TARGETS docs/MOBILE.md"
+          fi
+
+          if echo "${{ steps.changed.outputs.files }}" | grep -q "supabase/"; then
+            NEEDS_UPDATE="true"
+            DOC_TARGETS="$DOC_TARGETS docs/BACKEND.md docs/API.md"
+          fi
+
+          echo "needs_update=$NEEDS_UPDATE" >> $GITHUB_OUTPUT
+          echo "doc_targets=$DOC_TARGETS" >> $GITHUB_OUTPUT
+
+      - name: Update documentation with Claude
+        if: steps.detect.outputs.needs_update == 'true'
+        id: claude
+        uses: anthropics/claude-code-action@v1
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        with:
+          model: claude-sonnet-4-6-20250514
+          prompt: |
+            You are a documentation expert for the Product-Blueprint project.
+
+            The following code files have changed and may need documentation updates:
+
+            Changed files:
+            ${{ steps.changed.outputs.files }}
+
+            Target documentation to review/update:
+            ${{ steps.detect.outputs.doc_targets }}
+
+            Your task:
+            1. Review the changed code files to understand what changed
+            2. Read the relevant documentation files
+            3. Update the documentation to accurately reflect the current code state
+            4. Ensure consistency between code and docs
+            5. Update any code examples in the docs that may be outdated
+
+            Guidelines:
+            - Keep the existing documentation structure and style
+            - Only make changes that are necessary for accuracy
+            - Add clear explanations for any new features or changed behavior
+            - Update code snippets to match current implementations
+            - Do NOT add unnecessary content or restructure existing docs
+
+            Make the necessary documentation updates directly.
+
+          timeout-minutes: 15
+
+      - name: Check for changes
+        id: check-changes
+        run: |
+          if git diff --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.check-changes.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: |
+            docs: auto-update documentation
+
+            Automated documentation update based on recent code changes.
+
+            Changed code files:
+            ${{ steps.changed.outputs.files }}
+          title: 'docs: Automated Documentation Update'
+          body: |
+            ## Automated Documentation Update
+
+            This PR was automatically generated to keep documentation in sync with code changes.
+
+            ### Changed Code Files
+            ```
+            ${{ steps.changed.outputs.files }}
+            ```
+
+            ### Updated Documentation
+            ${{ steps.detect.outputs.doc_targets }}
+
+            ---
+
+            Please review the changes for accuracy before merging.
+          branch: auto-docs/update
+          branch-suffix: timestamp
+          labels: |
+            documentation
+            automated
+          reviewers: willbnu
+
+      - name: Summary
+        if: steps.detect.outputs.needs_update != 'true'
+        run: |
+          echo "### No Documentation Updates Needed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The changed files do not require documentation updates." >> $GITHUB_STEP_SUMMARY

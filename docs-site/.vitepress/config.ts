@@ -120,8 +120,8 @@ export default defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
-      copyright: 'Copyright © 2025 William Finger'
+      message: 'Proprietary Software - All Rights Reserved',
+      copyright: 'Copyright © 2025-2026 William Finger'
     },
 
     search: {
