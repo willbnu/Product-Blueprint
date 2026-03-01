@@ -13,23 +13,38 @@ A Product Requirements Document (PRD) is a comprehensive document that defines:
 
 ## 🚀 Quick Start
 
-### 1. Copy the Template
+### 1. Choose Your Template
+
+| Template | Best For | Length |
+|----------|----------|--------|
+| **[PRD Lite](./templates/prd-lite.md)** | Simple apps, MVPs, hackathons | 1 page |
+| **[PRD Template](./templates/prd-template.md)** | Full products, enterprise apps | 20+ pages |
+| **[Feature Spec](./templates/feature-spec.md)** | Individual features | 5 pages |
+| **[Technical Spec](./templates/technical-spec.md)** | Technical architecture | 15 pages |
+
+### 2. Copy and Customize
 
 ```bash
-# Copy the PRD template for your new app
-cp prd/templates/prd-template.md prd/my-new-app.md
+# For simple projects
+cp prd/templates/prd-lite.md prd/my-app.md
+
+# For full products
+cp prd/templates/prd-template.md prd/my-app.md
+
+# For a new feature
+cp prd/templates/feature-spec.md prd/features/my-feature.md
 ```
 
-### 2. Fill Out Your PRD
+### 3. Fill Out Your PRD
 
-Edit `prd/my-new-app.md` with your app's details:
-- Product vision
-- Target audience
+Edit with your app's details:
+- Product vision and goals
+- Target audience and personas
 - Features and requirements
 - Technical specifications
 - Success metrics
 
-### 3. Use PRD to Build
+### 4. Build
 
 Once your PRD is complete:
 1. Use it as the blueprint for implementation
@@ -43,20 +58,22 @@ Once your PRD is complete:
 prd/
 ├── README.md                    # This file
 ├── templates/
-│   ├── prd-template.md          # Main PRD template
-│   ├── feature-spec.md          # (Coming Soon) Individual feature specification
-│   └── technical-spec.md        # (Coming Soon) Technical architecture spec
+│   ├── prd-lite.md              # Quick 1-page PRD for simple projects
+│   ├── prd-template.md          # Full enterprise PRD template
+│   ├── feature-spec.md          # Individual feature specification
+│   └── technical-spec.md        # Technical architecture spec
 ├── examples/
-│   ├── todo-app-prd.md          # Example: Simple todo app
-│   ├── social-app-prd.md        # (Coming Soon) Example: Social networking app
-│   └── ecommerce-app-prd.md     # (Coming Soon) Example: E-commerce app
-# guides/ directory will be added in future versions
+│   └── todo-app-prd.md          # Example: Simple todo app
+└── schemas/
+    ├── auth.sql                 # Auth schema examples
+    ├── user_profiles.sql        # User profiles schema
+    └── audit_logs.sql           # Audit logging schema
 ```
 
 ## 🎯 PRD-Driven Development Workflow
 
 ### Phase 1: Discovery & Planning
-1. **Create PRD** from template
+1. **Choose template** based on project complexity
 2. **Define requirements** (user stories, features)
 3. **Get stakeholder buy-in**
 4. **Prioritize features** (MVP vs Future)
@@ -79,62 +96,66 @@ prd/
 3. **Document decisions**
 4. **Plan next iterations**
 
-## 📝 Templates Available
+## 📝 Templates Overview
 
-### 1. **prd-template.md**
-Comprehensive PRD template for full application planning.
+### 1. PRD Lite (`prd-lite.md`)
+Quick 1-page template for simple projects.
 
 **Use when:**
-- Starting a new app from scratch
-- Need complete product specification
-- Pitching to stakeholders
+- Building an MVP in 2-4 weeks
+- Hackathon projects
+- Simple CRUD apps
+- Prototyping an idea
 
-### 2. **feature-spec.md**
-Template for individual feature specifications.
+**Time to fill:** ~30 minutes
+
+### 2. Full PRD (`prd-template.md`)
+Comprehensive enterprise-grade template.
+
+**Use when:**
+- Building a full product
+- Need stakeholder alignment
+- Planning 3+ month projects
+- Enterprise/compliance requirements
+
+**Time to fill:** 2-4 hours
+
+### 3. Feature Spec (`feature-spec.md`)
+Detailed specification for individual features.
 
 **Use when:**
 - Adding new features to existing app
 - Planning complex features
 - Need detailed user flows
+- Handoff to development team
 
-### 3. **technical-spec.md**
+**Time to fill:** 1-2 hours
+
+### 4. Technical Spec (`technical-spec.md`)
 Technical architecture and implementation details.
 
 **Use when:**
 - Finalizing technical approach
 - Documenting system design
 - Planning infrastructure
+- Onboarding new developers
 
-## 💡 Examples Included
+**Time to fill:** 2-3 hours
 
-### Todo App (Simple)
-- Basic CRUD operations
-- User authentication
-- Simple data model
+## 💡 Example PRD
+
+### Todo App
+- **File:** `examples/todo-app-prd.md`
 - **Complexity:** Low
-- **Time estimate:** 1-2 weeks
-
-### Social App (Medium)
-- User profiles
-- Social features (follow, like, share)
-- Real-time updates
-- **Complexity:** Medium
+- **Features:** CRUD, auth, sync
 - **Time estimate:** 4-6 weeks
 
-### E-commerce App (Complex)
-- Product catalog
-- Shopping cart
-- Payment processing
-- Order management
-- **Complexity:** High
-- **Time estimate:** 8-12 weeks
-
-## 🎓 Learning Resources
-
-### External Resources
-- [Product School PRD Guide](https://productschool.com/blog/product-management-2/how-to-write-product-requirements-document/)
-- [Atlassian PRD Template](https://www.atlassian.com/software/confluence/templates/product-requirements-document)
-- [Lenny's Newsletter on PRDs](https://www.lennysnewsletter.com/p/product-requirement-documents)
+This example demonstrates:
+- Clear problem statement
+- User personas
+- Prioritized features (P0/P1/P2)
+- Data models with RLS
+- Timeline with milestones
 
 ## ✅ PRD Checklist
 
@@ -163,12 +184,6 @@ Before starting development, ensure your PRD has:
 - [ ] Marketing approach outlined
 - [ ] Support strategy planned
 - [ ] Analytics tracked
-
-**Design**
-- [ ] Wireframes created
-- [ ] Design system chosen
-- [ ] Accessibility considered
-- [ ] Mobile/web variations planned
 
 ## 🔄 PRD Lifecycle
 
@@ -202,7 +217,7 @@ Before starting development, ensure your PRD has:
 ## 📊 From PRD to Production
 
 ### Week 1-2: Planning
-- Write PRD
+- Write PRD (use Lite for simple, Full for complex)
 - Get approvals
 - Create technical spec
 - Design wireframes
@@ -231,23 +246,26 @@ Before starting development, ensure your PRD has:
 - App store submission
 - Production deployment
 
-## 🎯 Success Stories
+## 🎓 Learning Resources
 
-Learn from apps built with this template:
-- [Link to showcase once available]
+### External Resources
+- [Product School PRD Guide](https://productschool.com/blog/product-management-2/how-to-write-product-requirements-document/)
+- [Atlassian PRD Template](https://www.atlassian.com/software/confluence/templates/product-requirements-document)
+- [Lenny's Newsletter on PRDs](https://www.lennysnewsletter.com/p/product-requirement-documents)
 
 ## 💬 Getting Help
 
-- **Questions:** Open a [Discussion](https://github.com/YOUR-ORG/YOUR-REPO/discussions)
+- **Questions:** Open a [Discussion](https://github.com/willbnu/Product-Blueprint/discussions)
 - **PRD Reviews:** Request feedback via PR
 - **Examples:** Check `prd/examples/` folder
 
 ## 🚀 Ready to Start?
 
 1. **Review:** Check the example PRD in `prd/examples/todo-app-prd.md`
-2. **Copy:** `cp prd/templates/prd-template.md prd/my-app.md`
-3. **Write:** Fill out your PRD
-4. **Build:** Use this template to implement!
+2. **Choose:** Pick the right template for your project
+3. **Copy:** `cp prd/templates/prd-lite.md prd/my-app.md`
+4. **Write:** Fill out your PRD
+5. **Build:** Use this template to implement!
 
 ---
 
