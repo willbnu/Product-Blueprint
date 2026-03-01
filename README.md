@@ -1,7 +1,7 @@
 # 🚀 Product-Blueprint: Full-Stack Application Framework
 
 [![Current Version](https://img.shields.io/badge/Version-v2.2.0-blue.svg)](./CHANGELOG.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red.svg)](./LICENSE)
 [![Nx Monorepo](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
 [![Expo SDK 52](https://img.shields.io/badge/Expo-SDK_52-000020.svg)](https://expo.dev/)
 
@@ -209,9 +209,11 @@ We welcome contributions! Please read our [**Contributing Guidelines](./CONTRIBU
 
 ## 📄 License & Copyright
 
-This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
+This project is proprietary software. All rights reserved.
 
-**Copyright (c) 2025-2026 William Finger. All rights reserved.**
+**Copyright (c) 2025-2026 William Finger. All Rights Reserved.**
+
+See the [LICENSE](./LICENSE) file for details. For licensing inquiries, contact via [GitHub](https://github.com/willbnu).
 
 ---
 
