@@ -126,16 +126,16 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run shared lib tests
-        run: pnpm --filter @pb/shared test --run --coverage
+        run: pnpm --filter @pb/shared test -- --run
 
       - name: Run data lib tests
-        run: pnpm --filter @pb/data test --run --coverage
+        run: pnpm --filter @pb/data test -- --run
 
       - name: Run state lib tests
-        run: pnpm --filter @pb/state test --run --coverage
+        run: pnpm --filter @pb/state test -- --run
 
       - name: Run web app tests
-        run: pnpm --filter @pb/web test --run
+        run: pnpm --filter @pb/web test -- --run
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
