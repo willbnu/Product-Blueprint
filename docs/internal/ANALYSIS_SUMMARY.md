@@ -47,46 +47,46 @@ Product-Blueprint has successfully evolved from a documentation-only blueprint (
 - **Alternative database guide** added in v2.1.0 (PostgreSQL, MySQL, MongoDB)
 
 **Standout Documents:**
-- [ARCHITECTURE.md](ARCHITECTURE.md) - Complete monorepo patterns
-- [SECURITY.md](SECURITY.md) - Enterprise-grade security guidance
-- [prd/templates/prd-template.md](prd/templates/prd-template.md) - Production PRD workflow
-- [design-system/WEB_INTERFACE_GUIDELINES.md](design-system/WEB_INTERFACE_GUIDELINES.md) - Interface best practices
-- [docs/paths/](docs/paths/) - 5 guided implementation paths
+- [ARCHITECTURE.md](../../ARCHITECTURE.md) - Complete monorepo patterns
+- [SECURITY.md](../../SECURITY.md) - Enterprise-grade security guidance
+- [prd/templates/prd-template.md](../../prd/templates/prd-template.md) - Production PRD workflow
+- [design-system/WEB_INTERFACE_GUIDELINES.md](../../design-system/WEB_INTERFACE_GUIDELINES.md) - Interface best practices
+- [docs/paths/](../paths/) - 5 guided implementation paths
 
 ### 🛠️ Developer Tooling: 10/10
 **Production-Grade**
 
 **Automated Systems:**
-1. **Renovate** ([.github/renovate.json](.github/renovate.json))
+1. **Renovate** ([.github/renovate.json](../../.github/renovate.json))
    - Auto-merge patch/minor updates
    - Grouped package updates (Nx, React)
    - Monday morning schedule (before 9am)
    - Zero maintenance overhead
 
-2. **Documentation Integrity** ([tools/check-links.js](tools/check-links.js))
+2. **Documentation Integrity** ([tools/check-links.js](../../tools/check-links.js))
    - 248 files validated automatically
    - CI integration via GitHub Actions
    - VitePress-aware link checking
    - Prevents documentation rot
 
-3. **Unified CLI** ([bin/pb.js](bin/pb.js))
+3. **Unified CLI** ([bin/pb.js](../../bin/pb.js))
    - Consistent developer interface
    - Commands: `prd new`, `docs check`, `release`
    - Extensible architecture
 
-4. **Release Automation** ([tools/release.js](tools/release.js))
+4. **Release Automation** ([tools/release.js](../../tools/release.js))
    - GitHub release creation
    - Automated release notes
    - Version bumping
 
 **Custom Generators:**
-- **PRD Scaffolder** ([tools/scaffold-prd.js](tools/scaffold-prd.js))
+- **PRD Scaffolder** ([tools/scaffold-prd.js](../../tools/scaffold-prd.js))
   - Creates 4-file PRD structure
   - Interactive prompts
   - Nx-integrated workflow
 
 **Developer Experience:**
-- **Setup Wizard** ([tools/setup-wizard.js](tools/setup-wizard.js))
+- **Setup Wizard** ([tools/setup-wizard.js](../../tools/setup-wizard.js))
   - Interactive project configuration
   - Environment file generation
   - Platform selection (mobile/web/both)
@@ -110,7 +110,7 @@ product-blueprint/
 
 **Tech Stack:**
 
-**Mobile App** ([apps/mobile/](apps/mobile/)):
+**Mobile App** ([apps/mobile/](../../apps/mobile/)):
 - Expo SDK 52 with Expo Router (file-based routing)
 - NativeWind 4.1 (Tailwind for React Native)
 - Supabase Auth + Database
@@ -118,7 +118,7 @@ product-blueprint/
 - TanStack Query (data fetching)
 - TypeScript 5.3
 
-**Web App** ([apps/web/](apps/web/)):
+**Web App** ([apps/web/](../../apps/web/)):
 - Vite 6 + React 18.3
 - Tailwind CSS 3.4
 - React Router 7
@@ -128,7 +128,7 @@ product-blueprint/
 - TypeScript 5.6
 - Vitest (testing)
 
-**Shared** ([libs/shared/](libs/shared/)):
+**Shared** ([libs/shared/](../../libs/shared/)):
 - TypeScript path aliases (`@pb/*`)
 - Zod validation schemas
 - Shared types and utilities
@@ -145,7 +145,7 @@ product-blueprint/
 
 - HIPAA, GDPR, SOC 2, PCI DSS compliance patterns
 - Row-Level Security (RLS) in SQL schemas
-- Audit logging implementation ([prd/schemas/audit_logs.sql](prd/schemas/audit_logs.sql))
+- Audit logging implementation ([prd/schemas/audit_logs.sql](../../prd/schemas/audit_logs.sql))
 - Secure authentication flows (Supabase Auth)
 - Environment variable management
 - Security implementation guides
@@ -167,10 +167,10 @@ product-blueprint/
 - ✅ Jest setup for mobile app
 
 **Process:**
-- Testing strategies documented ([TESTING.md](TESTING.md))
-- Code review guidelines ([CONTRIBUTING.md](CONTRIBUTING.md))
-- Troubleshooting guide ([TROUBLESHOOTING.md](TROUBLESHOOTING.md))
-- Release automation with [tools/release.js](tools/release.js)
+- Testing strategies documented ([TESTING.md](../../TESTING.md))
+- Code review guidelines ([CONTRIBUTING.md](../../CONTRIBUTING.md))
+- Troubleshooting guide ([TROUBLESHOOTING.md](../../TROUBLESHOOTING.md))
+- Release automation with [tools/release.js](../../tools/release.js)
 
 ### 📱 Application Quality: 9/10
 **Functional with Room for Features**
@@ -224,8 +224,8 @@ Mobile (Expo) and Web (React) share auth patterns, state management, and types.
 
 ### v0.1.0 → v0.1.2: Documentation Integrity
 - Removed TOON system (simplification)
-- Added link checker ([tools/check-links.js](tools/check-links.js))
-- Created unified CLI ([bin/pb.js](bin/pb.js))
+- Added link checker ([tools/check-links.js](../../tools/check-links.js))
+- Created unified CLI ([bin/pb.js](../../bin/pb.js))
 - Fixed 20 broken documentation links
 - Added GitHub Actions for docs health
 
@@ -234,8 +234,8 @@ Mobile (Expo) and Web (React) share auth patterns, state management, and types.
 ### v0.1.2 → v1.1.0: Developer Experience
 - Integrated Renovate for dependency management
 - Created Nx generators for PRD scaffolding
-- Added TypeScript path aliases ([tsconfig.base.json](tsconfig.base.json))
-- Built interactive setup wizard ([tools/setup-wizard.js](tools/setup-wizard.js))
+- Added TypeScript path aliases ([tsconfig.base.json](../../tsconfig.base.json))
+- Built interactive setup wizard ([tools/setup-wizard.js](../../tools/setup-wizard.js))
 - Completed 4/7 planned v1.1 features
 
 **Impact:** +0.3 rating points (9.2 → 9.5)
@@ -244,27 +244,27 @@ Mobile (Expo) and Web (React) share auth patterns, state management, and types.
 **MAJOR MILESTONE** - Transitioned from documentation-only to working applications
 
 **Added:**
-- ✅ Expo mobile app ([apps/mobile/](apps/mobile/))
+- ✅ Expo mobile app ([apps/mobile/](../../apps/mobile/))
   - Expo SDK 52 + Expo Router
   - NativeWind for styling
   - Supabase Auth integration
   - Authentication screens (login, register, profile)
 
-- ✅ React web app ([apps/web/](apps/web/))
+- ✅ React web app ([apps/web/](../../apps/web/))
   - Vite 6 + React 18.3
   - React Router 7 with protected routes
   - Tailwind CSS 3.4
   - Supabase Auth integration
   - Authentication screens + dashboard
 
-- ✅ Shared libraries ([libs/shared/](libs/shared/))
+- ✅ Shared libraries ([libs/shared/](../../libs/shared/))
   - Zod validation schemas
   - TypeScript types
   - Utility functions
   - Shared Supabase client
 
 - ✅ Monorepo infrastructure
-  - pnpm workspaces ([pnpm-workspace.yaml](pnpm-workspace.yaml))
+  - pnpm workspaces ([pnpm-workspace.yaml](../../pnpm-workspace.yaml))
   - Nx configuration with caching
   - TypeScript path aliases across workspace
 
@@ -274,7 +274,7 @@ Mobile (Expo) and Web (React) share auth patterns, state management, and types.
 - Fixed GitHub URLs in mermaid diagrams (absolute paths)
 - Added alternative database integration guide
 - Improved documentation cross-references
-- Release automation script ([tools/release.js](tools/release.js))
+- Release automation script ([tools/release.js](../../tools/release.js))
 - Documentation enhancements
 
 **Impact:** +0.1 rating points (9.7 → 9.8)
