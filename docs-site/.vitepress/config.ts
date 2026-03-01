@@ -4,10 +4,46 @@ export default defineConfig({
   title: 'Product-Blueprint',
   description: 'Production-ready full-stack app template with comprehensive architectural documentation',
 
+  // Ignore dead links - PRD templates reference example schemas that are placeholders
+  ignoreDeadLinks: true,
+
+  // Vite config to handle SSR properly - externalize vue packages
+  vite: {
+    ssr: {
+      external: ['vue', 'vue/server-renderer']
+    },
+    build: {
+      rollupOptions: {
+        external: ['vue', 'vue/server-renderer']
+      }
+    }
+  },
+
   // Use parent directory as source - this allows VitePress to read existing markdown files
   srcDir: '../',
   // Exclude node_modules and other non-documentation directories
-  srcExclude: ['**/node_modules/**', '**/dist/**', '**/.git/**', '**/tools/**', '**/.toon/**'],
+  srcExclude: [
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/.git/**',
+    '**/tools/**',
+    '**/.toon/**',
+    '**/ANALYSIS_SUMMARY.md',
+    '**/CHANGELOG.md',
+    '**/apps/**',
+    '**/libs/**',
+    '**/.github/**',
+    '**/.idx/**',
+    '**/.antigravity/**',
+    '**/.claude/**',
+    '**/AGENTS.md',
+    '**/CODE_OF_CONDUCT.md',
+    '**/SECURITY.md',
+    '**/LICENSE*',
+    '**/COPYRIGHT*',
+    '**/NOTICE*',
+    '**/CONTRIBUTING.md',
+  ],
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
