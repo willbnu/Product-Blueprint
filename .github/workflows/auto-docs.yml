@@ -1,7 +1,7 @@
 name: Auto-Update Documentation
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
     paths:
       # Trigger on code changes that may need documentation updates
@@ -91,7 +91,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         with:
-          model: claude-sonnet-4-6-20250514
+          claude_args: "--model claude-sonnet-4-6-20250514"
           prompt: |
             You are a documentation expert for the Product-Blueprint project.
 
@@ -118,8 +118,6 @@ jobs:
             - Do NOT add unnecessary content or restructure existing docs
 
             Make the necessary documentation updates directly.
-
-          timeout-minutes: 15
 
       - name: Check for changes
         id: check-changes
