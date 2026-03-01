@@ -1,0 +1,22 @@
+# CODEOWNERS - Product-Blueprint
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything
+* @willbnu
+
+# Security-related files require owner review
+/.github/ @willbnu
+/SECURITY.md @willbnu
+/LICENSE @willbnu
+
+# Infrastructure and deployment
+/.github/workflows/ @willbnu
+/supabase/ @willbnu
+
+# Core libraries
+/libs/ @willbnu
+
+# Documentation
+/docs/ @willbnu
+/prd/ @willbnu
+/README.md @willbnu
