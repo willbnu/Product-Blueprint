@@ -6,7 +6,8 @@ Security updates are provided for the following versions:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.x.x   | :white_check_mark: |
+| 2.x.x   | :white_check_mark: |
+| 1.x.x   | :x:                |
 | < 1.0   | :x:                |
 
 ## Reporting a Vulnerability
@@ -19,8 +20,8 @@ We take security vulnerabilities seriously. If you discover a security issue, pl
 
 Instead, please:
 
-1. **Email:** security@yourcompany.com
-2. **Subject:** "[SECURITY] Brief description"
+1. **GitHub Security Advisories:** [Report a vulnerability](https://github.com/willbnu/Product-Blueprint/security/advisories/new)
+2. **Email:** Contact via [GitHub](https://github.com/willbnu)
 3. **Include:**
    - Description of the vulnerability
    - Steps to reproduce
@@ -212,12 +213,12 @@ npx socket ci
 
 ## Contact
 
-- **Security Email:** security@yourcompany.com
-- **Security Team Lead:** [Name]
+- **Security Advisories:** [GitHub Security](https://github.com/willbnu/Product-Blueprint/security)
+- **Owner:** William Finger ([@willbnu](https://github.com/willbnu))
 - **Response Time:** 48 hours
 
 ---
 
-**Last Updated:** 2024-01-15
+**Last Updated:** 2026-03-01
 
 Thank you for helping keep our project secure!

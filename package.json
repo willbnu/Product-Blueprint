@@ -1,7 +1,7 @@
 {
   "name": "product-blueprint",
-  "version": "2.1.3",
-  "description": "Production-ready full-stack app template blueprint with comprehensive documentation",
+  "version": "2.2.0",
+  "description": "Production-ready full-stack application blueprint with working Expo mobile app and React web app. Features TanStack Router, shared libraries, Supabase backend, and comprehensive documentation.",
   "private": true,
   "scripts": {
     "docs:dev": "pnpm --filter product-blueprint-docs docs:dev",
@@ -14,18 +14,24 @@
   "keywords": [
     "blueprint",
     "template",
-    "documentation",
-    "architecture",
+    "monorepo",
     "expo",
     "react",
+    "typescript",
+    "tanstack-router",
     "supabase",
-    "nx-monorepo"
+    "vite",
+    "react-native",
+    "zustand",
+    "tailwindcss",
+    "nativewind",
+    "nx"
   ],
   "author": {
     "name": "William Finger",
     "url": "https://github.com/willbnu"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/willbnu/Product-Blueprint.git"

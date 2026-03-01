@@ -59,8 +59,8 @@ representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-[INSERT CONTACT EMAIL].
+reported to the project owner at [GitHub Issues](https://github.com/willbnu/Product-Blueprint/issues)
+or via direct message on [GitHub](https://github.com/willbnu).
 
 All complaints will be reviewed and investigated promptly and fairly.
 

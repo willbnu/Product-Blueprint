@@ -11,7 +11,7 @@ are the intellectual property of:
 COPYRIGHT OWNERSHIP
 ================================================================================
 
-Copyright (c) 2025 William Finger. All rights reserved.
+Copyright (c) 2025-2026 William Finger. All Rights Reserved.
 
 
 ORIGINAL WORKS
@@ -24,6 +24,7 @@ not limited to:
    - Full-stack application blueprint structure
    - Documentation organization system
    - Development workflows and tooling
+   - Shared library architecture (@pb/data, @pb/state, @pb/shared)
 
 2. Documentation and Content
    - Architecture guides
@@ -31,30 +32,43 @@ not limited to:
    - Contributing guidelines
    - PRD templates and examples
 
-
+3. Implementation
+   - TanStack Router integration patterns
+   - Platform-aware Supabase client factory
+   - Unified Zustand auth store
+   - Route loaders and protected routes
 
 
 LICENSING
 ================================================================================
 
-This software is licensed under the MIT License.
-See the LICENSE file in this repository for the complete license text.
+This software is PROPRIETARY and ALL RIGHTS RESERVED.
 
-The MIT License permits:
-- Commercial use
-- Modification
-- Distribution
-- Private use
+See the LICENSE file in this repository for complete license terms.
 
-Subject to:
-- License and copyright notice inclusion
-- No warranty or liability
+Without explicit written permission from William Finger, you may NOT:
+- Use this software for any purpose
+- Copy, modify, or distribute this software
+- Create derivative works
+- Reverse engineer, decompile, or disassemble
+
+For licensing inquiries, contact via GitHub.
 
 
 THIRD-PARTY INTELLECTUAL PROPERTY
 ================================================================================
 
+This project incorporates third-party libraries, each under their own license:
 
+- React (MIT License)
+- Expo (MIT License)
+- TanStack Router (MIT License)
+- Supabase (MIT License)
+- Vite (MIT License)
+- Zustand (MIT License)
+- Tailwind CSS (MIT License)
+
+See package.json for complete dependencies.
 
 
 CONTRIBUTOR RIGHTS
@@ -98,4 +112,4 @@ These copyright terms are effective as of January 1, 2025.
 
 
 ================================================================================
-Last Updated: 2025-01-16
+Last Updated: 2026-03-01

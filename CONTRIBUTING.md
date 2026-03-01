@@ -563,7 +563,7 @@ This CLA ensures that:
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same license as the project (**MIT License**), and you accept the Contributor License Agreement terms above.
+By contributing, you agree that your contributions will be licensed under the same license as the project (**Proprietary License**), and you accept the Contributor License Agreement terms above.
 
 ---
 
