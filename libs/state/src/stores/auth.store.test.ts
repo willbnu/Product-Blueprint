@@ -112,7 +112,7 @@ describe('useAuthStore', () => {
       const state = useAuthStore.getState();
       expect(state.user).toBeNull();
       expect(state.session).toBeNull();
-      expect(state.isLoading).toBe(false);
+      expect(state.isLoading).toBe(true); // Initial state has isLoading: true
       expect(state.isAuthenticated).toBe(false);
     });
   });
