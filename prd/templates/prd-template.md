@@ -692,11 +692,11 @@ CREATE TABLE [table_name] (
 );
 
 -- Indexes for performance
-CREATE INDEX idx_[table]_user_id ON [table_name](user_id);
-CREATE INDEX idx_[table]_created_at ON [table_name](created_at DESC);
+CREATE INDEX idx_tb_user_id ON items(user_id);
+CREATE INDEX idx_tb_created_at ON items(created_at DESC);
 
 -- Enable RLS
-ALTER TABLE [table_name] ENABLE ROW LEVEL SECURITY;
+ALTER TABLE items ENABLE ROW LEVEL SECURITY;
 ```
 
 ### API Design
