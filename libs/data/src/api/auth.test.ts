@@ -7,7 +7,6 @@ import {
   getCurrentUser,
   onAuthStateChange,
 } from './auth';
-import * as clientModule from '../supabase/client';
 
 // Mock user and session data
 const mockUser = {

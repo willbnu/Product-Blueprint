@@ -1,9 +1,11 @@
 {
   "name": "product-blueprint",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Production-ready full-stack application blueprint with working Expo mobile app and React web app. Features TanStack Router, shared libraries, Supabase backend, and comprehensive documentation.",
   "private": true,
   "scripts": {
+    "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "docs:dev": "pnpm --filter product-blueprint-docs docs:dev",
     "docs:build": "pnpm --filter product-blueprint-docs docs:build",
     "docs:preview": "pnpm --filter product-blueprint-docs docs:preview",
@@ -41,6 +43,11 @@
   },
   "homepage": "https://github.com/willbnu/Product-Blueprint#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.35.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^3.0.0",
     "nx": "22.1.3"
   }

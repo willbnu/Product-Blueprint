@@ -5,6 +5,54 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-03-01
+
+**🧹 CODE QUALITY & ERROR HANDLING** - Major refactoring and improvements
+
+### Added
+
+#### Error Handling
+- **ErrorBoundary component** - Web app (`apps/web/src/components/ErrorBoundary.tsx`)
+- **ErrorBoundary component** - Mobile app (`apps/mobile/components/ErrorBoundary.tsx`)
+- Both apps now gracefully handle React errors instead of crashing
+
+#### Tests
+- **Auth API Tests** (`libs/data/src/api/auth.test.ts`) - 12 comprehensive tests for auth functions
+- **Vitest Config** (`libs/data/vitest.config.ts`) - Test configuration for data library
+
+#### Type Declarations
+- **NativeWind Types** (`apps/mobile/nativewind-env.d.ts`) - TypeScript support for NativeWind
+
+### Changed
+
+#### Mobile App Refactoring
+- Fixed all screens to use `@pb/state` and `@pb/data` instead of old local store
+- Updated imports in: `register.tsx`, `index.tsx` (tabs), `profile.tsx`, `_layout.tsx`
+- Removed old stores directory reference
+
+#### Cross-Platform Compatibility
+- **Supabase Client** (`libs/data/src/supabase/client.ts`) - Unified env var handling
+- **Vite Config** (`apps/web/vite.config.ts`) - Maps VITE_* vars to EXPO_PUBLIC_* for shared libs
+- Works seamlessly across both Vite (web) and Expo (mobile) build systems
+
+#### Portfolio Integration
+- Added `@pb/shared` as dependency
+- Updated tsconfig with correct `@pb/*` path aliases
+
+#### Code Quality
+- Fixed `console.log` in portfolio to only run in DEV mode
+- Documented shared utils as "ready-to-use" utilities
+- Removed unused `useEffect` import from mobile layout
+
+### Removed
+
+#### Cleanup
+- **RELEASE_NOTES_v0.1.2.md** - Content merged into CHANGELOG
+- **RELEASE_NOTES_v2.0.0.md** - Content merged into CHANGELOG
+- **Empty stores directory** - No longer needed after shared lib integration
+
+---
+
 ## [2.2.1] - 2026-03-01
 
 **🔧 DOCUMENTATION SYNC & QUALITY IMPROVEMENTS** - Critical fixes and enhancements
