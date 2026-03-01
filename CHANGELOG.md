@@ -5,6 +5,70 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.1] - 2026-03-01
+
+**🔧 DOCUMENTATION SYNC & QUALITY IMPROVEMENTS** - Critical fixes and enhancements
+
+### Added
+
+#### Security & CI/CD
+- **CI Workflow** (`.github/workflows/ci.yml`) - Build, lint, and test automation
+- **Dependabot** (`.github/dependabot.yml`) - Weekly dependency updates
+- **Security Scan Workflow** (`.github/workflows/security.yml`) - CodeQL, audit, secret scanning
+- **CODEOWNERS** (`.github/CODEOWNERS`) - Code review requirements by path
+- **Branch Protection** - Required PR reviews, stale review dismissal
+
+#### PRD Templates
+- **PRD Lite** (`prd/templates/prd-lite.md`) - 1-page template for MVPs/simple projects
+- **Feature Spec** (`prd/templates/feature-spec.md`) - Individual feature specifications
+- **Technical Spec** (`prd/templates/technical-spec.md`) - Technical architecture documentation
+
+#### Tests
+- **Auth Store Tests** (`libs/state/src/stores/auth.store.test.ts`) - Unit tests for Zustand store
+- **Vitest Config** (`libs/state/vitest.config.ts`) - Test configuration
+
+### Changed
+
+#### Documentation Sync
+- **ARCHITECTURE.md** - Fixed critical mismatches:
+  - React Router v6 → TanStack Router v1
+  - `@app/*` → `@pb/*` package naming
+  - Updated library structure to match actual implementation
+  - Removed references to non-existent `@app/shared-ui`, `@app/utils`
+
+- **docs/LIBRARIES.md** - Complete rewrite:
+  - Documents actual `@pb/data`, `@pb/state`, `@pb/shared` libraries
+  - Correct package names throughout
+  - Actual code examples from implementation
+
+- **prd/README.md** - Updated:
+  - Fixed placeholder URLs (`YOUR-ORG/YOUR-REPO` → `willbnu/Product-Blueprint`)
+  - Added template comparison table
+  - Updated folder structure to match actual files
+
+- **prd/examples/todo-app-prd.md** - Updated dates (2024 → 2026)
+
+#### Code Unification
+- **Mobile app** now uses shared `@pb/state` and `@pb/data`:
+  - `apps/mobile/app/_layout.tsx` - Uses `@pb/data` useSession hook
+  - `apps/mobile/app/(auth)/login.tsx` - Uses `@pb/state` and `@pb/data`
+
+### Removed
+- **Duplicate auth store** (`apps/mobile/stores/authStore.ts`) - Now uses shared `@pb/state`
+- **Duplicate Supabase client** patterns - Centralized in `@pb/data`
+
+### Fixed
+- **Security workflow** - Removed duplicate `--fail` flag causing TruffleHog to crash
+- **VitePress footer** - Updated to show "Proprietary Software" instead of MIT
+- **.gitignore** - Strengthened with comprehensive secret/credential patterns
+
+### Security
+- Added ANTHROPIC_API_KEY to repository secrets for auto-docs workflow
+- Fixed security scan workflow configuration
+- All tables verified to have no exposed secrets in git history
+
+---
+
 ## [2.2.0] - 2026-03-01
 
 **🧭 TANSTACK ROUTER MIGRATION & SHARED LIBRARIES** - Major architecture improvements
