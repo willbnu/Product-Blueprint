@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { Link, router } from 'expo-router';
-import { useAuthStore } from '../../stores/authStore';
+import { useAuthStore } from '@pb/state';
+import { signUpWithEmail } from '@pb/data';
 
 export default function RegisterScreen() {
     const [email, setEmail] = useState('');
@@ -9,7 +10,7 @@ export default function RegisterScreen() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
-    const signUp = useAuthStore((state) => state.signUp);
+    const setUser = useAuthStore((state) => state.setUser);
 
     const handleRegister = async () => {
         if (!email || !password || !confirmPassword) {
@@ -30,7 +31,7 @@ export default function RegisterScreen() {
         setLoading(true);
         setError('');
 
-        const { error: signUpError } = await signUp(email, password);
+        const { user, error: signUpError } = await signUpWithEmail(email, password);
 
         if (signUpError) {
             setError(signUpError.message);
@@ -38,6 +39,7 @@ export default function RegisterScreen() {
             return;
         }
 
+        setUser(user);
         router.replace('/(tabs)');
     };
 

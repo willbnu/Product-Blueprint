@@ -43,9 +43,11 @@ export async function submitContact(data: {
     email: string;
     message: string;
 }) {
-    // If Supabase is not configured, log to console (development mode)
+    // If Supabase is not configured, simulate success (development mode)
     if (!supabase) {
-        console.log('Contact form submission (dev mode):', data);
+        if (import.meta.env.DEV) {
+            console.log('Contact form submission (dev mode):', data);
+        }
         return { success: true, data: null };
     }
 

@@ -93,6 +93,9 @@ importers:
 
   apps/portfolio:
     dependencies:
+      '@pb/shared':
+        specifier: workspace:*
+        version: link:../../libs/shared
       '@supabase/supabase-js':
         specifier: ^2.45.0
         version: 2.89.0

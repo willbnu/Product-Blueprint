@@ -22,8 +22,9 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@app/shared": ["../../libs/shared/src/index.ts"],
-            "@app/ui": ["../../libs/ui/src/index.ts"]
+            "@pb/shared": ["../../libs/shared/src/index.ts"],
+            "@pb/data": ["../../libs/data/src/index.ts"],
+            "@pb/state": ["../../libs/state/src/index.ts"]
         }
     },
     "include": [

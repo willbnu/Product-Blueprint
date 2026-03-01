@@ -1,10 +1,11 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAuthStore } from '../../stores/authStore';
+import { useAuthStore } from '@pb/state';
+import { signOut } from '@pb/data';
 import { router } from 'expo-router';
 
 export default function ProfileScreen() {
-    const { user, signOut } = useAuthStore();
+    const { user } = useAuthStore();
 
     const handleSignOut = async () => {
         await signOut();

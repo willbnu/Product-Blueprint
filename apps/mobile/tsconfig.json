@@ -7,14 +7,14 @@
             "@/*": ["./*"],
             "@pb/shared": ["../../libs/shared/src"],
             "@pb/data": ["../../libs/data/src"],
-            "@pb/state": ["../../libs/state/src"],
-            "@app/shared": ["../../libs/shared/src"]
+            "@pb/state": ["../../libs/state/src"]
         }
     },
     "include": [
         "**/*.ts",
         "**/*.tsx",
         ".expo/types/**/*.ts",
-        "expo-env.d.ts"
+        "expo-env.d.ts",
+        "nativewind-env.d.ts"
     ]
 }

@@ -1,6 +1,6 @@
 import { View, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useAuthStore } from '../../stores/authStore';
+import { useAuthStore } from '@pb/state';
 
 export default function HomeScreen() {
     const user = useAuthStore((state) => state.user);

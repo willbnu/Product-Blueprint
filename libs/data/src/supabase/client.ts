@@ -54,24 +54,28 @@ export function createSupabaseClient(config: SupabaseConfig): SupabaseClient<Dat
   });
 }
 
-// Singleton instance for web (lazy initialized)
+// Singleton instance (lazy initialized)
 let client: SupabaseClient<Database> | null = null;
 
 /**
- * Gets the singleton Supabase client for web applications.
- * Uses environment variables VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.
+ * Gets the singleton Supabase client.
+ * Uses environment variables:
+ * - Web (Vite): VITE_SUPABASE_URL, VITE_SUPABASE_ANON_KEY (mapped via vite.config.ts)
+ * - Mobile (Expo): EXPO_PUBLIC_SUPABASE_URL, EXPO_PUBLIC_SUPABASE_ANON_KEY
  *
- * For mobile apps, use createSupabaseClient() with a custom storage adapter.
+ * For custom storage (mobile), use createSupabaseClient() directly.
  */
 export function getSupabase(): SupabaseClient<Database> {
   if (!client) {
-    // Try Vite environment variables first, then fallback to process.env
-    const url = import.meta?.env?.VITE_SUPABASE_URL || process.env.EXPO_PUBLIC_SUPABASE_URL || '';
-    const key = import.meta?.env?.VITE_SUPABASE_ANON_KEY || process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '';
+    // Environment variables are accessed via process.env for cross-platform compatibility
+    // Vite maps VITE_* to process.env.EXPO_PUBLIC_* via define in vite.config.ts
+    const url = process.env.EXPO_PUBLIC_SUPABASE_URL || '';
+    const key = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY || '';
 
     if (!url || !key) {
       throw new Error(
-        'Supabase configuration missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.'
+        'Supabase configuration missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY (web) ' +
+        'or EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY (mobile) environment variables.'
       );
     }
 
