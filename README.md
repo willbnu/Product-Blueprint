@@ -1,6 +1,6 @@
 # 🚀 Product-Blueprint: Full-Stack Application Framework
 
-[![Current Version](https://img.shields.io/badge/Version-v2.1.3-blue.svg)](./CHANGELOG.md)
+[![Current Version](https://img.shields.io/badge/Version-v2.2.0-blue.svg)](./CHANGELOG.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Nx Monorepo](https://img.shields.io/badge/Nx-Monorepo-143055.svg)](https://nx.dev/)
 [![Expo SDK 52](https://img.shields.io/badge/Expo-SDK_52-000020.svg)](https://expo.dev/)
@@ -99,14 +99,13 @@ This repository is more than just a template; it's a collection of best practice
 graph TB
     subgraph "Frontend Applications"
         Mobile["📱 Mobile App<br/>(Expo/React Native)"]
-        Web["🌐 Web App<br/>(React + Vite)"]
+        Web["🌐 Web App<br/>(React + Vite + TanStack Router)"]
     end
 
-    subgraph "Shared Libraries (@app/*)"
-        UI["shared-ui<br/>Design System & Components"]
-        Data["data<br/>API Client & Data Hooks"]
-        State["state<br/>Global State (Zustand)"]
-        Utils["utils<br/>Shared Helpers & Constants"]
+    subgraph "Shared Libraries (@pb/*)"
+        Shared["@pb/shared<br/>Types, Schemas, Utilities"]
+        Data["@pb/data<br/>Supabase Client, API, Hooks"]
+        State["@pb/state<br/>Zustand Stores"]
     end
 
     subgraph "Backend (Supabase)"
@@ -116,8 +115,8 @@ graph TB
         Edge["⚡ Edge Functions (Deno)"]
     end
 
-    Mobile --> UI; Mobile --> Data; Mobile --> State; Mobile --> Utils;
-    Web --> UI; Web --> Data; Web --> State; Web --> Utils;
+    Mobile --> Shared; Mobile --> Data; Mobile --> State;
+    Web --> Shared; Web --> Data; Web --> State;
     Data --> Auth; Data --> DB; Data --> Storage; Data --> Edge;
 ```
 
@@ -131,6 +130,7 @@ graph TB
 | -------------- | ----------------------------------------------------- |
 | **Mobile**     | [Expo (SDK 52)](https://expo.dev/) + Expo Router v4   |
 | **Web**        | [React 18](https://react.dev/) + [Vite 6](https://vitejs.dev/) |
+| **Routing**    | [TanStack Router](https://tanstack.com/router) (Web) / Expo Router (Mobile) |
 | **Styling**    | [NativeWind](https://www.nativewind.dev/) / [Tailwind CSS](https://tailwindcss.com/) |
 | **State**      | [Zustand](https://zustand-demo.pmnd.rs/)              |
 | **Data Fetching**| [TanStack Query v5](https://tanstack.com/query)     |
@@ -165,12 +165,17 @@ graph TB
 .
 ├── apps/
 │   ├── mobile/              # Expo mobile application
+│   │   ├── app/             # Expo Router file-based routes
+│   │   ├── stores/          # Auth store (uses @pb/state)
+│   │   └── lib/             # Supabase client (uses @pb/data)
 │   └── web/                 # React web application
-├── libs/@app/
-│   ├── shared-ui/           # Shared UI components
-│   ├── data/                # API clients and data fetching
-│   ├── state/               # Global state management
-│   └── utils/               # Shared utilities
+│       └── src/
+│           ├── routes/      # TanStack Router file-based routes
+│           └── router.tsx   # Router configuration
+├── libs/
+│   ├── shared/              # @pb/shared - Types, schemas, utilities
+│   ├── data/                # @pb/data - Supabase client, API, hooks
+│   └── state/               # @pb/state - Zustand stores
 ├── prd/                     # 📝 START HERE: Product Requirements Docs
 │   ├── templates/
 │   └── examples/
@@ -206,7 +211,7 @@ We welcome contributions! Please read our [**Contributing Guidelines](./CONTRIBU
 
 This project is licensed under the **MIT License**. See the [LICENSE](./LICENSE) file for details.
 
-**Copyright (c) 2025 William Finger. All rights reserved.**
+**Copyright (c) 2025-2026 William Finger. All rights reserved.**
 
 ---
 

@@ -5,6 +5,75 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-03-01
+
+**🧭 TANSTACK ROUTER MIGRATION & SHARED LIBRARIES** - Major architecture improvements
+
+### Added
+
+#### New Shared Libraries
+
+- **`@pb/data`** (`libs/data/`) - Data layer library
+  - Platform-aware Supabase client factory with storage adapter pattern
+  - Auth API functions: `signInWithEmail`, `signUpWithEmail`, `signOut`, `getSession`, `getCurrentUser`
+  - `useSession` hook for session initialization with React Query integration
+  - Database type definitions for TypeScript
+  - Works seamlessly on both web (localStorage) and mobile (expo-secure-store)
+
+- **`@pb/state`** (`libs/state/`) - State management library
+  - Unified Zustand auth store used by both web and mobile
+  - Actions: `setUser`, `setSession`, `setLoading`, `reset`
+  - Type-safe state interface
+
+#### Web App Enhancements
+
+- **TanStack Router** replacing React Router DOM
+  - Type-safe routing with auto-generated route tree
+  - Route loaders for pre-fetching data before render
+  - Built-in route protection via `_authenticated` layout route
+  - TanStack Router DevTools for development
+  - Intent-based preloading for faster navigation
+
+- **Route Structure**
+  - `routes/__root.tsx` - Root layout with QueryClient and DevTools
+  - `routes/_authenticated/route.tsx` - Protected route guard
+  - `routes/_authenticated/index.tsx` - Dashboard with route loader
+  - `routes/login.tsx` - Login page
+  - `routes/register.tsx` - Registration page
+
+#### Mobile App Integration
+
+- **Monorepo workspace support** via `metro.config.js`
+- Mobile now uses shared `@pb/data` library for Supabase client
+- Updated TypeScript config with new path aliases
+
+### Changed
+
+- **Web routing** migrated from React Router DOM v7 to TanStack Router v1.90+
+- **Auth store** centralized in `@pb/state` library (previously duplicated in each app)
+- **Supabase client** centralized in `@pb/data` library with platform-aware storage
+- Updated `tsconfig.base.json` with `@pb/data`, `@pb/state`, `@pb/shared` paths
+- Updated `vite.config.ts` with TanStack Router Vite plugin
+
+### Removed
+
+- `react-router-dom` dependency from web app
+- Duplicate auth store from `apps/web/src/stores/`
+- Duplicate Supabase client from `apps/web/src/lib/`
+- Old `pages/` folder (migrated to `routes/`)
+
+### Technical Details
+
+| Component | Previous | New |
+|-----------|----------|-----|
+| Web Router | React Router DOM v7 | TanStack Router v1.90+ |
+| Auth Store | Duplicated per app | `@pb/state` shared |
+| Supabase Client | Duplicated per app | `@pb/data` shared |
+| Route Protection | Wrapper component | Layout route with `beforeLoad` |
+| Data Fetching | In-component | Route loaders (optional) |
+
+---
+
 ## [2.1.2] - 2023-10-27
 
 ### Fixed
