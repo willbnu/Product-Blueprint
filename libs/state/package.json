@@ -8,15 +8,15 @@
     "test": "vitest"
   },
   "dependencies": {
-    "zustand": "^5.0.0"
+    "zustand": "^5.0.11"
   },
   "peerDependencies": {
-    "@supabase/supabase-js": "^2.45.0",
+    "@supabase/supabase-js": "^2.98.0",
     "react": "^18.0.0"
   },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.45.0",
-    "@types/react": "^18.3.0",
+    "@supabase/supabase-js": "^2.98.0",
+    "@types/react": "^19.2.14",
     "typescript": "~5.6.0",
     "vitest": "^2.1.0"
   },
